@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hutagame - Top Up Game Murah Mudah Cepat</title>
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <div class="app">
+            <div class="header">
+                <div class="group">
+                    <div class="navbar flex">
+                        <img class="logo" src="/assets/logo-no-background.png" alt="logo-no-background" height="30px">
+                        <div class="search-box">
+                            <span class="material-symbols-outlined">search</span>
+                            <input type="text" name="search_box" id="searchBox">
+                        </div>
+                        <div class="btn btn-message">
+                            <span class="material-symbols-outlined">chat</span>
+                        </div>
+                        <div class="btn btn-cart">
+                            <span class="material-symbols-outlined">shopping_cart</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="sub-navbar flex">
+                        <div class="btn user-profile">
+                            <span class="material-symbols-outlined">
+                                account_circle
+                            </span>
+                            <span></span>
+                        </div>
+                        <div class="auth flex">
+                            <div class="btn btn-daftar">Daftar</div>
+                            <div class="btn btn-masuk">Masuk</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="menu flex">
+                        <ul class="menu-list flex">
+                            <li class="list-item">Tips & Trick</li>
+                            <li class="list-item">Diamond Lock</li>
+                            <li class="list-item">Akun ML</li>
+                            <li class="list-item">Robux</li>
+                            <li class="list-item">Weekly Pass ML</li>
+                            <li class="list-item">Tentang Kami</li>
+                    </div>
+                </div>
+            </div>
+            <div class="container promo">
+                <span class="container-label">Promo Diskon</span>
+                <div class="banner">
+                    <figure class="flex">
+                        <img src="https://cdn.unipin.com/images/banners/1721628154-1720671741-700x280px%20_Website.jpg"
+                            alt="">
+                        <figcaption>
+                            <span>17 JUL 2024</span>
+                            <div class="body-fig">Koleksi Karakter dengan diskon 10.000 Setiap Hari dari Hutagame</div>
+                            <span class="footer-fig">BACA SELENGKAPNYA</span>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="indikator flex">
+                    <span class="material-symbols-outlined">
+                        fiber_manual_record
+                    </span>
+                    <span class="material-symbols-outlined">
+                        fiber_manual_record
+                    </span>
+                    <span class="material-symbols-outlined">
+                        fiber_manual_record
+                    </span>
+                </div>
+            </div>
+            <div class="container populer">
+                <div class="container-label flex">
+                    <div class="label-title">Terpopuler</div>
+                    <div class="view-all-item">Lihat Semua</div>
+                </div>
+                <ul class="produk flex" id="populerList">
+
+                </ul>
+            </div>
+            <div id="formulirTopup">
+            </div>
+            <div class="footer">
+                <div class="container flex contacts">
+                    <div class="contact-heading">DUKUNGAN PELANGGAN</div>
+                    <div class="contact-title">Hubungi kami</div>
+                    <ul class="contact-menu flex">
+                        <li class="contact-list">
+                            <img src="https://cdn.unipin.com/images/navigation/homepage/cs-messenger.svg" alt="">
+                            <span>Massenger</span>
+                        </li>
+                        <li class="contact-list">
+                            <img src="https://cdn.unipin.com/images/navigation/homepage/cs-whatsapp.svg" alt="">
+                            <span>Whatsapp</span>
+                        </li>
+                        <li class="contact-list">
+                            <img src="https://cdn.unipin.com/images/navigation/homepage/cs-email.svg" alt="">
+                            <span>Email</span>
+                        </li>
+                        <li class="contact-list">
+                            <img src="https://cdn.unipin.com/images/navigation/homepage/cs-feedback.svg" alt="">
+                            <span>Berikan umpan balik</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: 'data.json',
+                dataType: 'text',
+                success: function (data) {
+                    var json = $.parseJSON(data)
+                    for (var i = 3; i < 8; ++i) {
+                        $('#populerList').append(
+                            '<li class="produk-item flex"><img src=' +
+                            json[i].img_product +
+                            ' width="80px" height="80px" /><p>Developer</p><span>' +
+                            json[i].nm_product +
+                            '</span><button class="btn-choose">TOP UP</button></li>'
+                        )
+                    }
+                    menuFormulirProduk();
+                },
+            })
+
+            const fetchJson = (object) => {
+                $.ajax({
+                    url: 'data.json',
+                    dataType: 'text',
+                    success: function (data) {
+                        readJson($.parseJSON(data))
+                        console.log($.parseJSON(data));
+                    }
+                })
+            }
+            fetchJson();
+            const readJson = (data) => {
+                return data;
+            }
+
+            const menuFormulirProduk = () => {
+                $('.btn-choose').click(function (e) {
+                    let targetItem = e.target;
+                    $('#formulirTopup').load('page/topup.html', () => {
+                        let parent = targetItem.parentElement;
+                        let image = parent.getElementsByTagName('img')[0].getAttribute('src');
+                        let name = parent.getElementsByTagName('span')[0].textContent;
+                        $('.logo-produk').html('<img src=' + image + ' width=80 height=80 alt="image-game"/>');
+                        $('.nama-produk').html(name)
+                    })
+                })
+            }
+
+        })
+    </script>
+</body>
+
+</html>
