@@ -73,7 +73,13 @@
 .navbar {
     height: 60px;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
+}
+.navbar .logo-1 {
+    display: block;
+}
+.navbar .logo-2 {
+    display: none;
 }
 .navbar .search-box {
     width: 100%;
@@ -268,6 +274,9 @@
     position: relative;
     top: -25px;
 }
+.produk-item .btn-choose {
+    width: 100px;
+}
 
 .top-up-menu .menu-heading {
     align-items: center;
@@ -382,8 +391,11 @@ ul.top-up .price-item {
     .navbar {
         padding: 0 24px;
     }
-    .navbar .logo {
+    .navbar .logo-1 {
         display: none;
+    }
+    .navbar .logo-2 {
+        display: block;
     }
 
     .container {
