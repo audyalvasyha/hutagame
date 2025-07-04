@@ -159,6 +159,7 @@
     padding: 0 24px;
     font-size: 0.9rem;
     cursor: pointer;
+    font-weight: 700;
 }
 .menu .menu-list .list-item:hover {
     color: #000;
