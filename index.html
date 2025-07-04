@@ -43,7 +43,7 @@
                             <span></span>
                         </div>
                         <div class="auth flex">
-                            <div class="btn btn-daftar">Daftar</div>
+                            <div class="btn btn-daftar" onclick="location.href='https://www.warunggg.my.id/daftar'">Daftar</div>
                             <div class="btn btn-masuk" onclick="location.href='https://www.warunggg.my.id/masuk'">Masuk</div>
                         </div>
                     </div>
@@ -69,6 +69,9 @@
                     </figure>
                 </div>
             </div>
+            <div class="container">
+                <div id="aboutme"></div>
+            </div>
             <div class="container populer">
                 <div class="container-label flex">
                     <div class="label-title">Terpopuler</div>
@@ -78,7 +81,7 @@
 
                 </ul>
             </div>
-            <div id="formulirTopup">
+          
             </div>
             <div class="footer">
                 <div class="container flex contacts">
@@ -133,6 +136,7 @@
             const readJson = (data) => {
                 return data;
             }
+            $('#aboutme').load('page/aboutme.html');
 
             // const menuFormulirProduk = () => {
             //     $('.btn-choose').click(function (e) {
