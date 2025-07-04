@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Top up game murah, cepat, dan terpercaya. WarungGG menyediakan Diamond ML, FF, PUBG, dan lainnya.">
+<meta name="author" content="WarungGG">
+<link rel="preload" as="image" href="assets/banner.webp">
     <title>WarungGG - Beli Voucher dan Top Up Game Murah, Cepat & Terpercaya</title>
     <link rel="shortcut icon" href="assets/IMG_1038.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
@@ -11,7 +14,6 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -20,8 +22,8 @@
             <div class="header">
                 <div class="group">
                     <div class="navbar flex">
-                        <img class="logo logo-1" src="assets/IMG_1037.png" alt="logo-no-background" height="40px">
-                        <img class="logo logo-2" src="assets/IMG_1038.png" alt="logo-no-background" height="60px">
+                        <img class="logo logo-1" src="assets/IMG_1037.png" alt="logo-no-background" height="40px" loading="lazy">
+                        <img class="logo logo-2" src="assets/IMG_1038.png" alt="logo-no-background" height="60px" loading="lazy">
                         <div class="search-box">
                             <span class="material-symbols-outlined">search</span>
                             <input type="text" name="search_box" id="searchBox">
@@ -65,7 +67,7 @@
                 <div class="banner">
                     <figure class="flex">
                         <img src="assets/banner diskon 10rb shopeepay.png"
-                            alt="">
+                            alt="banner diskon 10rb shopeepay" loading="lazy">
                     </figure>
                 </div>
             </div>
@@ -98,7 +100,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 24 24"><path fill="currentColor" d="M19 10a3 3 0 0 1 3 3v3a3 3 0 0 1-3 3v.966c0 1.06-1.236 1.639-2.05.96L14.638 19H12a3 3 0 0 1-3-3v-3a3 3 0 0 1 3-3z" class="duoicon-secondary-layer" opacity="0.3"/><path fill="currentColor" d="M16 4a3 3 0 0 1 3 3v1h-8a4 4 0 0 0-4 4v4c0 1.044.4 1.996 1.056 2.708L7 19.5c-.824.618-2 .03-2-1V17a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z" class="duoicon-primary-layer"/></svg>
                         </li>
                     </ul>
-                    <div class="container" style="margin: 8px;">
+                    <div class="container">
                         <p>Owner & Developer: <i style="font-style: italic;color:cadetblue;">audialfasha@gmail.com</p></i></p>
                         <p>Admin: <i style="font-style: italic;color:cadetblue;">rikarahmawati0090@gmail.com</i></p>
                     </div>
@@ -110,7 +112,8 @@
             </div>
         </div>
     </div>
-    <script src="js/script.js"></script>
+   <script src="js/jquery-3.7.1.min.js" defer></script>
+<script src="js/script.js" defer></script>
     <script>
         $(document).ready(function () {
             $.ajax({
@@ -122,7 +125,7 @@
                         $('#populerList').append(
                             '<li class="produk-item flex"><img src=' +
                             json[i].img_product +
-                            ' width="128px" height="128px" /><p>#'+i+'</p><span>' +
+                            ' width="128px" height="128px" loading="lazy"/><p>#'+i+'</p><span>' +
                             json[i].nm_product +
                             '</span><button class="btn-choose" onclick="location.href='+json[i].address+'">BELI</button></li>'
                         )
