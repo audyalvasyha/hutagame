@@ -7,7 +7,7 @@
     font-optical-sizing: auto;
     font-style: normal;
     box-sizing: border-box;
-    color: #535050;
+    color: #082c47;
 }
 :root {
     --outline: #dae2ed solid 1px;
@@ -36,6 +36,8 @@
 }
 .container-label .view-all-item {
     margin-left: auto;
+    cursor: pointer;
+    font-weight: 600;
 }
 
 .material-symbols-outlined {
@@ -110,23 +112,22 @@
 }
 .sub-navbar .auth .btn-daftar {
     width: 90px;
-    height: 36px;
-    border: #03ac0e;
-    border-radius: 8px;
-    line-height: 36px;
+    height: 32px;
+    border-radius: 12px;
+    line-height: 32px;
     text-align: center;
     font-size: 0.9rem;
-    background-color: #4fd15a;
+    background-color: #0f456c;
     color: #fff;
     cursor: pointer;
 }
 .sub-navbar .auth .btn-masuk {
     width: 90px;
-    height: 36px;
-    line-height: 36px;
-    border-radius: 8px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 12px;
     text-align: center;
-    border: var(--outline);
+    border:1px solid #0f456c;
     background-color: var(--background);
     font-size: 0.9rem;
     cursor: pointer;
@@ -170,9 +171,8 @@
     position: relative;
 }
 .promo .banner figure img {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    width: 70%;
+    border-radius: 8px;
+    width: 100%;
 }
 .promo .banner figcaption {
     display: flex;
@@ -230,6 +230,7 @@
     border: var(--outline);
     border-radius: 8px;
     align-items: center;
+    font-weight: 700;
 }
 .produk .produk-item > img {
     border: var(--outline);
@@ -344,7 +345,7 @@ ul.top-up .price-item {
 
 .footer {
     padding: 24px;
-    margin-top: 80px;
+    margin-top: 46px;
     border-top: var(--outline);
 }
 .footer .contacts {
@@ -366,8 +367,6 @@ ul.top-up .price-item {
 .contact-list {
     width: 120px;
     height: 120px;
-    border: var(--outline);
-    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -401,24 +400,6 @@ ul.top-up .price-item {
     }
     .produk .produk-item > span {
         font-size: 0.9rem;
-    }
-
-    .promo .banner figure figcaption {
-        padding: 8px;
-    }
-    .promo .banner figure figcaption span {
-        font-size: 0.4rem;
-    }
-    .promo .banner figure figcaption .body-fig {
-        /* white-space: nowrap; */
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-weight: 600;
-        font-size: 0.7rem;
-        line-height: 0.9rem;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
     }
 
     .footer {
