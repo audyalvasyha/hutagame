@@ -162,11 +162,10 @@
     font-weight: 700;
 }
 .menu .menu-list .list-item:hover {
-    color: #000;
-    font-weight: 500;
+    color: #707070;
 }
 
-.promo {
+.add-on {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
@@ -386,6 +385,8 @@ ul.top-up .price-item {
 .contact-list span {
     text-align: center;
 }
+
+
 
 /* Max width screen < 768px */
 @media screen and (max-width: 768px) {
