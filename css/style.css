@@ -15,7 +15,7 @@
 }
 .root,
 .app {
-    background-color: #CBEDFA;
+    background-color: #CBEDFA !important;
 }
 .flex {
     display: flex;
