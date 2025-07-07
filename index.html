@@ -96,14 +96,16 @@
                 </div>
                 <div class="group">
                     <div class="menu flex">
-                        <ul class="menu-list flex">
-                            <li id="berandaLink" class="list-item">Beranda</li>
-                            <li id="aboutLink" class="list-item">Tentang</li>
-                            <li id="howLink" class="list-item">Cara Order</li>
-                            <li id="contactLink" class="list-item">Kontak</li>
-                            <li id="privacyLink" class="list-item">Kebijakan</li>
-                            <li id="faqLink" class="list-item">FAQ</li>
-                        </ul>
+                        <ul id="linkTrigger" class="menu-list flex">
+    <li class="list-item" data-page="beranda.html">Beranda</li>
+    <li class="list-item" data-page="about.html">Tentang</li>
+    <li class="list-item" data-page="cara-order.html">Cara Order</li>
+    <li class="list-item" data-page="kontak.html">Kontak</li>
+    <li class="list-item" data-page="kebijakan.html">Kebijakan</li>
+    <li class="list-item" data-page="faq.html">FAQ</li>
+</ul>
+<div id="wrapperContent"></div>
+
                     </div>
                 </div>
             </div>
@@ -266,7 +268,26 @@
             const readJson = (data) => {
                 return data;
             }
-            $('#wrapperContent').load('page/beranda.html');
+            $(document).ready(function () {
+  $('#linkTrigger .list-item').click(function (e) {
+    e.preventDefault();
+
+    const page = $(this).data('page'); // Ambil nama file dari data-page
+    const url = 'page/' + page;
+
+    $('#wrapperContent').load(url, function (response, status, xhr) {
+      if (status === "error") {
+        $('#wrapperContent').html("<p>Gagal memuat konten.</p>");
+        console.error("Error:", xhr.status, xhr.statusText);
+      }
+    });
+
+    // Optional: tambahkan efek aktif
+    $('.list-item').removeClass('active');
+    $(this).addClass('active');
+  });
+});
+
         })
     </script>
 </body>
