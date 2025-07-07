@@ -427,3 +427,36 @@ ul.top-up .price-item {
         text-align: center;
     }
 }
+.page-container {
+  padding: 24px;
+  line-height: 1.6;
+}
+
+.page-container h2 {
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  color: #0f456c;
+}
+
+.steps-list {
+  list-style: decimal inside;
+  padding-left: 20px;
+}
+
+.contact-list-page li {
+  margin-bottom: 8px;
+}
+
+.faq-item {
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dae2ed;
+}
+
+blockquote {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-left: 4px solid #0f456c;
+  background-color: #f0faff;
+  font-style: italic;
+}
