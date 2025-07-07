@@ -97,8 +97,13 @@
                 <div class="group">
                     <div class="menu flex">
                         <ul class="menu-list flex">
-                            <li class="list-item">Tentang Kami</li>
-                            <li class="list-item">Tips & Trick</li>
+                            <li id="berandaLink" class="list-item">Beranda</li>
+                            <li id="aboutLink" class="list-item">Tentang</li>
+                            <li id="howLink" class="list-item">Cara Order</li>
+                            <li id="contactLink" class="list-item">Kontak</li>
+                            <li id="privacyLink" class="list-item">Kebijakan</li>
+                            <li id="faqLink" class="list-item">FAQ</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -138,7 +143,7 @@
                 </div>
             </div>
             <div class="container">
-                <div id="aboutme"></div>
+                <div id="wrapperContent"></div>
             </div>
             <div class="container populer">
                 <div class="container-label flex">
@@ -261,7 +266,7 @@
             const readJson = (data) => {
                 return data;
             }
-            $('#aboutme').load('page/aboutme.html');
+            $('#wrapperContent').load('page/beranda.html');
         })
     </script>
 </body>
