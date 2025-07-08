@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Beranda -->
+  <url>
+    <loc>https://audyalvasyha.github.io/warunggg.my.id/</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- Tentang Kami -->
+  <url>
+    <loc>https://audyalvasyha.github.io/warunggg.my.id/page/about.html</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Cara Order -->
+  <url>
+    <loc>https://audyalvasyha.github.io/warunggg.my.id/page/cara-order.html</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Testimoni -->
+  <url>
+    <loc>https://audyalvasyha.github.io/warunggg.my.id/page/testimoni.html</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Kontak -->
+  <url>
+    <loc>https://audyalvasyha.github.io/warunggg.my.id/page/kontak.html</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Kebijakan Privasi -->
+  <url>
+    <loc>https://audyalvasyha.github.io/warunggg.my.id/page/kebijakan.html</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.60</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://audyalvasyha.github.io/warunggg.my.id/page/faq.html</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.60</priority>
+  </url>
+
+  <!-- Halaman Pencarian Produk -->
+  <url>
+    <loc>https://www.warunggg.my.id/cari?type=topup</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Halaman Daftar -->
+  <url>
+    <loc>https://www.warunggg.my.id/daftar</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Halaman Masuk -->
+  <url>
+    <loc>https://www.warunggg.my.id/masuk</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Top Up Produk (bila ada halaman khusus produk/game nanti bisa ditambahkan) -->
+  <!-- Contoh (custom): 
+  <url>
+    <loc>https://www.warunggg.my.id/topup/mobile-legends</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  -->
+
+</urlset>
