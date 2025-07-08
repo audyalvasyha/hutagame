@@ -135,15 +135,6 @@
                     </ul>
                 </div>
             </div> <!-- End -->
-            <div class="container promo">
-                <span class="container-label">TENTANG KAMI</span>
-                <div class="banner">
-                    <figure class="flex">
-                        <img src="assets/banner diskon 10rb shopeepay.png" alt="banner diskon 10rb shopeepay"
-                            loading="lazy">
-                    </figure>
-                </div>
-            </div>
             <div class="container">
                 <div id="wrapperContent"></div>
             </div>
@@ -268,7 +259,9 @@
             const readJson = (data) => {
                 return data;
             }
+            
             $(document).ready(function () {
+                $('#wrapperContent').load('page/beranda.html");
   $('#linkTrigger .list-item').click(function (e) {
     e.preventDefault();
 
