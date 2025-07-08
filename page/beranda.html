@@ -1,167 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WarungGG.my.id - Top Up Game</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      color: #222;
+    }
+    .home-container {
+      width: 100%;
+    }
+    .promo-banner marquee {
+      background: #ffe600;
+      color: #222;
+      font-weight: bold;
+      padding: 0.6rem 0;
+    }
+    .carousel {
+      overflow: hidden;
+      width: 100%;
+      height: 180px;
+      position: relative;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-slide {
+      width: 100%;
+      display: none;
+      object-fit: cover;
+    }
+    .carousel-slide.active {
+      display: block;
+    }
+    .hero {
+      background: linear-gradient(135deg, #2d2f98, #6d44b8);
+      color: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .hero span {
+      color: #f7d93f;
+    }
+    .btn-primary, .btn-secondary {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      border-radius: 6px;
+      margin-top: 1rem;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #f7d93f;
+      color: #222;
+    }
+    .btn-secondary {
+      background: #222;
+      color: #f7d93f;
+    }
+    .section {
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .layanan-grid, .testimoni-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #eee;
+      padding: 1.5rem;
+      border-radius: 12px;
+      width: 250px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      max-width: 80px;
+      margin-bottom: 1rem;
+    }
+    .keunggulan-list {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    blockquote {
+      background: #fff;
+      padding: 1.2rem;
+      border-left: 4px solid #6d44b8;
+      font-style: italic;
+      max-width: 280px;
+      border-radius: 8px;
+    }
+    blockquote span {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #555;
+    }
+    .kontak form {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .kontak input, .kontak select, .kontak textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .wa-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+    }
+    .wa-float img {
+      width: 50px;
+      height: 50px;
+    }
+    .cta-final {
+      background: #222;
+      color: #fff;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="home-container">
+    <div class="promo-banner">
+      <marquee behavior="scroll" direction="left">
+        🎉 Promo Spesial Grand Opening! Diskon 8% Semua Top Up — Cek Sekarang di WarungGG.my.id 💥
+      </marquee>
+    </div>
 
-<!-- page/beranda.html -->
-<div class="home-container">
-  <!-- Marquee Banner -->
-  <div class="promo-banner">
-    <marquee behavior="scroll" direction="left">
-      🎉 Promo Spesial Grand Opening! Diskon 8% Semua Top Up — Cek Sekarang di WarungGG.my.id 💥
-    </marquee>
+    <div class="carousel">
+      <div class="carousel-inner">
+        <img src="assets/banner1.jpg" class="carousel-slide active">
+        <img src="assets/banner2.jpg" class="carousel-slide">
+        <img src="assets/banner3.jpg" class="carousel-slide">
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>Top Up Game Murah & Cepat di <span>WarungGG.my.id</span></h1>
+      <p>Layanan terpercaya untuk kebutuhan top up Mobile Legends, Free Fire, dan lainnya.</p>
+      <a href="#layanan" class="btn-primary">Mulai Top Up Sekarang</a>
+    </section>
+
+    <section id="layanan" class="section layanan">
+      <h2>Layanan Populer</h2>
+      <div class="layanan-grid">
+        <div class="card">
+          <img src="assets/mlbb.png" alt="Mobile Legends">
+          <h3>Mobile Legends</h3>
+          <p>Top up diamond dengan harga termurah dan proses instan.</p>
+        </div>
+        <div class="card">
+          <img src="assets/ff.png" alt="Free Fire">
+          <h3>Free Fire</h3>
+          <p>Top up cepat tanpa login akun. Langsung masuk ke ID kamu!</p>
+        </div>
+        <div class="card">
+          <img src="assets/pubg.png" alt="PUBG Mobile">
+          <h3>PUBG Mobile</h3>
+          <p>UC masuk hanya dalam hitungan detik. Aman dan terpercaya.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section keunggulan">
+      <h2>Mengapa Pilih WarungGG?</h2>
+      <ul class="keunggulan-list">
+        <li>✅ Harga bersaing dan transparan</li>
+        <li>⚡ Proses cepat & otomatis</li>
+        <li>🛡️ Aman & terpercaya</li>
+        <li>💬 CS responsif 24/7</li>
+      </ul>
+    </section>
+
+    <section class="section testimoni">
+      <h2>Kata Mereka</h2>
+      <div class="testimoni-grid">
+        <blockquote>"Top up tercepat sejauh ini! Thanks WarungGG!" <br><span>– Reza, ML Player</span></blockquote>
+        <blockquote>"Adminnya ramah banget, transaksi lancar." <br><span>– Dinda, FF Squad</span></blockquote>
+        <blockquote>"Langganan terus, gak pernah kecewa." <br><span>– Bagas, PUBG Lover</span></blockquote>
+      </div>
+    </section>
+
+    <section class="section kontak">
+      <h2>Hubungi Kami / Order Langsung</h2>
+      <form id="contactForm">
+        <input type="text" id="nama" placeholder="Nama Kamu" required>
+        <input type="text" id="idgame" placeholder="ID Game / Username" required>
+        <select id="game" required>
+          <option value="">Pilih Game</option>
+          <option value="Mobile Legends">Mobile Legends</option>
+          <option value="Free Fire">Free Fire</option>
+          <option value="PUBG Mobile">PUBG Mobile</option>
+        </select>
+        <textarea id="pesan" placeholder="Pesan atau pertanyaan..." rows="4"></textarea>
+        <button type="submit" class="btn-primary">Kirim Pesan</button>
+      </form>
+    </section>
+
+    <a href="https://wa.me/6281234567890" class="wa-float" target="_blank">
+      <img src="assets/wa-icon.png" alt="WhatsApp">
+    </a>
+
+    <section class="cta-final">
+      <h2>Yuk Top Up Sekarang Juga!</h2>
+      <a href="#layanan" class="btn-secondary">Lihat Layanan</a>
+    </section>
   </div>
 
-  <!-- Carousel Banner -->
-  <div class="carousel">
-    <div class="carousel-inner">
-      <img src="assets/banner1.jpg" class="carousel-slide active">
-      <img src="assets/banner2.jpg" class="carousel-slide">
-      <img src="assets/banner3.jpg" class="carousel-slide">
-    </div>
-  </div>
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Top Up Game Murah & Cepat di <span>WarungGG.my.id</span></h1>
-    <p>Layanan terpercaya untuk kebutuhan top up Mobile Legends, Free Fire, dan lainnya.</p>
-    <a href="#layanan" class="btn-primary">Mulai Top Up Sekarang</a>
-  </section>
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 3000);
 
-  <!-- Layanan Populer -->
-  <section id="layanan" class="section layanan">
-    <h2>Layanan Populer</h2>
-    <div class="layanan-grid">
-      <div class="card">
-        <img src="assets/mlbb.png" alt="Mobile Legends">
-        <h3>Mobile Legends</h3>
-        <p>Top up diamond dengan harga termurah dan proses instan.</p>
-      </div>
-      <div class="card">
-        <img src="assets/ff.png" alt="Free Fire">
-        <h3>Free Fire</h3>
-        <p>Top up cepat tanpa login akun. Langsung masuk ke ID kamu!</p>
-      </div>
-      <div class="card">
-        <img src="assets/pubg.png" alt="PUBG Mobile">
-        <h3>PUBG Mobile</h3>
-        <p>UC masuk hanya dalam hitungan detik. Aman dan terpercaya.</p>
-      </div>
-    </div>
-  </section>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nama = document.getElementById('nama').value;
+      const idgame = document.getElementById('idgame').value;
+      const game = document.getElementById('game').value;
+      const pesan = document.getElementById('pesan').value;
 
-  <!-- Keunggulan -->
-  <section class="section keunggulan">
-    <h2>Mengapa Pilih WarungGG?</h2>
-    <ul class="keunggulan-list">
-      <li>✅ Harga bersaing dan transparan</li>
-      <li>⚡ Proses cepat & otomatis</li>
-      <li>🛡️ Aman & terpercaya</li>
-      <li>💬 CS responsif 24/7</li>
-    </ul>
-  </section>
-
-  <!-- Testimoni -->
-  <section class="section testimoni">
-    <h2>Kata Mereka</h2>
-    <div class="testimoni-grid">
-      <blockquote>"Top up tercepat sejauh ini! Thanks WarungGG!" <br><span>– Reza, ML Player</span></blockquote>
-      <blockquote>"Adminnya ramah banget, transaksi lancar." <br><span>– Dinda, FF Squad</span></blockquote>
-      <blockquote>"Langganan terus, gak pernah kecewa." <br><span>– Bagas, PUBG Lover</span></blockquote>
-    </div>
-  </section>
-
-  <!-- Form Kontak / Order -->
-  <section class="section kontak">
-    <h2>Hubungi Kami / Order Langsung</h2>
-    <form id="contactForm">
-      <input type="text" placeholder="Nama Kamu" required>
-      <input type="text" placeholder="ID Game / Username" required>
-      <select required>
-        <option value="">Pilih Game</option>
-        <option value="mlbb">Mobile Legends</option>
-        <option value="ff">Free Fire</option>
-        <option value="pubg">PUBG Mobile</option>
-      </select>
-      <textarea placeholder="Pesan atau pertanyaan..." rows="4"></textarea>
-      <button type="submit" class="btn-primary">Kirim Pesan</button>
-    </form>
-  </section>
-
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/6281234567890" class="wa-float" target="_blank">
-    <img src="assets/wa-icon.png" alt="WhatsApp">
-  </a>
-
-  <!-- CTA Akhir -->
-  <section class="cta-final">
-    <h2>Yuk Top Up Sekarang Juga!</h2>
-    <a href="#layanan" class="btn-secondary">Lihat Layanan</a>
-  </section>
-</div>
-
-<!-- Carousel JS -->
-<script>
-  let current = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
-
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 3000);
-
-  // Form submit handler (optional custom behavior)
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert("Pesan kamu berhasil dikirim!");
-    this.reset();
-  });
-</script>
-
-<!-- Carousel CSS -->
-<style>
-  .promo-banner marquee {
-    background: #ffe600;
-    color: #222;
-    font-weight: bold;
-    padding: 0.6rem 0;
-  }
-  .carousel {
-    overflow: hidden;
-    width: 100%;
-    height: 180px;
-    position: relative;
-  }
-  .carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  .carousel-slide {
-    width: 100%;
-    display: none;
-    object-fit: cover;
-  }
-  .carousel-slide.active {
-    display: block;
-  }
-  .kontak form {
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .kontak input, .kontak select, .kontak textarea {
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-  }
-  .wa-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-  }
-  .wa-float img {
-    width: 50px;
-    height: 50px;
-  }
-</style>
+      const text = `Halo Admin WarungGG,%0ASaya ingin top up:%0A%0ANama: ${nama}%0AID Game: ${idgame}%0AGame: ${game}%0APesan: ${pesan}`;
+      const whatsappURL = `https://wa.me/6281234567890?text=${text}`;
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+</body>
+</html>
