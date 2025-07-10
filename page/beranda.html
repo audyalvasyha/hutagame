@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WarungGG.my.id - Top Up Game</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
@@ -12,43 +13,55 @@
       background: #f9f9f9;
       color: #222;
     }
+
     .home-container {
       width: 100%;
     }
+
     .promo-banner marquee {
       background: #ffe600;
       color: #222;
       font-weight: bold;
       padding: 0.6rem 0;
     }
+
     .carousel {
       overflow: hidden;
       width: 100%;
-      height: 180px;
       position: relative;
+      margin: 18px 0px 24px 0px;
+      border-radius: 12px;
     }
+
     .carousel-inner {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
+
     .carousel-slide {
       width: 100%;
       display: none;
       object-fit: cover;
     }
+
     .carousel-slide.active {
       display: block;
     }
+
     .hero {
       background: linear-gradient(135deg, #cbedfa, #daf5ff);
-      color: #fff;
       padding: 4rem 2rem;
       text-align: center;
+      color: #222;
+      border-radius: 12px;
     }
+
     .hero span {
       color: #f7d93f;
     }
-    .btn-primary, .btn-secondary {
+
+    .btn-primary,
+    .btn-secondary {
       display: inline-block;
       padding: 0.8rem 1.5rem;
       font-weight: bold;
@@ -56,47 +69,57 @@
       margin-top: 1rem;
       text-decoration: none;
     }
+
     .btn-primary {
       background: #f7d93f;
       color: #222;
     }
+
     .btn-secondary {
       background: #222;
       color: #f7d93f;
     }
+
     .section {
       padding: 3rem 1.5rem;
       text-align: center;
     }
-    .layanan-grid, .testimoni-grid {
+
+    .layanan-grid,
+    .testimoni-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 1.5rem;
     }
+
     .card {
       background: #fff;
       border: 1px solid #eee;
       padding: 1.5rem;
       border-radius: 12px;
       width: 250px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
       transition: transform 0.2s;
     }
+
     .card:hover {
       transform: translateY(-5px);
     }
+
     .card img {
       max-width: 80px;
       margin-bottom: 1rem;
       border-radius: 8px;
     }
+
     .keunggulan-list {
       list-style: none;
       padding: 0;
       font-size: 1.1rem;
       line-height: 1.8;
     }
+
     blockquote {
       background: #fff;
       padding: 1.2rem;
@@ -105,12 +128,14 @@
       max-width: 280px;
       border-radius: 8px;
     }
+
     blockquote span {
       display: block;
       margin-top: 0.5rem;
       font-weight: bold;
       color: #555;
     }
+
     .kontak form {
       max-width: 400px;
       margin: 0 auto;
@@ -118,20 +143,25 @@
       flex-direction: column;
       gap: 1rem;
     }
-    .kontak input, .kontak select, .kontak textarea {
+
+    .kontak input,
+    .kontak select,
+    .kontak textarea {
       padding: 0.8rem;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 1rem;
     }
+
     .cta-final {
       background: #cbedfa;
-      color: #fff;
+      color: #222;
       padding: 3rem 1.5rem;
       text-align: center;
     }
   </style>
 </head>
+
 <body>
   <div class="home-container">
     <div class="promo-banner">
@@ -142,9 +172,9 @@
 
     <div class="carousel">
       <div class="carousel-inner">
-        <img src="assets/banner1.jpg" class="carousel-slide active">
-        <img src="assets/banner2.jpg" class="carousel-slide">
-        <img src="assets/banner3.jpg" class="carousel-slide">
+        <img src="assets/banner1.jpg" class="carousel-slide active" loading="lazy" />
+        <img src="assets/banner2.jpg" class="carousel-slide" loading="lazy" />
+        <img src="assets/banner3.jpg" class="carousel-slide" loading="lazy" />
       </div>
     </div>
 
@@ -158,17 +188,17 @@
       <h2>Layanan Populer</h2>
       <div class="layanan-grid">
         <div class="card">
-          <img src="assets/mlbb.png" alt="Mobile Legends">
+          <img src="assets/mlbb.png" alt="Mobile Legends" loading="lazy" />
           <h3>Mobile Legends</h3>
           <p>Top up diamond dengan harga termurah dan proses instan.</p>
         </div>
         <div class="card">
-          <img src="assets/ff.png" alt="Free Fire">
+          <img src="assets/ff.png" alt="Free Fire" loading="lazy" />
           <h3>Free Fire</h3>
           <p>Top up cepat tanpa login akun. Langsung masuk ke ID kamu!</p>
         </div>
         <div class="card">
-          <img src="assets/pubg.png" alt="PUBG Mobile">
+          <img src="assets/pubg.png" alt="PUBG Mobile" loading="lazy" />
           <h3>PUBG Mobile</h3>
           <p>UC masuk hanya dalam hitungan detik. Aman dan terpercaya.</p>
         </div>
@@ -188,17 +218,17 @@
     <section class="section testimoni">
       <h2>Kata Mereka</h2>
       <div class="testimoni-grid">
-        <blockquote>"Top up tercepat sejauh ini! Thanks WarungGG!" <br><span>– Reza, ML Player</span></blockquote>
-        <blockquote>"Adminnya ramah banget, transaksi lancar." <br><span>– Dinda, FF Squad</span></blockquote>
-        <blockquote>"Langganan terus, gak pernah kecewa." <br><span>– Bagas, PUBG Lover</span></blockquote>
+        <blockquote>"Top up tercepat sejauh ini! Thanks WarungGG!" <br /><span>– Reza, ML Player</span></blockquote>
+        <blockquote>"Adminnya ramah banget, transaksi lancar." <br /><span>– Dinda, FF Squad</span></blockquote>
+        <blockquote>"Langganan terus, gak pernah kecewa." <br /><span>– Bagas, PUBG Lover</span></blockquote>
       </div>
     </section>
 
     <section class="section kontak">
       <h2>Hubungi Kami / Order Langsung</h2>
       <form id="contactForm">
-        <input type="text" id="nama" placeholder="Nama Kamu" required>
-        <input type="text" id="idgame" placeholder="ID Game / Username" required>
+        <input type="text" id="nama" placeholder="Nama Kamu" required />
+        <input type="text" id="idgame" placeholder="ID Game / Username" required />
         <select id="game" required>
           <option value="">Pilih Game</option>
           <option value="Mobile Legends">Mobile Legends</option>
@@ -226,7 +256,7 @@
       slides[current].classList.add('active');
     }, 3000);
 
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const nama = document.getElementById('nama').value;
       const idgame = document.getElementById('idgame').value;
@@ -239,4 +269,5 @@
     });
   </script>
 </body>
+
 </html>
