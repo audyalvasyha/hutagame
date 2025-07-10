@@ -29,7 +29,15 @@
   margin: 10px auto 0;
   padding: 16px 24px;
   border: var(--outline);
-  border-radius: 8px;
+  border-radius: 12px;
+  background-color: var(--background);
+}
+.container-ed {
+  max-width: 768px;
+  margin: 10px auto 0;
+  padding: 8px;
+  border: var(--outline);
+  border-radius: 12px;
   background-color: var(--background);
 }
 
@@ -160,11 +168,6 @@
 
 .link-item:hover {
   color: #707070;
-}
-
-.add-on {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
 .produk {
@@ -381,6 +384,76 @@ blockquote {
   border-left: 4px solid #0f456c;
   background-color: #f0faff;
   font-style: italic;
+}
+
+.artikel-terbaru {
+  background: #ffffff;
+  padding: 1rem 1.5rem;
+}
+
+.judul-artikel {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #333333;
+}
+
+.list-artikel {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-artikel li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #ddd;
+  display: flex;
+  align-items: center;
+}
+
+.list-artikel li:last-child {
+  border-bottom: none;
+}
+
+.list-artikel li::before {
+  content: "›";
+  margin-right: 8px;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.list-artikel a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.list-artikel a:hover {
+  color: #007bff;
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  border-radius: 8px;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  width: 100%;
+  display: none;
+  object-fit: cover;
+}
+
+.carousel-slide.active {
+  display: block;
 }
 
 @media screen and (max-width: 768px) {
