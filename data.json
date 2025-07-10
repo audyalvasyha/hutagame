@@ -1,79 +1,79 @@
-[
-    {
+{
+    "produk": [
+      {
         "id": "0",
         "nm_product": "Garena AOV",
         "nm_detail": "Garena AOV: Dragon Kingdom",
         "img_product": "https://pbs.twimg.com/profile_images/910895743090618368/SpzXjaaw_400x400.jpg"
-    },
- 
-    {
+      },
+      {
         "id": "1",
         "nm_product": "Mobile Legends",
         "nm_detail": "Mobile Legends: Bang Bang",
         "img_product": "https://play-lh.googleusercontent.com/-HHaGHjAW-xLqEfoHRBVRkAuPYTNgLamKdOcULfHC5GYPr2yX0pcDQMJ0HMJALbLxg=s180-rw",
-        "nominal": [
-            141, 220, 366, 568, 966, 5, 28, 50, 85, 257, 2010, 6, 20, 66, 170,
-            70, 344, 716, 2046
-        ]
-    },
-    {
+        "nominal": [141, 220, 366, 568, 966, 5, 28, 50, 85, 257, 2010, 6, 20, 66, 170, 70, 344, 716, 2046]
+      },
+      {
         "id": "2",
         "nm_product": "Call of Duty Mobile",
         "nm_detail": "Call of Duty Mobile Season 1",
         "img_product": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr6oQdotZa8WSg__XOSBUyEbwZsSaE2Q9-zOmvElkHb_7b75VC8WfIsEqEncqgcX1BQW0&usqp=CAU"
-    },
-    {
+      },
+      {
         "id": "3",
         "nm_product": "Garena Free Fire",
         "nm_detail": "Garena Free Fire - Illuminate",
         "img_product": "https://play-lh.googleusercontent.com/sKh_B4ZLfu0jzqx9z98b2APe2rxDb8dIW-QqFHyS3cpzDK2Qq8tAbRAz3rXzOFtdAw=w240-h480-rw",
-        "nominal": [
-            70, 100, 150, 140, 720, 510, 210, 355, 50, 1080, 12, 1200, 1450,
-            1800, 2180, 3640, 4450
-        ]
-    },
-
-    {
+        "nominal": [70, 100, 150, 140, 720, 510, 210, 355, 50, 1080, 12, 1200, 1450, 1800, 2180, 3640, 4450]
+      },
+      {
         "id": "4",
         "nm_product": "PUBG MOBILE",
         "nm_detail": "PUBG MOBILE: Aftermath",
         "img_product": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQura4kS6ckveQdv9Erb-FYEDvOGnT1XRzEUw&s",
         "address": "https://www.warunggg.my.id/game/pubg-mobile-global"
-    },
-    {
+      },
+      {
         "id": "5",
         "nm_product": "Clash of Clans",
         "nm_detail": "Clash of Clans",
         "img_product": "https://clashofclans.com/uploaded-images-blog/clash-of-clans-app-icon.jpg?mtime=20181025123934"
-    },
-    {
+      },
+      {
         "id": "6",
         "nm_product": "Roblox",
         "nm_detail": "Roblox",
         "img_product": "https://play-lh.googleusercontent.com/OCDxsiIIxiZL6ZQYcO9Sixv6Vxl9z0avSkpd5kS6SAE_ZU_V7_rlzzA0hsesT0Z4hA=s180-rw"
-    },
-    {
+      },
+      {
         "id": "7",
         "nm_product": "Block Craft 3D",
         "nm_detail": "Block Craft 3D: Building Game",
         "img_product": "https://image.winudf.com/v2/image1/Y29tLmZ1bmdhbWVzLmJsb2NrY3JhZnRfaWNvbl8xNjIxMDQwOTc1XzAwMg/icon.png?w=&fakeurl=1"
-    },
-    {
+      },
+      {
         "id": "8",
         "nm_product": "Pokémon UNITE",
         "nm_detail": "Pokémon UNITE",
         "img_product": "https://play-lh.googleusercontent.com/l6iBBhrah3mNhvcjZgZBwICAF5uu3KjorU4pq-eMOxYgT_L_TnpzT7a3TmmdxaMMgbUy=s180-rw"
-    },
-    {
+      },
+      {
         "id": "9",
         "nm_product": "Ragnarok X",
         "nm_detail": "Ragnarok X: Next Generation",
         "img_product": "https://play-lh.googleusercontent.com/FebMyPPu9FGnvHWwxoA-KBgJNWDCJDJ2uYiCddPT7OAmyG5Vro2E9bJwfvfivocyutM=s180-rw"
-    },
-    {
+      },
+      {
         "id": "10",
         "nm_product": "Honkai Impact 3",
         "nm_detail": "Honkai Impact 3",
         "img_product": "https://img.captain-droid.com/wp-content/uploads/com-mihoyo-genshinimpact-icon.png"
-    }
-]
+      }
+    ],
+    "artikel_terbaru": [
+      { "judul": "Cara Top Up MLBB Aman & Cepat", "url": "page/artikel-1.html" },
+      { "judul": "Perbandingan Harga Diamond di WarungGG", "url": "page/artikel-2.html" },
+      { "judul": "Tips Dapat Diskon Harian Top Up Game", "url": "page/artikel-3.html" }
+    ]
+  }
+  
