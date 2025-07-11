@@ -12,7 +12,7 @@
 
 :root {
   --outline: #dae2ed solid 1px;
-  --background: #ebebeb;
+  --background: #f2f5f9;
 }
 
 .root,
@@ -38,7 +38,7 @@
   padding: 8px;
   border: var(--outline);
   border-radius: 12px;
-  background-color: var(--background);
+  background-color: #fff;
 }
 
 .container-label {
@@ -57,7 +57,7 @@
   position: sticky;
   top: 0;
   z-index: 9;
-  background-color: var(--background);
+  background-color: #FFF;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
