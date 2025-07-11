@@ -490,9 +490,6 @@ blockquote {
   .contact-title {
     text-align: center;
   }
-    .carousel-slide img {
-    height: 160px;
-  }
 }
 
 @media screen and (max-width: 480px) {
