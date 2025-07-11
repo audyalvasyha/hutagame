@@ -434,12 +434,11 @@ blockquote {
 .list-artikel a:hover {
   color: #007bff;
 }
-
 .carousel {
-  overflow: hidden;
   width: 100%;
+  overflow: hidden;
   position: relative;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .carousel-inner {
@@ -448,14 +447,20 @@ blockquote {
 }
 
 .carousel-slide {
-  width: 100%;
+  min-width: 100%;
   display: none;
-  object-fit: cover;
 }
 
 .carousel-slide.active {
   display: block;
 }
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 
 @media screen and (max-width: 768px) {
   .container {
