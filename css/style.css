@@ -135,6 +135,7 @@
 }
 
 .auth .btn-masuk {
+  color: #279199;
   background-color: var(--background);
   border: 2px solid #279199;
 }
