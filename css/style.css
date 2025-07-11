@@ -4,41 +4,40 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+  font-family: 'Nunito', sans-serif;
   color: #082c47;
 }
 
 :root {
-  --outline: #dae2ed solid 1px;
+  --outline: 1px solid #dae2ed;
   --background: #f2f5f9;
 }
 
+body,
 .root,
 .app {
-  background-color: var(--background) !important;
+  background-color: var(--background);
 }
 
 .flex {
   display: flex;
 }
 
-.container {
-  max-width: 768px;
-  margin: 10px auto 0;
-  padding: 16px 24px;
-  border: var(--outline);
-  border-radius: 12px;
-  background-color: #FFF;
-}
+.container,
 .container-ed {
   max-width: 768px;
   margin: 10px auto 0;
-  padding: 8px;
+  background-color: #fff;
   border: var(--outline);
   border-radius: 12px;
-  background-color: #fff;
+}
+
+.container {
+  padding: 16px 24px;
+}
+
+.container-ed {
+  padding: 8px;
 }
 
 .container-label {
@@ -53,11 +52,10 @@
 }
 
 .header {
-  width: 100%;
   position: sticky;
   top: 0;
   z-index: 9;
-  background-color: #FFF;
+  background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
@@ -79,20 +77,12 @@
   display: block;
 }
 
-.navbar .logo-2 {
-  display: none;
-}
-
 .search-box {
   width: 100%;
   display: flex;
   border: 1px solid #279199;
   border-radius: 8px;
   background-color: var(--background);
-}
-
-.search-box span {
-  font-size: 20px;
 }
 
 #searchBox {
@@ -109,10 +99,6 @@
   align-items: center;
 }
 
-.user-profile .material-symbols-outlined {
-  display: none;
-}
-
 .auth {
   gap: 8px;
 }
@@ -121,11 +107,11 @@
 .auth .btn-masuk {
   width: 90px;
   height: 32px;
+  font-size: 0.9rem;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
-  border-radius: 12px;
   cursor: pointer;
 }
 
@@ -144,8 +130,6 @@
   width: 100%;
   height: 40px;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
 
@@ -154,14 +138,14 @@
 }
 
 .menu-list {
-  width: 100%;
+  display: flex;
   align-items: center;
 }
 
 .link-item {
   min-width: max-content;
+  padding: 0 16px;
   line-height: 40px;
-  padding: 0px 16px;
   font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
@@ -174,7 +158,7 @@
 .produk {
   margin-top: 40px;
   flex-wrap: wrap;
-  gap: 8px 8px;
+  gap: 8px;
   row-gap: 40px;
   justify-content: space-between;
 }
@@ -182,55 +166,51 @@
 .produk-item {
   flex-grow: 1;
   flex-direction: column;
+  align-items: center;
   border: var(--outline);
   border-radius: 8px;
-  align-items: center;
   font-weight: 700;
 }
 
-.produk-item>* {
+.produk-item > * {
   position: relative;
   top: -25px;
 }
 
-.produk-item>img {
+.produk-item img {
   border: var(--outline);
   border-radius: 8px;
 }
 
-.produk-item>p {
+.produk-item p {
   font-size: 0.9rem;
   padding: 8px;
 }
 
-.produk-item>span {
+.produk-item span {
   width: 100px;
   text-align: center;
   margin-bottom: 24px;
   font-weight: 600;
 }
 
-.produk-item>button {
+.produk-item button {
   margin-top: auto;
   padding: 4px 16px;
   border: 2px solid #e67e22;
   color: #e67e22;
+  background-color: #fff;
   border-radius: 16px;
   font-weight: 600;
-  background-color: #fff;
+  transition: transform 0.2s;
 }
 
-.produk-item>button:hover {
+.produk-item button:hover {
   transform: scale(1.1);
 }
 
 .btn-choose {
   width: 100px;
-}
-
-.top-up-menu .menu-heading {
-  align-items: center;
-  gap: 24px;
 }
 
 .logo-produk {
@@ -280,9 +260,9 @@ ul.top-up {
   width: 23%;
   height: 100px;
   margin-bottom: 3%;
-  position: relative;
   border: var(--outline);
   border-radius: 8px;
+  position: relative;
 }
 
 .payment {
@@ -332,8 +312,10 @@ ul.top-up {
 }
 
 .contact-menu {
+  display: flex;
   gap: 24px;
   margin: 24px 0;
+  justify-content: center;
 }
 
 .contact-list {
@@ -348,9 +330,7 @@ ul.top-up {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   height: 100%;
-  text-decoration: none;
 }
 
 .page-container {
@@ -388,7 +368,7 @@ blockquote {
 }
 
 .artikel-terbaru {
-  background: #ffffff;
+  background: #fff;
   padding: 1rem 1.5rem;
 }
 
@@ -396,7 +376,7 @@ blockquote {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.8rem;
-  color: #333333;
+  color: #333;
 }
 
 .list-artikel {
@@ -412,20 +392,14 @@ blockquote {
   align-items: center;
 }
 
-.list-artikel li:last-child {
-  border-bottom: none;
-}
-
 .list-artikel li::before {
   content: "›";
   margin-right: 8px;
   color: #555;
   font-size: 1rem;
-  line-height: 1;
 }
 
 .list-artikel a {
-  text-decoration: none;
   color: #333;
   font-weight: 500;
   transition: color 0.2s;
@@ -434,6 +408,8 @@ blockquote {
 .list-artikel a:hover {
   color: #007bff;
 }
+
+/* Carousel */
 .carousel {
   width: 100%;
   overflow: hidden;
@@ -446,19 +422,15 @@ blockquote {
   transition: transform 0.5s ease-in-out;
 }
 
-.carousel-slide.active {
+.carousel-slide {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
   display: block;
 }
-.carousel-slide {
-    width: 100%;
-    height: 120px; /* default untuk desktop */
-    object-fit: cover;
-    border-radius: 6px;
-    display: block;
-  }
 
-
-
+/* Responsive */
 @media screen and (max-width: 768px) {
   .container {
     padding: 16px;
@@ -469,11 +441,11 @@ blockquote {
     padding: 0 16px;
   }
 
-  .produk-item>p {
+  .produk-item p {
     font-size: 0.7rem;
   }
 
-  .produk-item>span {
+  .produk-item span {
     font-size: 0.9rem;
   }
 
@@ -484,10 +456,11 @@ blockquote {
   .contact-heading,
   .contact-title {
     text-align: center;
-  } 
+  }
+
   .carousel-slide {
-      height: 80px; /* tampilan mobile lebih ramping */
-    }
+    height: 80px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -495,9 +468,5 @@ blockquote {
     flex: 0 0 25%;
     max-width: 25%;
     padding: 8px 2px;
-  }
-  .contact-menu {
-    display: flex;
-    justify-content: space-around;
   }
 }
