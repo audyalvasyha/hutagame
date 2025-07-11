@@ -100,14 +100,15 @@
 
       <main>
         <section class="container-ed">
-          <div class="carousel">
-            <div class="carousel-inner">
-              <img src="assets/banner1.jpg" class="carousel-slide active" loading="lazy" />
-              <img src="assets/banner2.jpg" class="carousel-slide" loading="lazy" />
-              <img src="assets/banner3.jpg" class="carousel-slide" loading="lazy" />
-              <img src="assets/banner4.jpg" class="carousel-slide" loading="lazy" />
-            </div>
-          </div>
+<div class="carousel" id="simpleCarousel">
+  <div class="carousel-inner">
+    <div class="carousel-slide active"><img src="assets/banner1.jpg" alt="Banner 1" loading="lazy" /></div>
+    <div class="carousel-slide"><img src="assets/banner2.jpg" alt="Banner 2" loading="lazy" /></div>
+    <div class="carousel-slide"><img src="assets/banner3.jpg" alt="Banner 3" loading="lazy" /></div>
+    <div class="carousel-slide"><img src="assets/banner4.jpg" alt="Banner 4" loading="lazy" /></div>
+  </div>
+</div>
+
         </section>
         <section class="container">
           <span class="container-label">ISI ULANG & TOP UP JUGA BISA LOH!</span>
@@ -226,6 +227,23 @@
       });
 
     });
+      $(function () {
+    let currentIndex = 0;
+    const slides = $('#simpleCarousel .carousel-slide');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      slides.removeClass('active');
+      slides.eq(index).addClass('active');
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 4000); // Ganti setiap 4 detik
+  });
   </script>
 </body>
 
