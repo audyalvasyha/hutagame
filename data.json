@@ -12,26 +12,28 @@
         "nm_detail": "Mobile Legends: Bang Bang",
         "img_product": "https://play-lh.googleusercontent.com/-HHaGHjAW-xLqEfoHRBVRkAuPYTNgLamKdOcULfHC5GYPr2yX0pcDQMJ0HMJALbLxg=s180-rw",
         "nominal": [141, 220, 366, 568, 966, 5, 28, 50, 85, 257, 2010, 6, 20, 66, 170, 70, 344, 716, 2046]
+          "address": "https://www.saldoin.my.id/game/mobile-legends-bang-bang"
       },
       {
         "id": "2",
         "nm_product": "Call of Duty Mobile",
         "nm_detail": "Call of Duty Mobile Season 1",
         "img_product": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr6oQdotZa8WSg__XOSBUyEbwZsSaE2Q9-zOmvElkHb_7b75VC8WfIsEqEncqgcX1BQW0&usqp=CAU"
+            "address": "https://www.saldoin.my.id/game/call-of-duty-mobile-id"
       },
       {
         "id": "3",
         "nm_product": "Garena Free Fire",
         "nm_detail": "Garena Free Fire - Illuminate",
         "img_product": "https://play-lh.googleusercontent.com/sKh_B4ZLfu0jzqx9z98b2APe2rxDb8dIW-QqFHyS3cpzDK2Qq8tAbRAz3rXzOFtdAw=w240-h480-rw",
-        "nominal": [70, 100, 150, 140, 720, 510, 210, 355, 50, 1080, 12, 1200, 1450, 1800, 2180, 3640, 4450]
+          "address": "https://www.saldoin.my.id/game/ff"
       },
       {
         "id": "4",
         "nm_product": "PUBG MOBILE",
         "nm_detail": "PUBG MOBILE: Aftermath",
         "img_product": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQura4kS6ckveQdv9Erb-FYEDvOGnT1XRzEUw&s",
-        "address": "https://www.warunggg.my.id/game/pubg-mobile-global"
+        "address": "https://www.saldoin.my.id/game/pubg-mobile-global"
       },
       {
         "id": "5",
