@@ -68,6 +68,48 @@
     .item-prduk span {
       font-size: 0.8rem;
     }
+    
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+  }
+
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    display: none;
+  }
+
+  .carousel-slide.active {
+    display: block;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    aspect-ratio: 16 / 6;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .carousel-slide img {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .carousel-slide img {
+      aspect-ratio: 4 / 3;
+    }
+  }
+
   </style>
 </head>
 
