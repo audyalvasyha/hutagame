@@ -424,7 +424,8 @@ blockquote {
 
 .carousel-slide {
   width: 100%;
-  height: 100px;
+  height: auto;
+  aspect-ratio: 16 / 6; /* Biarkan proporsional, bisa diganti 16/9 atau 4/1 sesuai desain */
   object-fit: cover;
   border-radius: 6px;
   display: block;
@@ -459,7 +460,7 @@ blockquote {
   }
 
   .carousel-slide {
-    height: 80px;
+    aspect-ratio: 16 / 7;
   }
 }
 
@@ -468,5 +469,8 @@ blockquote {
     flex: 0 0 25%;
     max-width: 25%;
     padding: 8px 2px;
+  }
+  .carousel-slide {
+    aspect-ratio: 16 / 8;
   }
 }
