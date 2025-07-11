@@ -4,57 +4,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WarungGG.my.id - Top Up Game</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Beranda - WarungGG.my.id</title>
+  <link rel="stylesheet" href="../style.css" />
   <style>
+    :root {
+      --primary: #f7d93f;
+      --secondary: #222;
+      --bg: #f9f9f9;
+      --light: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.05);
+      --radius: 12px;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      color: #222;
-    }
-
-    .home-container {
-      width: 100%;
-    }
-
-    .promo-banner marquee {
-      background: #ffe600;
-      color: #222;
-      font-weight: bold;
-      padding: 0.6rem 0;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #daf5ff, #cbedfa);
-      padding: 4rem 2rem;
-      text-align: center;
-      color: #222;
-      border-radius: 12px;
-    }
-
-    .hero span {
-      color: #f7d93f;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      font-weight: bold;
-      border-radius: 6px;
-      margin-top: 1rem;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: #f7d93f;
-      color: #222;
-    }
-
-    .btn-secondary {
-      background: #222;
-      color: #f7d93f;
+      background: var(--bg);
+      color: var(--secondary);
+      line-height: 1.6;
     }
 
     .section {
@@ -62,8 +29,45 @@
       text-align: center;
     }
 
-    .layanan-grid,
-    .testimoni-grid {
+    h1, h2, h3 {
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary, .btn-secondary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--secondary);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: #ffe600;
+    }
+
+    .btn-secondary:hover {
+      opacity: 0.85;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #daf5ff, #cbedfa);
+      border-radius: var(--radius);
+      padding: 4rem 2rem;
+      margin: 1rem;
+    }
+
+    .layanan-grid, .testimoni-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -71,12 +75,14 @@
     }
 
     .card {
-      background: #fff;
+      background: var(--light);
       border: 1px solid #eee;
       padding: 1.5rem;
-      border-radius: 12px;
-      width: 250px;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 260px;
+      box-shadow: 0 4px 10px var(--shadow);
+      text-align: center;
       transition: transform 0.2s;
     }
 
@@ -84,154 +90,157 @@
       transform: translateY(-5px);
     }
 
-    .card img {
-      max-width: 80px;
-      margin-bottom: 1rem;
-      border-radius: 8px;
+    ol, .faq p {
+      text-align: left;
+      max-width: 700px;
+      margin: 0.5rem auto;
+      font-size: 1.05rem;
     }
 
-    .keunggulan-list {
-      list-style: none;
-      padding: 0;
-      font-size: 1.1rem;
-      line-height: 1.8;
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
     }
 
-    blockquote {
-      background: #fff;
-      padding: 1.2rem;
-      border-left: 4px solid #6d44b8;
-      font-style: italic;
-      max-width: 280px;
-      border-radius: 8px;
-    }
-
-    blockquote span {
-      display: block;
-      margin-top: 0.5rem;
-      font-weight: bold;
-      color: #555;
-    }
-
-    .kontak form {
-      max-width: 400px;
-      margin: 0 auto;
+    form {
+      max-width: 500px;
+      margin: auto;
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
 
-    .kontak input,
-    .kontak select,
-    .kontak textarea {
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .cta-final {
-      background: #cbedfa;
-      color: #222;
-      padding: 3rem 1.5rem;
-      text-align: center;
+    .marquee {
+      background: #eee;
+      padding: 1rem;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
-  <div class="home-container">
-    <!-- <div class="promo-banner">
+  <section class="section hero">
+    <h1>Top Up Game Murah & Cepat di <span>WarungGG.my.id</span></h1>
+    <p>Layanan terpercaya untuk kebutuhan top up Mobile Legends, Free Fire, dan lainnya.</p>
+    <a href="https://www.saldoin.my.id" class="btn-primary">Mulai Top Up Sekarang</a>
+  </section>
+
+  <section class="section layanan">
+    <h2>Layanan Populer</h2>
+    <div class="layanan-grid">
+      <div class="card">
+        <h3>Mobile Legends</h3>
+        <p>Top up diamond dengan harga termurah dan proses instan.</p>
+      </div>
+      <div class="card">
+        <h3>Free Fire</h3>
+        <p>Top up cepat tanpa login akun. Langsung masuk ke ID kamu!</p>
+      </div>
+      <div class="card">
+        <h3>PUBG Mobile</h3>
+        <p>UC masuk hanya dalam hitungan detik. Aman dan terpercaya.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cara-topup">
+    <h2>Cara Top Up di WarungGG</h2>
+    <ol>
+      <li>Pilih game favorit kamu dari daftar layanan.</li>
+      <li>Masukkan ID game dan jumlah top up yang diinginkan.</li>
+      <li>Hubungi kami via WhatsApp atau isi formulir di bawah.</li>
+      <li>Lakukan pembayaran sesuai instruksi.</li>
+      <li>Diamond / UC langsung masuk ke akun kamu!</li>
+    </ol>
+  </section>
+
+  <section class="section faq">
+    <h2>Pertanyaan Umum (FAQ)</h2>
+    <p><strong>Q:</strong> Berapa lama proses top up?<br><strong>A:</strong> Instan! Hanya butuh beberapa detik sampai maksimal 5 menit.</p>
+    <p><strong>Q:</strong> Apakah aman transaksi di WarungGG?<br><strong>A:</strong> Aman! Sudah melayani ribuan transaksi.</p>
+    <p><strong>Q:</strong> Pembayaran bisa lewat apa saja?<br><strong>A:</strong> Bisa lewat Dana, OVO, GoPay, Transfer Bank, atau Pulsa.</p>
+  </section>
+
+  <section class="section statistik">
+    <h2>WarungGG Dalam Angka</h2>
+    <div class="layanan-grid">
+      <div class="card">
+        <h3>5.000+</h3>
+        <p>Transaksi sukses</p>
+      </div>
+      <div class="card">
+        <h3>4.8/5</h3>
+        <p>Rating rata-rata pelanggan</p>
+      </div>
+      <div class="card">
+        <h3>24/7</h3>
+        <p>Layanan customer service</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section artikel-terbaru">
+    <h2>Tips & Info Game Terbaru</h2>
+    <div class="layanan-grid">
+      <div class="card">
+        <h3>5 Hero Terkuat MLBB 2025</h3>
+        <p>Update terbaru patch! Yuk cek siapa yang meta sekarang.</p>
+        <a href="page/tips-hero-ml.html" class="btn-secondary">Baca</a>
+      </div>
+      <div class="card">
+        <h3>Cara Top Up Free Fire Aman</h3>
+        <p>Jangan sampai salah kirim! Ini tips sebelum isi diamond FF.</p>
+        <a href="page/cara-topup-ff.html" class="btn-secondary">Baca</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bukti-transaksi">
+    <h2>Transaksi Terbaru</h2>
+    <div class="marquee">
       <marquee behavior="scroll" direction="left">
-        🎉 Promo Spesial Grand Opening! Diskon 8% Semua Top Up — Cek Sekarang di WarungGG.my.id 💥
+        ✅ MLBB 500 Diamond - @Bagas | ✅ FF 720 Diamond - @Rani | ✅ PUBG UC 300 - @Joko | ✅ MLBB 1000 Diamond - @Lia
       </marquee>
-    </div> -->
+    </div>
+  </section>
 
-    <section class="hero">
-      <h1>Top Up Game Murah & Cepat di <span>WarungGG.my.id</span></h1>
-      <p>Layanan terpercaya untuk kebutuhan top up Mobile Legends, Free Fire, dan lainnya.</p>
-      <a href="https://www.saldoin.my.id" class="btn-primary">Mulai Top Up Sekarang</a>
-    </section>
+  <section class="section join">
+    <h2>Gabung Komunitas Gamer Cerdas!</h2>
+    <p>Ikuti kami di media sosial untuk info promo, giveaway, dan turnamen seru!</p>
+    <a href="https://instagram.com/warunggg.id" class="btn-primary" target="_blank">Follow Instagram</a>
+  </section>
 
-    <section id="layanan" class="section layanan">
-      <h2>Layanan Populer</h2>
-      <div class="layanan-grid">
-        <div class="card">
-          <img src="assets/mlbb.png" alt="Mobile Legends" loading="lazy" />
-          <h3>Mobile Legends</h3>
-          <p>Top up diamond dengan harga termurah dan proses instan.</p>
-        </div>
-        <div class="card">
-          <img src="assets/ff.png" alt="Free Fire" loading="lazy" />
-          <h3>Free Fire</h3>
-          <p>Top up cepat tanpa login akun. Langsung masuk ke ID kamu!</p>
-        </div>
-        <div class="card">
-          <img src="assets/pubg.png" alt="PUBG Mobile" loading="lazy" />
-          <h3>PUBG Mobile</h3>
-          <p>UC masuk hanya dalam hitungan detik. Aman dan terpercaya.</p>
-        </div>
-      </div>
-    </section>
+  <section class="section kontak">
+    <h2>Hubungi Kami</h2>
+    <form id="contactForm">
+      <input type="text" id="nama" placeholder="Nama Kamu" required />
+      <input type="text" id="idgame" placeholder="ID Game / Username" required />
+      <select id="game" required>
+        <option value="">Pilih Game</option>
+        <option value="Mobile Legends">Mobile Legends</option>
+        <option value="Free Fire">Free Fire</option>
+        <option value="PUBG Mobile">PUBG Mobile</option>
+      </select>
+      <textarea id="pesan" placeholder="Pesan atau pertanyaan..." rows="4"></textarea>
+      <button type="submit" class="btn-primary">Kirim Pesan</button>
+    </form>
+  </section>
 
-    <section class="section keunggulan">
-      <h2>Mengapa Pilih WarungGG?</h2>
-      <ul class="keunggulan-list">
-        <li>✅ Harga bersaing dan transparan</li>
-        <li>⚡ Proses cepat & otomatis</li>
-        <li>🛡️ Aman & terpercaya</li>
-        <li>💬 CS responsif 24/7</li>
-      </ul>
-    </section>
-
-    <section class="section testimoni">
-      <h2>Kata Mereka</h2>
-      <div class="testimoni-grid">
-        <blockquote>"Top up tercepat sejauh ini! Thanks WarungGG!" <br /><span>– Reza, ML Player</span></blockquote>
-        <blockquote>"Adminnya ramah banget, transaksi lancar." <br /><span>– Dinda, FF Squad</span></blockquote>
-        <blockquote>"Langganan terus, gak pernah kecewa." <br /><span>– Bagas, PUBG Lover</span></blockquote>
-      </div>
-    </section>
-
-    <section class="section kontak">
-      <h2>Hubungi Kami / Order Langsung</h2>
-      <form id="contactForm">
-        <input type="text" id="nama" placeholder="Nama Kamu" required />
-        <input type="text" id="idgame" placeholder="ID Game / Username" required />
-        <select id="game" required>
-          <option value="">Pilih Game</option>
-          <option value="Mobile Legends">Mobile Legends</option>
-          <option value="Free Fire">Free Fire</option>
-          <option value="PUBG Mobile">PUBG Mobile</option>
-        </select>
-        <textarea id="pesan" placeholder="Pesan atau pertanyaan..." rows="4"></textarea>
-        <button type="submit" class="btn-primary">Kirim Pesan</button>
-      </form>
-    </section>
-
-    <section class="cta-final">
-      <h2>Yuk Top Up Sekarang Juga!</h2>
-      <a href="https://www.saldoin.my.id" class="btn-secondary">Lihat Layanan</a>
-    </section>
-  </div>
+  <section class="section cta-final">
+    <h2>Yuk Top Up Sekarang Juga!</h2>
+    <a href="https://www.saldoin.my.id" class="btn-secondary">Lihat Layanan</a>
+  </section>
 
   <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 3000);
-
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const nama = document.getElementById('nama').value;
       const idgame = document.getElementById('idgame').value;
       const game = document.getElementById('game').value;
       const pesan = document.getElementById('pesan').value;
-
       const text = `Halo Admin WarungGG,%0ASaya ingin top up:%0A%0ANama: ${nama}%0AID Game: ${idgame}%0AGame: ${game}%0APesan: ${pesan}`;
       const whatsappURL = `https://wa.me/6281373634190?text=${text}`;
       window.open(whatsappURL, '_blank');
