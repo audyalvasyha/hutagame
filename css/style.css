@@ -455,12 +455,13 @@ blockquote {
   overflow: hidden;
   border-radius: 6px;
 }
-.carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+.carousel-slide {
+    width: 100%;
+    height: 120px; /* default untuk desktop */
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+  }
 
 
 
@@ -489,7 +490,10 @@ blockquote {
   .contact-heading,
   .contact-title {
     text-align: center;
-  }
+  } 
+  .carousel-slide {
+      height: 80px; /* tampilan mobile lebih ramping */
+    }
 }
 
 @media screen and (max-width: 480px) {
