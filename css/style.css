@@ -30,7 +30,7 @@
   padding: 16px 24px;
   border: var(--outline);
   border-radius: 12px;
-  background-color: var(--background);
+  background-color: #FFF;
 }
 .container-ed {
   max-width: 768px;
