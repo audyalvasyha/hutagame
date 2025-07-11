@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://audyalvasyha.github.io/warunggg.my.id/sitemap.xml
+Sitemap: https://saldoin.my.id/sitemap.xml
