@@ -86,7 +86,7 @@
 .search-box {
   width: 100%;
   display: flex;
-  border: 1px solid #0f456c;
+  border: 1px solid #279199;
   border-radius: 8px;
   background-color: var(--background);
 }
@@ -130,13 +130,13 @@
 }
 
 .auth .btn-daftar {
-  background-color: #0f456c;
+  background-color: #279199;
   color: #fff;
 }
 
 .auth .btn-masuk {
   background-color: var(--background);
-  border: 2px solid #0f456c;
+  border: 2px solid #279199;
 }
 
 .menu {
@@ -360,7 +360,7 @@ ul.top-up {
 .page-container h2 {
   margin-bottom: 16px;
   font-size: 1.5rem;
-  color: #0f456c;
+  color: #279199;
 }
 
 .steps-list {
@@ -381,7 +381,7 @@ ul.top-up {
 blockquote {
   margin: 16px 0;
   padding: 12px 16px;
-  border-left: 4px solid #0f456c;
+  border-left: 4px solid #279199;
   background-color: #f0faff;
   font-style: italic;
 }
