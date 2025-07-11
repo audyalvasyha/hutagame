@@ -409,28 +409,6 @@ blockquote {
   color: #007bff;
 }
 
-/* Carousel */
-.carousel {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  border-radius: 6px;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 6; /* Biarkan proporsional, bisa diganti 16/9 atau 4/1 sesuai desain */
-  object-fit: cover;
-  border-radius: 6px;
-  display: block;
-}
-
 /* Responsive */
 @media screen and (max-width: 768px) {
   .container {
@@ -459,9 +437,7 @@ blockquote {
     text-align: center;
   }
 
-  .carousel-slide {
-    aspect-ratio: 16 / 7;
-  }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -470,7 +446,5 @@ blockquote {
     max-width: 25%;
     padding: 8px 2px;
   }
-  .carousel-slide {
-    aspect-ratio: 16 / 8;
-  }
+  
 }
