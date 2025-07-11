@@ -71,7 +71,7 @@
 
   <!-- Halaman Daftar -->
   <url>
-    <loc>https://saldoin.my.id/daftar</loc>
+    <loc>https://www.saldoin.my.id/daftar</loc>
     <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
@@ -79,7 +79,7 @@
 
   <!-- Halaman Masuk -->
   <url>
-    <loc>https://saldoin.my.id/masuk</loc>
+    <loc>https://www.saldoin.my.id/masuk</loc>
     <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
