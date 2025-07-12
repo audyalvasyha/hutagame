@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Top up game murah, cepat, dan terpercaya. Saldoin menyediakan berbagai layanan digital termasuk Diamond Mobile Legends, Free Fire, UC PUBG, dan item game lainnya. Nikmati pengalaman isi ulang instan, aman, dan harga terjangkau hanya di Saldoin.my.id - solusi terbaik untuk kebutuhan top up dan produk digital Anda."
+        />
+        <meta property="og:title" content="Saldoin.my.id - Top Up Game Murah & Instan" />
+        <meta property="og:description" content="Top up game favoritmu seperti MLBB, Free Fire, PUBG, dan lainnya dengan harga murah, proses cepat, dan aman di Saldoin.my.id!" />
+        <meta property="og:image" content="assets/IMG_1037.png" />
+        <meta property="og:url" content="https://saldoin.my.id/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Saldoin.my.id" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Saldoin.my.id - Top Up Game Murah & Instan" />
+        <meta name="twitter:description" content="Top up MLBB, FF, PUBG, dan game lainnya cepat, murah, & terpercaya di Saldoin.my.id" />
+        <meta name="twitter:image" content="assets/IMG_1037.png" />
+        <meta name="author" content="Saldoin" />
+        <meta name="google-site-verification" content="01iNnkW6dR380Fb369AlAI8mIF4B0hOCGXkpDnml8xw" />
+        <link rel="canonical" href="https://saldoin.my.id/" />
+        <title>Saldoin - Beli Voucher dan Top Up Game Murah, Cepat & Terpercaya</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="preload" as="image" href="assets/banner.webp" />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <style>
+            .link-item.active {
+                font-weight: bold;
+                color: #2b7a78;
+                border-bottom: 2px solid #2b7a78;
+            }
+            .prduk-isi {
+                margin-top: 16px;
+            }
+
+            .list-item {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: space-between;
+                list-style: none;
+            }
+
+            .item-prduk {
+                flex: 1 1 calc(25% - 10px);
+                border: 1px solid #dae2ed;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 12px 4px;
+                min-width: 80px;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+            .item-prduk img {
+                width: 25px;
+                height: 25px;
+            }
+
+            .item-prduk span {
+                font-size: 0.8rem;
+            }
+
+            .carousel {
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+            }
+
+            .carousel-inner {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                width: 100%;
+            }
+
+            .carousel-slide {
+                flex: 0 0 100%;
+                display: none;
+            }
+
+            .carousel-slide.active {
+                display: block;
+            }
+
+            .carousel-slide img {
+                width: 100%;
+                aspect-ratio: 16 / 5;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+            .skeleton-container {
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                max-width: 768px;
+                margin: 10px auto 0;
+            }
+
+            .skeleton-banner,
+            .skeleton-icon,
+            .skeleton-line,
+            .skeleton-button,
+            .skeleton-title,
+            .skeleton-card,
+            .skeleton-footer-title,
+            .skeleton-icon-circle,
+            .skeleton-footer-text {
+                background: linear-gradient(90deg, #eeeeee 25%, #dddddd 50%, #eeeeee 75%);
+                background-size: 200% 100%;
+                animation: shimmer 1.2s infinite;
+            }
+
+            .skeleton-banner {
+                width: 100%;
+                height: 140px;
+                border-radius: 12px;
+            }
+
+            .skeleton-icons {
+                display: flex;
+                justify-content: space-between;
+                gap: 8px;
+            }
+
+            .skeleton-icon {
+                flex: 1;
+                height: 90px;
+                border-radius: 10px;
+            }
+
+            .skeleton-text-block {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px;
+                border-radius: 12px;
+                background: #f3f3f3;
+            }
+
+            .skeleton-line {
+                height: 16px;
+                border-radius: 6px;
+            }
+
+            .skeleton-line.short {
+                width: 50%;
+            }
+
+            .skeleton-line.long {
+                width: 100%;
+            }
+
+            .skeleton-button {
+                width: 60%;
+                height: 36px;
+                border-radius: 20px;
+            }
+
+            /* SKELETON POPULER & FOOTER */
+            .skeleton-section,
+            .skeleton-footer {
+                padding: 16px;
+                border-radius: 12px;
+            }
+
+            .skeleton-title {
+                width: 150px;
+                height: 20px;
+                border-radius: 4px;
+                margin-bottom: 16px;
+            }
+
+            .skeleton-populer-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                justify-content: space-between;
+            }
+
+            .skeleton-card {
+                flex: 1 1 calc(25% - 12px);
+                height: 180px;
+                border-radius: 10px;
+                min-width: 80px;
+            }
+
+            .skeleton-footer-title {
+                width: 180px;
+                height: 18px;
+                border-radius: 4px;
+                margin: 16px 0;
+            }
+
+            .skeleton-contact-icons {
+                display: flex;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .skeleton-icon-circle {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+            }
+
+            .skeleton-footer-text {
+                height: 14px;
+                border-radius: 4px;
+                width: 90%;
+                margin-bottom: 8px;
+            }
+
+            .skeleton-footer-text.short {
+                width: 60%;
+            }
+
+            @keyframes shimmer {
+                0% {
+                    background-position: 200% 0;
+                }
+                100% {
+                    background-position: -200% 0;
+                }
+            }
+            @media screen and (max-width: 768px) {
+                .carousel-slide img {
+                    aspect-ratio: 16 / 5;
+                }
+                  .item-prduk {
+                    flex: 1 1 calc(25% - 5px);
+                    padding: 8px;
+                    min-width: 60px;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                .carousel-slide img {
+                    aspect-ratio: 16 / 5;
+                }
+                .list-item {
+                    gap: 5px;
+                }
+                .item-prduk {
+                    flex: 1 1 calc(25% - 5px);
+                    padding: 8px 2px;
+                    min-width: 60px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="root">
+            <div class="app">
+                <!-- Header dan Navigasi -->
+                <header class="header">
+                    <div class="group sub-navbar flex">
+                        <div class="btn user-profile">
+                            <img class="logo logo-1" src="assets/IMG_1037.png" alt="Saldoin Logo" height="30" loading="lazy" />
+                        </div>
+                        <div class="auth flex">
+                            <div class="btn btn-daftar" onclick="location.href='https://www.saldoin.my.id/daftar'">Daftar</div>
+                            <div class="btn btn-masuk" onclick="location.href='https://www.saldoin.my.id/masuk'">Masuk</div>
+                        </div>
+                    </div>
+
+                    <nav class="group menu flex">
+                        <ul id="linkTrigger" class="menu-list flex">
+                            <li class="link-item" data-page="beranda.html">Beranda</li>
+                            <li class="link-item" data-page="about.html">Tentang</li>
+                            <li class="link-item" data-page="cara-order.html">Cara Order</li>
+                            <li class="link-item" data-page="testimoni.html">Testimoni</li>
+                            <li class="link-item" data-page="kontak.html">Kontak</li>
+                            <li class="link-item" data-page="kebijakan.html">Kebijakan</li>
+                            <li class="link-item" data-page="faq.html">FAQ</li>
+                        </ul>
+                    </nav>
+                </header>
+
+                <!-- Skeleton Loader -->
+                <div class="skeleton-container" id="skeletonLoader">
+                    <div class="skeleton-banner"></div>
+                    <div class="skeleton-icons">
+                        <div class="skeleton-icon"></div>
+                        <div class="skeleton-icon"></div>
+                        <div class="skeleton-icon"></div>
+                        <div class="skeleton-icon"></div>
+                    </div>
+                    <div class="skeleton-text-block">
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-line long"></div>
+                        <div class="skeleton-line long"></div>
+                        <div class="skeleton-button"></div>
+                    </div>
+                    <!-- Skeleton TERPOPULER -->
+                    <section class="skeleton-section">
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-populer-grid">
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                        </div>
+                    </section>
+
+                    <!-- Skeleton FOOTER KONTAK -->
+                    <section class="skeleton-footer">
+                        <div class="skeleton-footer-title"></div>
+                        <div class="skeleton-contact-icons">
+                            <div class="skeleton-icon-circle"></div>
+                            <div class="skeleton-icon-circle"></div>
+                            <div class="skeleton-icon-circle"></div>
+                        </div>
+                        <div class="skeleton-footer-text short"></div>
+                        <div class="skeleton-footer-text"></div>
+                    </section>
+                </div>
+
+                <!-- Konten Utama -->
+                <main id="realContent" style="display: none;">
+                    <section class="container-ed">
+                        <div class="carousel" id="simpleCarousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-slide active"><img src="assets/banner1.jpg" alt="Banner 1" loading="lazy" /></div>
+                                <div class="carousel-slide"><img src="assets/banner2.jpg" alt="Banner 2" loading="lazy" /></div>
+                                <div class="carousel-slide"><img src="assets/banner3.jpg" alt="Banner 3" loading="lazy" /></div>
+                                <div class="carousel-slide"><img src="assets/banner4.jpg" alt="Banner 4" loading="lazy" /></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="container">
+                        <span class="container-label">ISI ULANG & TOP UP JUGA BISA LOH!</span>
+                        <div class="prduk-isi">
+                            <ul class="list-item">
+                                <li class="item-prduk" onclick="location.href='https://buylink.id/saldoin.my.id'">
+                                    <img src="assets/pulsa.png" alt="Pulsa" />
+                                    <span>Pulsa</span>
+                                </li>
+                                <li class="item-prduk" onclick="location.href='https://buylink.id/saldoin.my.id'">
+                                    <img src="assets/data.png" alt="Paket Data" />
+                                    <span>Paket Data</span>
+                                </li>
+                                <li class="item-prduk" onclick="location.href='https://buylink.id/saldoin.my.id/'">
+                                    <img src="assets/token.png" alt="Token Listrik" />
+                                    <span>Token Listrik</span>
+                                </li>
+                                <li class="item-prduk" onclick="location.href='https://buylink.id/saldoin.my.id/'">
+                                    <img src="assets/e-wallet.png" alt="E-Wallet" />
+                                    <span>E-Wallet</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="container">
+                        <div id="wrapperContent"></div>
+                    </section>
+                    <section class="artikel-terbaru container">
+                        <h3>📌 Artikel Terbaru</h3>
+                        <ul class="list-artikel" id="list-artikel">
+                            <!-- isi di-load via JS -->
+                        </ul>
+                    </section>
+                    <section class="container populer">
+                        <div class="container-label flex">
+                            <div class="label-title">TERPOPULER</div>
+                            <div class="view-all-item" onclick="location.href='cari?type=topup'">Lihat Semua</div>
+                        </div>
+                        <ul class="produk flex" id="populerList"></ul>
+                    </section>
+                </main>
+
+                <!-- Footer tetap -->
+                <footer class="footer">
+                    <section class="container flex contacts">
+                        <div class="contact-heading">DUKUNGAN PELANGGAN</div>
+                        <div class="contact-title">Hubungi kami</div>
+                        <ul class="contact-menu flex">
+                            <li class="contact-list">
+                                <a href="https://www.instagram.com/saldoin.my.id" target="_blank">
+                                    <img src="assets/instagram.jpg" alt="instagram" width="50px" />
+                                </a>
+                            </li>
+                            <li class="contact-list">
+                                <a href="https://wa.me/6281373634190" target="_blank">
+                                    <img src="assets/whatsapp.jpg" alt="whatsapp" width="50px" />
+                                </a>
+                            </li>
+                            <li class="contact-list">
+                                <a href="mailto:audialfasha@gmail.com" target="_blank">
+                                    <img src="assets/gmail.png" alt="gmail" width="50px" />
+                                </a>
+                            </li>
+                        </ul>
+                        <div>
+                            <p>Owner: <i style="color: cadetblue;">audialfasha@gmail.com</i></p>
+                            <p>Admin: <i style="color: cadetblue;">rikarahmawati0090@gmail.com</i></p>
+                        </div>
+                    </section>
+                    <section class="container">
+                        <p>&copy; 2025 Saldoin.my.id. All rights reserved.</p>
+                        <p>Ikuti kami di Instagram: <a href="https://www.instagram.com/saldoin.my.id" target="_blank">@saldoin.my.id</a></p>
+                    </section>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Script animasi dan load -->
+        <script>
+            $(document).ready(function () {
+                function loadPage(page) {
+                    $("#skeletonLoader").fadeIn(200);
+                    $("#realContent").fadeOut(200, function () {
+                        $("#wrapperContent").load("page/" + page, function (res, status, xhr) {
+                            if (status === "error") {
+                                $("#wrapperContent").html("<p>Gagal memuat konten.</p>");
+                                console.error("Error:", xhr.status, xhr.statusText);
+                            }
+                            $("#skeletonLoader").fadeOut(200, function () {
+                                $("#realContent").fadeIn(200);
+                            });
+                        });
+                    });
+                }
+
+                // Load awal
+                loadPage("beranda.html");
+
+                // Handle klik menu
+                let currentPage = "beranda.html";
+                $("#linkTrigger .link-item").on("click", function (e) {
+                    e.preventDefault();
+                    const page = $(this).data("page");
+                    if (page === currentPage) return;
+                    currentPage = page;
+                    $(".link-item").removeClass("active");
+                    $(this).addClass("active");
+                    loadPage(page);
+                });
+
+                // Carousel sederhana
+                let currentIndex = 0;
+                const slides = $("#simpleCarousel .carousel-slide");
+                const totalSlides = slides.length;
+
+                function showSlide(index) {
+                    slides.removeClass("active");
+                    slides.eq(index).addClass("active");
+                }
+
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    showSlide(currentIndex);
+                }
+
+                setInterval(nextSlide, 4000);
+
+                // Load data JSON
+                $.getJSON("data.json", function (data) {
+                    const produk = data.produk;
+                    for (let i = 1; i < 5; i++) {
+                        const item = produk[i];
+                        const alamat = item.address || "#";
+                        $("#populerList").append(`
+            <li class="produk-item flex">
+              <img src="${item.img_product}" width="128" height="128" loading="lazy" alt="${item.nm_product}" />
+              <p>#${i}</p>
+              <span>${item.nm_product}</span>
+              <button class="btn-choose" onclick="location.href='${alamat}'">BELI</button>
+            </li>`);
+                    }
+
+                    const listArtikel = $("#list-artikel");
+                    data.artikel_terbaru.forEach(function (item) {
+                        listArtikel.append(`<li><a href="${item.url}">${item.judul}</a></li>`);
+                    });
+                });
+            });
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Store",
+                "name": "Saldoin.my.id",
+                "image": "https://saldoin.my.id/assets/IMG_1037.png",
+                "url": "https://saldoin.my.id",
+                "logo": "https://saldoin.my.id/assets/favicon.ico",
+                "description": "Top up game favoritmu seperti Mobile Legends, Free Fire, PUBG, dan lainnya dengan harga murah, proses instan, dan 100% terpercaya.",
+                "telephone": "+62-813-7363-4190",
+                "priceRange": "Rp1.000 - Rp1.000.000",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "ID"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.9",
+                    "reviewCount": "347"
+                },
+                "review": [
+                    {
+                        "@type": "Review",
+                        "author": {
+                            "@type": "Person",
+                            "name": "Fajar A."
+                        },
+                        "datePublished": "2025-07-11",
+                        "reviewBody": "Top up ML langsung masuk cuma dalam 30 detik! Adminnya juga ramah.",
+                        "reviewRating": {
+                            "@type": "Rating",
+                            "ratingValue": "5",
+                            "bestRating": "5"
+                        }
+                    },
+                    {
+                        "@type": "Review",
+                        "author": {
+                            "@type": "Person",
+                            "name": "Rika R."
+                        },
+                        "datePublished": "2025-07-10",
+                        "reviewBody": "Sangat terpercaya! Sudah 5x transaksi dan semuanya aman & cepat.",
+                        "reviewRating": {
+                            "@type": "Rating",
+                            "ratingValue": "5",
+                            "bestRating": "5"
+                        }
+                    },
+                    {
+                        "@type": "Review",
+                        "author": {
+                            "@type": "Person",
+                            "name": "Andi S."
+                        },
+                        "datePublished": "2025-07-09",
+                        "reviewBody": "Top up termurah yang pernah saya coba, cocok buat mabar rutin.",
+                        "reviewRating": {
+                            "@type": "Rating",
+                            "ratingValue": "4.8",
+                            "bestRating": "5"
+                        }
+                    }
+                ]
+            }
+        </script>
+    </body>
+</html>
