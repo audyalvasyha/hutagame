@@ -5,21 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Situs Sedang Dalam Pemeliharaan</title>
     <style>
-        /* Basic styling for the body to center content */
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Inter', sans-serif; /* Using Inter font */
-            background-color: #f0ede9; /* Light background color */
-            color: #333;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box; /* Include padding in element's total width and height */
-        }
 
         /* Main content container */
         .maintenance-container {
@@ -27,7 +12,6 @@
             border-radius: 15px; /* Rounded corners */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
             padding: 40px;
-            max-width: 600px;
             width: 100%;
             box-sizing: border-box;
         }
@@ -129,7 +113,9 @@
 </head>
 <body>
     <div class="maintenance-container">
-        <div class="logo">&gt; Logo Situs Anda</div>
+        <div class="logo">
+            <img src="../assets/IMG_1037.png" alt="saldoin" class="logo-image">
+        </div>
         <div class="countdown" id="countdown-timer">00:06:12:54</div>
         <div class="message-title">Situs ini sedang<br>dalam pemeliharaan</div>
         <div class="message-text">Kami sedang melakukan perbaikan untuk pengalaman yang lebih baik.</div>
