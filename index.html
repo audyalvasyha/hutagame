@@ -405,23 +405,26 @@
         <script src="js/script.js"></script>
         <script>
             $(document).ready(function () {
+                // LOAD PERTAMA
                 $("#wrapperContent").load("page/beranda.html", function () {
                     $("#skeletonLoader").fadeOut(300, function () {
-                        $("#realContent").fadeIn(300);
+                        $("#wrapperContent").fadeIn(300); // pastikan ini yg ditampilkan
                     });
                 });
+
+                // DATA JSON
                 $.getJSON("data.json", function (data) {
                     const produk = data.produk;
                     for (let i = 1; i < 5; i++) {
                         const item = produk[i];
-                        const alamat = item.address ? item.address : "#";
+                        const alamat = item.address || "#";
                         $("#populerList").append(`
-            <li class="produk-item flex">
-              <img src="${item.img_product}" width="128" height="128" loading="lazy" alt="${item.nm_product}" />
-              <p>#${i}</p>
-              <span>${item.nm_product}</span>
-              <button class="btn-choose" onclick="location.href='${item.address}'">BELI</button>
-            </li>`);
+          <li class="produk-item flex">
+            <img src="${item.img_product}" width="128" height="128" loading="lazy" alt="${item.nm_product}" />
+            <p>#${i}</p>
+            <span>${item.nm_product}</span>
+            <button class="btn-choose" onclick="location.href='${alamat}'">BELI</button>
+          </li>`);
                     }
 
                     const listArtikel = $("#list-artikel");
@@ -430,31 +433,32 @@
                     });
                 });
 
-                $("#wrapperContent").load("page/beranda.html");
+                // LINK ANIMASI
+                let currentPage = "beranda.html";
 
                 $("#linkTrigger .link-item").on("click", function (e) {
                     e.preventDefault();
                     const page = $(this).data("page");
                     const url = "page/" + page;
 
-                    // Animasi fade out sebelum load konten baru
+                    if (page === currentPage) return;
+
                     $("#wrapperContent").fadeOut(200, function () {
                         $("#wrapperContent").load(url, function (res, status, xhr) {
                             if (status === "error") {
                                 $("#wrapperContent").html("<p>Gagal memuat konten.</p>");
                                 console.error("Error:", xhr.status, xhr.statusText);
                             }
-                            // Fade in konten setelah selesai dimuat
                             $("#wrapperContent").fadeIn(200);
+                            currentPage = page; // pindahkan ke sini setelah berhasil load
                         });
                     });
 
-                    // Tambah kelas aktif ke link yang diklik
                     $(".link-item").removeClass("active");
                     $(this).addClass("active");
                 });
-            });
-            $(function () {
+
+                // CAROUSEL
                 let currentIndex = 0;
                 const slides = $("#simpleCarousel .carousel-slide");
                 const totalSlides = slides.length;
@@ -469,11 +473,7 @@
                     showSlide(currentIndex);
                 }
 
-                setInterval(nextSlide, 4000); // Ganti setiap 4 detik
-                window.addEventListener("load", function () {
-                    document.getElementById("skeletonLoader").style.display = "none";
-                    document.querySelector(".real-content").style.display = "block";
-                });
+                setInterval(nextSlide, 4000);
             });
         </script>
     </body>
