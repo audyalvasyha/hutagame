@@ -26,7 +26,7 @@ body,
 .container,
 .container-ed {
   max-width: 768px;
-  margin: 10px auto 0;
+  margin: 8px auto 0;
   background-color: #fff;
   border: var(--outline);
   border-radius: 12px;
