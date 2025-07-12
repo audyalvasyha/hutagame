@@ -10,7 +10,7 @@
   <meta property="og:title" content="Saldoin.my.id - Top Up Game Murah & Instan" />
   <meta property="og:description"
     content="Top up game favoritmu seperti MLBB, Free Fire, PUBG, dan lainnya dengan harga murah, proses cepat, dan aman di Saldoin.my.id!" />
-  <meta property="og:image" content="assets/IMG_1037.png" />
+  <meta property="og:image" content="/assets/IMG_1037.png" />
   <meta property="og:url" content="https://saldoin.my.id/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Saldoin.my.id" />
@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Saldoin.my.id - Top Up Game Murah & Instan" />
   <meta name="twitter:description"
     content="Top up MLBB, FF, PUBG, dan game lainnya cepat, murah, & terpercaya di Saldoin.my.id" />
-  <meta name="twitter:image" content="assets/IMG_1037.png" />
+  <meta name="twitter:image" content="/assets/IMG_1037.png" />
 
   <meta name="author" content="Saldoin">
   <meta name="google-site-verification" content="01iNnkW6dR380Fb369AlAI8mIF4B0hOCGXkpDnml8xw" />
@@ -33,7 +33,7 @@
   <link rel="preload" as="image" href="assets/banner.webp">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <script src="js/jquery-3.7.1.min.js"></script>
   <style>
     .prduk-isi {
@@ -194,7 +194,7 @@
       <header class="header">
         <div class="group sub-navbar flex">
           <div class="btn user-profile">
-            <img class="logo logo-1" src="assets/IMG_1037.png" alt="Saldoin Logo" height="30" loading="lazy">
+            <img class="logo logo-1" src="/assets/IMG_1037.png" alt="Saldoin Logo" height="30" loading="lazy">
           </div>
           <div class="auth flex">
             <div class="btn btn-daftar" onclick="location.href='https://www.saldoin.my.id/daftar'">Daftar</div>
@@ -239,10 +239,10 @@
         <section class="container-ed">
 <div class="carousel" id="simpleCarousel">
   <div class="carousel-inner">
-    <div class="carousel-slide active"><img src="assets/banner1.jpg" alt="Banner 1" loading="lazy" /></div>
-    <div class="carousel-slide"><img src="assets/banner2.jpg" alt="Banner 2" loading="lazy" /></div>
-    <div class="carousel-slide"><img src="assets/banner3.jpg" alt="Banner 3" loading="lazy" /></div>
-    <div class="carousel-slide"><img src="assets/banner4.jpg" alt="Banner 4" loading="lazy" /></div>
+    <div class="carousel-slide active"><img src="/assets/banner1.jpg" alt="Banner 1" loading="lazy" /></div>
+    <div class="carousel-slide"><img src="/assets/banner2.jpg" alt="Banner 2" loading="lazy" /></div>
+    <div class="carousel-slide"><img src="/assets/banner3.jpg" alt="Banner 3" loading="lazy" /></div>
+    <div class="carousel-slide"><img src="/assets/banner4.jpg" alt="Banner 4" loading="lazy" /></div>
   </div>
 </div>
 
@@ -252,19 +252,19 @@
           <div class="prduk-isi">
             <ul class="list-item">
               <li class="item-prduk" onclick="location.href='https://buylink.id/saldoin.my.id'">
-                <img src="assets/pulsa.png" alt="Pulsa">
+                <img src="/assets/pulsa.png" alt="Pulsa">
                 <span>Pulsa</span>
               </li>
               <li class="item-prduk" onclick="location.href='https://buylink.id/saldoin.my.id'">
-                <img src="assets/data.png" alt="Paket Data">
+                <img src="/assets/data.png" alt="Paket Data">
                 <span>Paket Data</span>
               </li>
               <li class="item-prduk" onclick="location.href='https://buylink.id/saldoin.my.id/'">
-                <img src="assets/token.png" alt="Token Listrik">
+                <img src="/assets/token.png" alt="Token Listrik">
                 <span>Token Listrik</span>
               </li>
               <li class="item-prduk" onclick="location.href='https://buylink.id/saldoin.my.id/'">
-                <img src="assets/e-wallet.png" alt="E-Wallet">
+                <img src="/assets/e-wallet.png" alt="E-Wallet">
                 <span>E-Wallet</span>
               </li>
             </ul>
@@ -296,17 +296,17 @@
           <ul class="contact-menu flex">
             <li class="contact-list">
               <a href="https://www.instagram.com/saldoin.my.id" target="_blank">
-                <img src="assets/instagram.jpg" alt="instagram" width="50px" />
+                <img src="/assets/instagram.jpg" alt="instagram" width="50px" />
               </a>
             </li>
             <li class="contact-list">
               <a href="https://wa.me/6281373634190" target="_blank">
-                <img src="assets/whatsapp.jpg" alt="whatsapp" width="50px" />
+                <img src="/assets/whatsapp.jpg" alt="whatsapp" width="50px" />
               </a>
             </li>
             <li class="contact-list">
               <a href="mailto:audialfasha@gmail.com" target="_blank">
-                <img src="assets/gmail.png" alt="gmail" width="50px" />
+                <img src="/assets/gmail.png" alt="gmail" width="50px" />
               </a>
             </li>
           </ul>
@@ -327,7 +327,7 @@
   <script src="js/script.js"></script>
   <script>
     $(document).ready(function () {
-      $.getJSON("data.json", function (data) {
+      $.getJSON("/data.json", function (data) {
         const produk = data.produk;
         for (let i = 1; i < 5; i++) {
           const item = produk[i];
