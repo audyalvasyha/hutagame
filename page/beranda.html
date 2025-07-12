@@ -1,0 +1,230 @@
+<style>
+        /* Gaya dasar untuk body, memastikan konten berada di tengah halaman */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', sans-serif; /* Menggunakan font Inter */
+            background-color: #f0ede9; /* Warna latar belakang terang */
+            overflow: hidden; /* Mencegah scroll yang tidak diinginkan */
+        }
+
+        /* Kontainer utama untuk tata letak dua panel */
+        .container {
+            display: flex;
+            background-color: #ffffff;
+            border-radius: 15px; /* Sudut membulat */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+            overflow: hidden;
+            max-width: 900px;
+            width: 90%;
+            min-height: 450px; /* Tinggi minimum untuk estetika */
+        }
+
+        /* Panel kiri untuk teks dan tombol */
+        .left-panel {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            /* Latar belakang dengan pola 'X' samar */
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><text x="50" y="50" font-family="Arial" font-size="80" fill="%23e0e0e0" opacity="0.2" text-anchor="middle" dominant-baseline="central">X</text></svg>');
+            background-repeat: repeat;
+            background-size: 150px; /* Ukuran pola */
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        /* Gaya untuk logo */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            font-size: 14px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        /* Gaya untuk hitung mundur */
+        .countdown {
+            font-size: 4em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Gaya untuk judul pesan */
+        .message-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        /* Gaya untuk teks pesan deskriptif */
+        .message-text {
+            font-size: 1em;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        /* Gaya untuk tombol "Beritahu Saya" */
+        .notify-button {
+            background-color: #f7a858; /* Warna oranye */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px; /* Sudut tombol membulat */
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: fit-content; /* Lebar sesuai konten */
+            box-shadow: 0 4px 8px rgba(247, 168, 88, 0.3); /* Bayangan tombol */
+        }
+
+        .notify-button:hover {
+            background-color: #e09245; /* Oranye lebih gelap saat hover */
+            transform: translateY(-2px); /* Efek angkat saat hover */
+        }
+
+        .notify-button:active {
+            transform: translateY(0); /* Efek tekan saat aktif */
+        }
+
+        /* Panel kanan untuk gambar */
+        .right-panel {
+            flex: 1;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Sejajarkan gambar ke bawah */
+            padding: 20px;
+            position: relative;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        /* Gaya untuk gambar pemeliharaan */
+        .maintenance-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain; /* Memastikan gambar pas tanpa terpotong */
+            transform: translateY(10px); /* Sedikit geser ke bawah agar terlihat seperti di gambar */
+        }
+
+        /* Penyesuaian responsif untuk layar yang lebih kecil */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Tata letak kolom pada layar kecil */
+                max-width: 95%;
+                min-height: auto; /* Biarkan tinggi menyesuaikan konten */
+            }
+
+            .left-panel, .right-panel {
+                padding: 30px;
+                border-radius: 15px; /* Bulatkan semua sudut pada panel */
+            }
+
+            .countdown {
+                font-size: 3em;
+            }
+
+            .message-title {
+                font-size: 1.5em;
+            }
+
+            .logo {
+                top: 15px;
+                left: 30px;
+            }
+
+            .right-panel {
+                padding: 15px;
+                align-items: center; /* Pusatkan gambar secara vertikal */
+            }
+
+            .maintenance-image {
+                transform: translateY(0); /* Hapus geseran pada mode responsif */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-panel, .right-panel {
+                padding: 20px;
+            }
+
+            .countdown {
+                font-size: 2.5em;
+            }
+
+            .message-title {
+                font-size: 1.2em;
+            }
+
+            .message-text {
+                font-size: 0.9em;
+            }
+
+            .notify-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+    <div class="container">
+        <div class="left-panel">
+            <div class="logo">&gt; Logo</div>
+            <div class="countdown" id="countdown-timer">00:06:12:54</div>
+            <div class="message-title">Situs ini sedang<br>dalam pemeliharaan</div>
+            <div class="message-text">Lorem ipsum dolor sit amet<br>consectetur adipiscing elit</div>
+            <button class="notify-button">Beritahu Saya</button>
+        </div>
+        <div class="right-panel">
+            <img src="../assets/maintance.png" alt="Pekerja Pemeliharaan" class="maintenance-image">
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk memulai hitung mundur
+        // Anda biasanya akan menghitung waktu yang tersisa hingga tanggal/waktu tertentu
+        // dan memperbarui elemen 'countdown-timer' setiap detik.
+        function startCountdown(durationInSeconds) {
+            let timer = durationInSeconds;
+            let days, hours, minutes, seconds;
+
+            const countdownElement = document.getElementById('countdown-timer');
+
+            const interval = setInterval(() => {
+                days = Math.floor(timer / (60 * 60 * 24));
+                hours = Math.floor((timer % (60 * 60 * 24)) / (60 * 60));
+                minutes = Math.floor((timer % (60 * 60)) / 60);
+                seconds = Math.floor(timer % 60);
+
+                // Memastikan format dua digit
+                days = String(days).padStart(2, '0');
+                hours = String(hours).padStart(2, '0');
+                minutes = String(minutes).padStart(2, '0');
+                seconds = String(seconds).padStart(2, '0');
+
+                countdownElement.textContent = `${days}:${hours}:${minutes}:${seconds}`;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    countdownElement.textContent = "00:00:00:00"; // Atau "Situs Sudah Aktif!"
+                    // Anda bisa menambahkan logika lain di sini, seperti menyembunyikan hitung mundur
+                }
+            }, 1000); // Perbarui setiap 1 detik
+        }
+
+        // Untuk menggunakan hitung mundur, ganti angka placeholder dengan durasi yang Anda inginkan dalam detik.
+        // Misalnya, 6 jam, 12 menit, 54 detik = (6*3600) + (12*60) + 54 = 22374 detik
+        // startCountdown(22374); // Hapus komentar baris ini untuk mengaktifkan hitung mundur
+    </script>
