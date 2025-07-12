@@ -64,8 +64,8 @@
             }
 
             .item-prduk img {
-                width: 30px;
-                height: 30px;
+                width: 25px;
+                height: 25px;
             }
 
             .item-prduk span {
@@ -246,12 +246,21 @@
                     aspect-ratio: 16 / 5;
                 }
                 .list-item {
-                    display: flex;
-                    flex-wrap: wrap;
                     gap: 5px;
-                    justify-content: space-between;
-                    list-style: none;
                 }
+                .item-prduk {
+                    flex: 1 1 calc(25% - 5px);
+                    border: 1px solid #dae2ed;
+                    border-radius: 4px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    padding: 8px 2px;
+                    min-width: 60px;
+                    text-align: center;
+                    box-sizing: border-box;
+            }
             }
         </style>
     </head>
