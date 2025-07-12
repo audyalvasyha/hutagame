@@ -201,6 +201,18 @@
             <div class="btn btn-masuk" onclick="location.href='https://www.saldoin.my.id/masuk'">Masuk</div>
           </div>
         </div>
+        <nav class="group menu flex">
+          <ul id="linkTrigger" class="menu-list flex">
+            <li class="link-item" data-page="beranda.html">Beranda</li>
+            <li class="link-item" data-page="about.html">Tentang</li>
+            <li class="link-item" data-page="cara-order.html">Cara Order</li>
+            <li class="link-item" data-page="testimoni.html">Testimoni</li>
+            <li class="link-item" data-page="kontak.html">Kontak</li>
+            <li class="link-item" data-page="kebijakan.html">Kebijakan</li>
+            <li class="link-item" data-page="faq.html">FAQ</li>
+          </ul>
+        </nav>
+      </header>
 <!-- Tambahkan ini di dalam <body> sebelum konten utama -->
 <div class="skeleton-container" id="skeletonLoader">
   <!-- Skeleton Banner -->
@@ -222,21 +234,8 @@
     <div class="skeleton-button"></div>
   </div>
 </div>
-        <nav class="group menu flex">
-          <ul id="linkTrigger" class="menu-list flex">
-            <li class="link-item" data-page="beranda.html">Beranda</li>
-            <li class="link-item" data-page="about.html">Tentang</li>
-            <li class="link-item" data-page="cara-order.html">Cara Order</li>
-            <li class="link-item" data-page="testimoni.html">Testimoni</li>
-            <li class="link-item" data-page="kontak.html">Kontak</li>
-            <li class="link-item" data-page="kebijakan.html">Kebijakan</li>
-            <li class="link-item" data-page="faq.html">FAQ</li>
-          </ul>
-        </nav>
-      </header>
-
       <main>
-        <section class="container-ed">
+        <section class="container-ed" style="display: none">
 <div class="carousel" id="simpleCarousel">
   <div class="carousel-inner">
     <div class="carousel-slide active"><img src="/assets/banner1.jpg" alt="Banner 1" loading="lazy" /></div>
@@ -381,10 +380,10 @@
 
     setInterval(nextSlide, 4000); // Ganti setiap 4 detik
   });
-     window.addEventListener("load", function () {
-    const skeleton = document.getElementById("skeletonLoader");
-    skeleton.style.display = "none";
-  });
+    window.addEventListener("load", function () {
+  document.getElementById("skeletonLoader").style.display = "none";
+  document.querySelector(".container-ed").style.display = "block";
+});
   </script>
 </body>
 
