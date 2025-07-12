@@ -227,7 +227,7 @@
   </div>
 </div>
 
-      <main>
+      <main id="realContent" style="display: none;">
         <section class="container-ed">
 <div class="carousel" id="simpleCarousel">
   <div class="carousel-inner">
@@ -319,6 +319,11 @@
   <script src="js/script.js"></script>
   <script>
     $(document).ready(function () {
+        $('#wrapperContent').load('page/beranda.html', function () {
+    $('#skeletonLoader').fadeOut(300, function () {
+      $('#realContent').fadeIn(300);
+    });
+  });
       $.getJSON("data.json", function (data) {
         const produk = data.produk;
         for (let i = 1; i < 5; i++) {
