@@ -65,6 +65,20 @@
     // This line was commented out, causing the countdown not to start.
     // It's now uncommented and wrapped in window.onload for proper execution.
     window.onload = function () {
-        startCountdown(22374); // Uncomment this line to activate the countdown
+         // Calculate time until 7 AM tomorrow
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(now.getDate() + 1); // Set to tomorrow's date
+            tomorrow.setHours(7, 0, 0, 0); // Set to 7 AM (hours, minutes, seconds, milliseconds)
+
+            // If 7 AM tomorrow is already past (e.g., if current time is after 7 AM tomorrow),
+            // set it for the day after tomorrow's 7 AM.
+            if (tomorrow.getTime() < now.getTime()) {
+                tomorrow.setDate(tomorrow.getDate() + 1);
+            }
+
+            const durationInSeconds = Math.max(0, Math.floor((tomorrow.getTime() - now.getTime()) / 1000));
+
+            startCountdown(durationInSeconds);
     };
 </script>
