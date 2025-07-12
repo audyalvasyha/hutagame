@@ -1,251 +1,188 @@
+<style>
+:root {
+  --primary: #f7d93f;
+  --secondary: #222;
+  --bg: #f9f9f9;
+  --light: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --radius: 12px;
+}
 
-  <style>
-    :root {
-      --primary: #f7d93f;
-      --secondary: #222;
-      --bg: #f9f9f9;
-      --light: #ffffff;
-      --shadow: rgba(0, 0, 0, 0.05);
-      --radius: 12px;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 2rem 0;
-    }
+body, h1, h2, h3, p, ul, ol {
+  margin: 0;
+  padding: 0;
+}
 
-    h1, h2, h3 {
-      margin-bottom: 1rem;
-      color: #111;
-      text-align: center;
-    }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--secondary);
+}
 
-    .btn, .btn-primary, .btn-secondary {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s ease;
-      text-align: center;
-    }
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 0;
+}
 
-    .btn-primary {
-      background: var(--primary);
-      color: var(--secondary);
-    }
+h1, h2, h3 {
+  margin-bottom: 1rem;
+  color: #111;
+  text-align: center;
+}
 
-    .btn-secondary {
-      background: var(--secondary);
-      color: var(--primary);
-    }
+/* Tombol */
+.btn, .btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  text-align: center;
+}
 
-    .btn-primary:hover { background: #ffe600; }
-    .btn-secondary:hover { opacity: 0.85; }
+.btn-primary {
+  background: var(--primary);
+  color: var(--secondary);
+}
 
-    .hero {
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      color: #fff;
-      text-align: center;
-      padding: 4rem 2rem;
-    }
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--primary);
+}
 
-    .produk-grid, .testimoni-grid, .pembayaran-grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      align-items: center;
-      justify-items: center;
-    }
+.btn-primary:hover {
+  background: #ffe600;
+}
 
-    .produk-item, .testi-item {
-      background: #fff;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+.btn-secondary:hover {
+  opacity: 0.85;
+}
 
-    .produk-item img { max-width: 60px; margin-bottom: 0.5rem; }
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: var(--radius);
+}
 
-    .fitur-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      text-align: center;
-      margin: 2rem 0;
-      padding: 0;
-    }
+/* Grid Layout */
+.produk-grid, .testimoni-grid, .pembayaran-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  align-items: start;
+  justify-items: center;
+  width: 100%;
+}
 
-    .testimoni { background-color: #eef6ff; }
-    .testi-item { max-width: 300px; font-style: italic; }
+.produk-item, .testi-item {
+  background: var(--light);
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+}
 
-    .langkah-order {
-      text-align: left;
-      max-width: 600px;
-      margin: 1rem auto;
-      padding-left: 1rem;
-    }
+.produk-item img {
+  max-width: 60px;
+  margin-bottom: 0.75rem;
+}
 
-    .pembayaran-grid img { max-height: 40px; }
+/* Fitur List */
+.fitur-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  text-align: center;
+  margin: 2rem 0;
+  padding: 0;
+}
 
-    .footer-cta {
-      background-color: #222;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
+/* Testimoni */
+.testimoni {
+  background-color: #eef6ff;
+  padding: 2rem 1rem;
+}
 
-    .footer-cta .btn { background-color: #ffc107; color: #000; }
-    .footer-cta .btn:hover { background-color: #e0a800; }
+.testi-item {
+  font-style: italic;
+}
 
-    form {
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+/* Cara Order */
+.langkah-order {
+  text-align: left;
+  max-width: 600px;
+  margin: 1rem auto;
+  padding-left: 1rem;
+}
 
-    input, select, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
+/* Pembayaran */
+.pembayaran-grid img {
+  max-height: 40px;
+  width: auto;
+}
 
-    @media (max-width: 600px) {
-      .btn { width: 100%; }
-    }
+/* Footer CTA */
+.footer-cta {
+  background-color: var(--secondary);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.footer-cta .btn {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.footer-cta .btn:hover {
+  background-color: #e0a800;
+}
+
+/* Form Kontak */
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btn, .btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+    border-radius: 0;
+  }
+
+  .container {
+    padding: 1.5rem 1rem;
+  }
+}
   </style>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1>Top Up Game & Pulsa Murah, Cepat, dan Terpercaya!</h1>
-      <p>Proses instan, harga bersahabat, support 24 jam via WhatsApp.</p>
-      <a href="#produk" class="btn btn-primary">Mulai Top Up</a>
-    </div>
-  </section>
-
-  <!-- Produk Unggulan -->
-  <section id="produk" class="produk-unggulan">
-    <div class="container">
-      <h2>Produk Unggulan</h2>
-      <div class="produk-grid">
-        <div class="produk-item"><img src="/assets/mlbb.png" alt="ML"><h3>Diamond ML</h3><p>Mulai Rp1.000</p></div>
-        <div class="produk-item"><img src="/assets/ff.png" alt="FF"><h3>Diamond FF</h3><p>Mulai Rp1.000</p></div>
-        <div class="produk-item"><img src="/assets/pubg.png" alt="PUBG"><h3>UC PUBG</h3><p>Mulai Rp5.000</p></div>
-        <div class="produk-item"><img src="/assets/pulsa.png" alt="Pulsa"><h3>Pulsa</h3><p>Mulai Rp5.000</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Keunggulan -->
-  <section class="keunggulan">
-    <div class="container">
-      <h2>Kenapa Pilih Saldoin?</h2>
-      <ul class="fitur-list">
-        <li>Proses Otomatis</li>
-        <li>Harga Transparan</li>
-        <li>Metode Pembayaran Lengkap</li>
-        <li>Support Ramah</li>
-        <li>Aman & Terpercaya</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Testimoni -->
-  <section class="testimoni">
-    <div class="container">
-      <h2>Testimoni Pelanggan</h2>
-      <div class="testimoni-grid">
-        <div class="testi-item"><p>"Top up ML langsung masuk cuma 30 detik!"</p><strong>- Fajar A.</strong></div>
-        <div class="testi-item"><p>"Sangat terpercaya, sudah 5x transaksi dan lancar."</p><strong>- Rika R.</strong></div>
-        <div class="testi-item"><p>"Termurah dan cocok buat langganan."</p><strong>- Andi S.</strong></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cara Order -->
-  <section class="cara-order">
-    <div class="container">
-      <h2>Cara Order</h2>
-      <ol class="langkah-order">
-        <li>Pilih produk</li>
-        <li>Masukkan ID/akun</li>
-        <li>Pilih pembayaran & bayar</li>
-        <li>Pesanan diproses otomatis</li>
-      </ol>
-      <a href="/cara-order.html" class="btn btn-primary">Lihat Panduan Lengkap</a>
-    </div>
-  </section>
-
-  <!-- Pembayaran -->
-  <section class="pembayaran">
-    <div class="container">
-      <h2>Metode Pembayaran</h2>
-      <div class="pembayaran-grid">
-        <img src="/assets/dana.png" alt="Dana">
-        <img src="/assets/gopay.png" alt="GoPay">
-        <img src="/assets/ovo.png" alt="OVO">
-        <img src="/assets/qris.png" alt="QRIS">
-        <img src="/assets/bca.png" alt="BCA">
-      </div>
-    </div>
-  </section>
-
-  <!-- Tentang Kami -->
-  <section class="tentang-kami">
-    <div class="container">
-      <h2>Tentang Saldoin.my.id</h2>
-      <p>Saldoin.my.id adalah platform top up game & digital sejak 2023.</p>
-      <a href="/tentang.html" class="btn btn-secondary">Baca Selengkapnya</a>
-    </div>
-  </section>
-
-  <!-- Join CTA -->
-  <section class="section join">
-    <h2>Gabung Komunitas Gamer Cerdas!</h2>
-    <p>Ikuti kami di Instagram untuk promo & giveaway!</p>
-    <a href="https://instagram.com/saldoin.id" class="btn-primary" target="_blank">Follow Instagram</a>
-  </section>
-
-  <!-- Kontak -->
-  <section class="section kontak">
-    <h2>Hubungi Kami</h2>
-    <form id="contactForm">
-      <input type="text" id="nama" placeholder="Nama Kamu" required />
-      <input type="text" id="idgame" placeholder="ID Game / Username" required />
-      <select id="game" required>
-        <option value="">Pilih Game</option>
-        <option value="Mobile Legends">Mobile Legends</option>
-        <option value="Free Fire">Free Fire</option>
-        <option value="PUBG Mobile">PUBG Mobile</option>
-      </select>
-      <textarea id="pesan" placeholder="Pesan atau pertanyaan..." rows="4"></textarea>
-      <button type="submit" class="btn-primary">Kirim Pesan</button>
-    </form>
-  </section>
-
-  <!-- CTA Final -->
-  <section class="section cta-final">
-    <h2>Yuk Top Up Sekarang Juga!</h2>
-    <a href="https://www.saldoin.my.id" class="btn-secondary">Lihat Layanan</a>
-  </section>
-
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const nama = document.getElementById('nama').value;
-      const idgame = document.getElementById('idgame').value;
-      const game = document.getElementById('game').value;
-      const pesan = document.getElementById('pesan').value;
-      const text = `Halo Admin saldoin,%0ASaya ingin top up:%0A%0ANama: ${nama}%0AID Game: ${idgame}%0AGame: ${game}%0APesan: ${pesan}`;
-      const whatsappURL = `https://wa.me/6281373634190?text=${text}`;
-      window.open(whatsappURL, '_blank');
-    });
-  </script>
