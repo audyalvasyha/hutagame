@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Top up game murah, cepat, dan terpercaya. Saldoin menyediakan Diamond ML, FF, PUBG, dan lainnya.">
+ <meta name="description" content="Top up game murah, cepat, dan terpercaya. Saldoin menyediakan berbagai layanan digital termasuk Diamond Mobile Legends, Free Fire, UC PUBG, dan item game lainnya. Nikmati pengalaman isi ulang instan, aman, dan harga terjangkau hanya di Saldoin.my.id - solusi terbaik untuk kebutuhan top up dan produk digital Anda.">
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Saldoin.my.id - Top Up Game Murah & Instan" />
   <meta property="og:description"
@@ -100,6 +98,76 @@
     object-fit: cover;
     border-radius: 8px;
   }
+.skeleton-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.skeleton-banner,
+.skeleton-icon,
+.skeleton-line,
+.skeleton-button {
+  background: linear-gradient(90deg, #eeeeee 25%, #dddddd 50%, #eeeeee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+.skeleton-banner {
+  width: 100%;
+  height: 140px;
+  border-radius: 12px;
+}
+
+.skeleton-icons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.skeleton-icon {
+  flex: 1;
+  height: 90px;
+  border-radius: 10px;
+}
+
+.skeleton-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #f3f3f3;
+}
+
+.skeleton-line {
+  height: 16px;
+  border-radius: 6px;
+}
+
+.skeleton-line.short {
+  width: 50%;
+}
+
+.skeleton-line.long {
+  width: 100%;
+}
+
+.skeleton-button {
+  width: 60%;
+  height: 36px;
+  border-radius: 20px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
 
   @media screen and (max-width: 768px) {
     .carousel-slide img {
@@ -142,6 +210,22 @@
           </ul>
         </nav>
       </header>
+
+      <div class="skeleton-container" id="skeletonLoader">
+  <div class="skeleton-banner"></div>
+  <div class="skeleton-icons">
+    <div class="skeleton-icon"></div>
+    <div class="skeleton-icon"></div>
+    <div class="skeleton-icon"></div>
+    <div class="skeleton-icon"></div>
+  </div>
+  <div class="skeleton-text-block">
+    <div class="skeleton-line short"></div>
+    <div class="skeleton-line long"></div>
+    <div class="skeleton-line long"></div>
+    <div class="skeleton-button"></div>
+  </div>
+</div>
 
       <main>
         <section class="container-ed">
@@ -288,6 +372,11 @@
     }
 
     setInterval(nextSlide, 4000); // Ganti setiap 4 detik
+        window.addEventListener("load", function () {
+  document.getElementById("skeletonLoader").style.display = "none";
+  document.querySelector(".real-content").style.display = "block";
+});
+
   });
   </script>
 </body>
