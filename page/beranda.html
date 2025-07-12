@@ -69,7 +69,7 @@
             const now = new Date();
             const tomorrow = new Date(now);
             tomorrow.setDate(now.getDate() + 1); // Set to tomorrow's date
-            tomorrow.setHours(7, 0, 0, 0); // Set to 7 AM (hours, minutes, seconds, milliseconds)
+            tomorrow.setHours(6, 0, 0, 0); // Set to 7 AM (hours, minutes, seconds, milliseconds)
 
             // If 7 AM tomorrow is already past (e.g., if current time is after 7 AM tomorrow),
             // set it for the day after tomorrow's 7 AM.
