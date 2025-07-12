@@ -108,7 +108,12 @@
 .skeleton-banner,
 .skeleton-icon,
 .skeleton-line,
-.skeleton-button {
+.skeleton-button,
+.skeleton-title,
+.skeleton-card,
+.skeleton-footer-title,
+.skeleton-icon-circle,
+.skeleton-footer-text {
   background: linear-gradient(90deg, #eeeeee 25%, #dddddd 50%, #eeeeee 75%);
   background-size: 200% 100%;
   animation: shimmer 1.2s infinite;
@@ -160,6 +165,64 @@
   border-radius: 20px;
 }
 
+/* SKELETON POPULER & FOOTER */
+.skeleton-section,
+.skeleton-footer {
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.skeleton-title {
+  width: 150px;
+  height: 20px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.skeleton-populer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.skeleton-card {
+  flex: 1 1 calc(25% - 12px);
+  height: 180px;
+  border-radius: 10px;
+  min-width: 80px;
+}
+
+.skeleton-footer-title {
+  width: 180px;
+  height: 18px;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+.skeleton-contact-icons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.skeleton-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.skeleton-footer-text {
+  height: 14px;
+  border-radius: 4px;
+  width: 90%;
+  margin-bottom: 8px;
+}
+
+.skeleton-footer-text.short {
+  width: 60%;
+}
+
 @keyframes shimmer {
   0% {
     background-position: 200% 0;
@@ -168,7 +231,6 @@
     background-position: -200% 0;
   }
 }
-
   @media screen and (max-width: 768px) {
     .carousel-slide img {
       aspect-ratio: 16 / 5;
@@ -225,6 +287,28 @@
     <div class="skeleton-line long"></div>
     <div class="skeleton-button"></div>
   </div>
+          <!-- Skeleton TERPOPULER -->
+  <section class="skeleton-section">
+    <div class="skeleton-title"></div>
+    <div class="skeleton-populer-grid">
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+    </div>
+  </section>
+
+  <!-- Skeleton FOOTER KONTAK -->
+  <section class="skeleton-footer">
+    <div class="skeleton-footer-title"></div>
+    <div class="skeleton-contact-icons">
+      <div class="skeleton-icon-circle"></div>
+      <div class="skeleton-icon-circle"></div>
+      <div class="skeleton-icon-circle"></div>
+    </div>
+    <div class="skeleton-footer-text short"></div>
+    <div class="skeleton-footer-text"></div>
+  </section>
 </div>
 
       <main id="realContent" style="display: none;">
