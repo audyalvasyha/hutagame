@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <meta name="description" content="Saldoin.my.id adalah layanan top up game online, e-wallet, dan voucher digital tercepat & terpercaya. Diskon harian, proses instan!">
-
-  <title>Beranda - saldoin.my.id</title>
-  <link rel="stylesheet" href="../style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saldoin.my.id - Top Up Game & Pulsa</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     :root {
       --primary: #f7d93f;
@@ -18,30 +15,39 @@
       --radius: 12px;
     }
 
-    body {
+    body, h1, h2, h3, p, ul, ol {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--secondary);
-      line-height: 1.6;
+      padding: 0;
     }
 
-    .section {
-      padding: 3rem 1.5rem;
-      text-align: center;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--secondary);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 0;
     }
 
     h1, h2, h3 {
       margin-bottom: 1rem;
+      color: #111;
+      text-align: center;
     }
 
-    .btn-primary, .btn-secondary {
+    .btn, .btn-primary, .btn-secondary {
       display: inline-block;
       padding: 0.75rem 1.5rem;
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
       transition: background 0.3s ease;
+      text-align: center;
     }
 
     .btn-primary {
@@ -54,49 +60,72 @@
       color: var(--primary);
     }
 
-    .btn-primary:hover {
-      background: #ffe600;
-    }
-
-    .btn-secondary:hover {
-      opacity: 0.85;
-    }
+    .btn-primary:hover { background: #ffe600; }
+    .btn-secondary:hover { opacity: 0.85; }
 
     .hero {
-      background: linear-gradient(135deg, #daf5ff, #cbedfa);
-      border-radius: var(--radius);
-      padding: 4rem 2rem;
-      margin: 1rem;
-    }
-
-    .layanan-grid, .testimoni-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--light);
-      border: 1px solid #eee;
-      padding: 1.5rem;
-      border-radius: var(--radius);
-      width: 100%;
-      max-width: 260px;
-      box-shadow: 0 4px 10px var(--shadow);
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: #fff;
       text-align: center;
-      transition: transform 0.2s;
+      padding: 4rem 2rem;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
+    .produk-grid, .testimoni-grid, .pembayaran-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      align-items: center;
+      justify-items: center;
     }
 
-    ol, .faq p {
+    .produk-item, .testi-item {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .produk-item img { max-width: 60px; margin-bottom: 0.5rem; }
+
+    .fitur-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      text-align: center;
+      margin: 2rem 0;
+      padding: 0;
+    }
+
+    .testimoni { background-color: #eef6ff; }
+    .testi-item { max-width: 300px; font-style: italic; }
+
+    .langkah-order {
       text-align: left;
-      max-width: 700px;
-      margin: 0.5rem auto;
-      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 1rem auto;
+      padding-left: 1rem;
+    }
+
+    .pembayaran-grid img { max-height: 40px; }
+
+    .footer-cta {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .footer-cta .btn { background-color: #ffc107; color: #000; }
+    .footer-cta .btn:hover { background-color: #e0a800; }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     input, select, textarea {
@@ -107,96 +136,105 @@
       font-size: 1rem;
     }
 
-    form {
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .marquee {
-      background: #eee;
-      padding: 1rem;
-      font-weight: bold;
+    @media (max-width: 600px) {
+      .btn { width: 100%; }
     }
   </style>
 </head>
-
 <body>
-  <section class="section hero">
-    <h1>Top Up Game Murah & Cepat di <span>saldoin.my.id</span></h1>
-    <p>Layanan terpercaya untuk kebutuhan top up Mobile Legends, Free Fire, dan lainnya.</p>
-    <a href="https://www.saldoin.my.id" class="btn-primary">Mulai Top Up Sekarang</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Top Up Game & Pulsa Murah, Cepat, dan Terpercaya!</h1>
+      <p>Proses instan, harga bersahabat, support 24 jam via WhatsApp.</p>
+      <a href="#produk" class="btn btn-primary">Mulai Top Up</a>
+    </div>
   </section>
 
-  <section class="section cara-topup">
-    <h2>Cara Top Up di saldoin</h2>
-    <ol>
-      <li>1. Pilih game favorit kamu dari daftar layanan.</li>
-      <li>2. Masukkan ID game dan jumlah top up yang diinginkan.</li>
-      <li>3. Hubungi kami via WhatsApp atau isi formulir di bawah.</li>
-      <li>4. Lakukan pembayaran sesuai instruksi.</li>
-      <li>5. Diamond / UC langsung masuk ke akun kamu!</li>
-    </ol>
-  </section>
-
-  <section class="section faq">
-    <h2>Pertanyaan Umum (FAQ)</h2>
-    <p><strong>Q:</strong> Berapa lama proses top up?<br><strong>A:</strong> Instan! Hanya butuh beberapa detik sampai maksimal 5 menit.</p>
-    <p><strong>Q:</strong> Apakah aman transaksi di saldoin?<br><strong>A:</strong> Aman! Sudah melayani ribuan transaksi.</p>
-    <p><strong>Q:</strong> Pembayaran bisa lewat apa saja?<br><strong>A:</strong> Bisa lewat Dana, OVO, GoPay, Transfer Bank, atau Pulsa.</p>
-  </section>
-
-  <section class="section statistik">
-    <h2>saldoin Dalam Angka</h2>
-    <div class="layanan-grid">
-      <div class="card">
-        <h3>5.000+</h3>
-        <p>Transaksi sukses</p>
-      </div>
-      <div class="card">
-        <h3>4.8/5</h3>
-        <p>Rating rata-rata pelanggan</p>
-      </div>
-      <div class="card">
-        <h3>24/7</h3>
-        <p>Layanan customer service</p>
+  <!-- Produk Unggulan -->
+  <section id="produk" class="produk-unggulan">
+    <div class="container">
+      <h2>Produk Unggulan</h2>
+      <div class="produk-grid">
+        <div class="produk-item"><img src="/assets/mlbb.png" alt="ML"><h3>Diamond ML</h3><p>Mulai Rp1.000</p></div>
+        <div class="produk-item"><img src="/assets/ff.png" alt="FF"><h3>Diamond FF</h3><p>Mulai Rp1.000</p></div>
+        <div class="produk-item"><img src="/assets/pubg.png" alt="PUBG"><h3>UC PUBG</h3><p>Mulai Rp5.000</p></div>
+        <div class="produk-item"><img src="/assets/pulsa.png" alt="Pulsa"><h3>Pulsa</h3><p>Mulai Rp5.000</p></div>
       </div>
     </div>
   </section>
 
-  <section class="section artikel-terbaru">
-    <h2>Tips & Info Game Terbaru</h2>
-    <div class="layanan-grid">
-      <div class="card">
-        <h3>5 Hero Terkuat MLBB 2025</h3>
-        <p>Update terbaru patch! Yuk cek siapa yang meta sekarang.</p>
-        <a href="page/tips-hero-ml.html" class="btn-secondary">Baca</a>
-      </div>
-      <div class="card">
-        <h3>Cara Top Up Free Fire Aman</h3>
-        <p>Jangan sampai salah kirim! Ini tips sebelum isi diamond FF.</p>
-        <a href="page/cara-topup-ff.html" class="btn-secondary">Baca</a>
+  <!-- Keunggulan -->
+  <section class="keunggulan">
+    <div class="container">
+      <h2>Kenapa Pilih Saldoin?</h2>
+      <ul class="fitur-list">
+        <li>Proses Otomatis</li>
+        <li>Harga Transparan</li>
+        <li>Metode Pembayaran Lengkap</li>
+        <li>Support Ramah</li>
+        <li>Aman & Terpercaya</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Testimoni -->
+  <section class="testimoni">
+    <div class="container">
+      <h2>Testimoni Pelanggan</h2>
+      <div class="testimoni-grid">
+        <div class="testi-item"><p>"Top up ML langsung masuk cuma 30 detik!"</p><strong>- Fajar A.</strong></div>
+        <div class="testi-item"><p>"Sangat terpercaya, sudah 5x transaksi dan lancar."</p><strong>- Rika R.</strong></div>
+        <div class="testi-item"><p>"Termurah dan cocok buat langganan."</p><strong>- Andi S.</strong></div>
       </div>
     </div>
   </section>
 
-  <section class="section bukti-transaksi">
-    <h2>Transaksi Terbaru</h2>
-    <div class="marquee">
-      <marquee behavior="scroll" direction="left">
-        ✅ MLBB 500 Diamond - @Bagas | ✅ FF 720 Diamond - @Rani | ✅ PUBG UC 300 - @Joko | ✅ MLBB 1000 Diamond - @Lia
-      </marquee>
+  <!-- Cara Order -->
+  <section class="cara-order">
+    <div class="container">
+      <h2>Cara Order</h2>
+      <ol class="langkah-order">
+        <li>Pilih produk</li>
+        <li>Masukkan ID/akun</li>
+        <li>Pilih pembayaran & bayar</li>
+        <li>Pesanan diproses otomatis</li>
+      </ol>
+      <a href="/cara-order.html" class="btn btn-primary">Lihat Panduan Lengkap</a>
     </div>
   </section>
 
+  <!-- Pembayaran -->
+  <section class="pembayaran">
+    <div class="container">
+      <h2>Metode Pembayaran</h2>
+      <div class="pembayaran-grid">
+        <img src="/assets/dana.png" alt="Dana">
+        <img src="/assets/gopay.png" alt="GoPay">
+        <img src="/assets/ovo.png" alt="OVO">
+        <img src="/assets/qris.png" alt="QRIS">
+        <img src="/assets/bca.png" alt="BCA">
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang Kami -->
+  <section class="tentang-kami">
+    <div class="container">
+      <h2>Tentang Saldoin.my.id</h2>
+      <p>Saldoin.my.id adalah platform top up game & digital sejak 2023.</p>
+      <a href="/tentang.html" class="btn btn-secondary">Baca Selengkapnya</a>
+    </div>
+  </section>
+
+  <!-- Join CTA -->
   <section class="section join">
     <h2>Gabung Komunitas Gamer Cerdas!</h2>
-    <p>Ikuti kami di media sosial untuk info promo, giveaway, dan turnamen seru!</p>
+    <p>Ikuti kami di Instagram untuk promo & giveaway!</p>
     <a href="https://instagram.com/saldoin.id" class="btn-primary" target="_blank">Follow Instagram</a>
   </section>
 
+  <!-- Kontak -->
   <section class="section kontak">
     <h2>Hubungi Kami</h2>
     <form id="contactForm">
@@ -213,6 +251,7 @@
     </form>
   </section>
 
+  <!-- CTA Final -->
   <section class="section cta-final">
     <h2>Yuk Top Up Sekarang Juga!</h2>
     <a href="https://www.saldoin.my.id" class="btn-secondary">Lihat Layanan</a>
@@ -231,5 +270,4 @@
     });
   </script>
 </body>
-
 </html>
