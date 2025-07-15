@@ -469,12 +469,12 @@
                 // Load data JSON
                 $.getJSON("data.json", function (data) {
                     const produk = data.produk;
-                    for (let i = 1; i < 5; i++) {
+                    for (let i = 1; i < 7; i++) {
                         const item = produk[i];
                         const alamat = item.address || "#";
                         $("#populerList").append(`
             <li class="produk-item flex">
-              <img src="${item.img_product}" width="128" height="128" loading="lazy" alt="${item.nm_product}" />
+              <img src="${item.img_product}" width="48" height="48" loading="lazy" alt="${item.nm_product}" />
               <p>#${i}</p>
               <span>${item.nm_product}</span>
               <button class="btn-choose" onclick="location.href='${alamat}'">BELI</button>
