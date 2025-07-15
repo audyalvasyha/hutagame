@@ -469,7 +469,7 @@
                 // Load data JSON
                 $.getJSON("data.json", function (data) {
                     const produk = data.produk;
-                    for (let i = 1; i < 7; i++) {
+                    for (let i = 1; i < 5; i++) {
                         const item = produk[i];
                         const alamat = item.address || "#";
                         $("#populerList").append(`
