@@ -29,10 +29,9 @@
             color: var(--primary-dark);
             margin-top: 30px;
             margin-bottom: 15px;
-            text-align: left;
+            text-align: center;
             position: relative;
             z-index: 2;
-            padding-left: 10px;
         }
 
         .payment-methods-grid {
@@ -243,7 +242,7 @@
 </head>
 <body>
     <div class="payment-section">
-        <h2>Pilih Metode Pembayaran</h2>
+        <h2>Metode Pembayaran</h2>
 
         <div class="payment-category-title">QRIS & E-Wallet</div>
         <div class="payment-methods-grid">
@@ -264,7 +263,7 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Logo_Alfamart.png/800px-Logo_Alfamart.png" alt="Alfamart">
             </div>
             <div class="payment-method-item" data-method="indomaret">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_Indomaret.png/800px-Logo_Indomaret.png" alt="Indomaret">
+                <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/indomaret.svg" alt="Indomaret">
             </div>
         </div>
 
@@ -291,6 +290,9 @@
             <div class="payment-method-item" data-method="va-bsi">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Bank_Syariah_Indonesia_%28BSI%29.svg/800px-Bank_Syariah_Indonesia_%28BSI%29.svg.png" alt="VA BSI">
             </div>
+        </div>
+        <div id="selected-method-info" class="selected-method-info">
+            <p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>
         </div>
    </div>
 
