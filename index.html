@@ -444,6 +444,7 @@
                         $("#skeletonLoader").fadeOut(200, function () {
                             $("#realContent").fadeIn(200);
                         });
+                        initializePayment();
                     });
                 });
             }
@@ -503,7 +504,7 @@
     </script>
       <script>
         /* --- JavaScript Start --- */
-        document.addEventListener('DOMContentLoaded', () => {
+        const initializePayment = () => {
             const paymentItems = document.querySelectorAll('.payment-method-item');
             const selectedMethodInfo = document.getElementById('selected-method-info');
             const proceedButton = document.getElementById('proceed-button');
