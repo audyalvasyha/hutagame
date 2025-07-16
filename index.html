@@ -501,6 +501,142 @@
             });
         });
     </script>
+      <script>
+        /* --- JavaScript Start --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            const paymentItems = document.querySelectorAll('.payment-method-item');
+            const selectedMethodInfo = document.getElementById('selected-method-info');
+            const proceedButton = document.getElementById('proceed-button');
+            let selectedMethod = null;
+
+            // Objek untuk menyimpan informasi instruksi pembayaran (PERBARUI SESUAI METODE BARU)
+            const paymentInstructions = {
+                qris: `
+                    <p><strong>Cara Pembayaran via QRIS:</strong></p>
+                    <p>1. Klik tombol 'Lanjutkan Pembayaran'.</p>
+                    <p>2. Pindai kode QRIS yang muncul menggunakan aplikasi pembayaran (GoPay, OVO, DANA, mobile banking, dll.) Anda.</p>
+                    <p>3. Pastikan jumlah pembayaran sudah sesuai.</p>
+                    <p>4. Konfirmasi pembayaran.</p>
+                `,
+                dana: `
+                    <p><strong>Cara Pembayaran via DANA:</strong></p>
+                    <p>1. Pastikan saldo DANA Anda mencukupi.</p>
+                    <p>2. Anda akan diarahkan ke aplikasi DANA untuk menyelesaikan pembayaran.</p>
+                    <p>3. Ikuti instruksi di aplikasi DANA dan konfirmasi pembayaran.</p>
+                `,
+                ovo: `
+                    <p><strong>Cara Pembayaran via OVO:</strong></p>
+                    <p>1. Pastikan saldo OVO Anda mencukupi.</p>
+                    <p>2. Anda akan diarahkan ke aplikasi OVO untuk menyelesaikan pembayaran.</p>
+                    <p>3. Ikuti instruksi di aplikasi OVO dan konfirmasi pembayaran.</p>
+                `,
+                linkaja: `
+                    <p><strong>Cara Pembayaran via LinkAja:</strong></p>
+                    <p>1. Pastikan saldo LinkAja Anda mencukupi.</p>
+                    <p>2. Anda akan diarahkan ke aplikasi LinkAja untuk menyelesaikan pembayaran.</p>
+                    <p>3. Ikuti instruksi di aplikasi LinkAja dan konfirmasi pembayaran.</p>
+                `,
+                alfamart: `
+                    <p><strong>Cara Pembayaran via Alfamart:</strong></p>
+                    <p>1. Setelah menekan 'Lanjutkan Pembayaran', Anda akan menerima kode pembayaran.</p>
+                    <p>2. Kunjungi gerai Alfamart terdekat.</p>
+                    <p>3. Berikan kode pembayaran kepada kasir dan lakukan pembayaran.</p>
+                    <p>4. Simpan struk sebagai bukti pembayaran.</p>
+                `,
+                indomaret: `
+                    <p><strong>Cara Pembayaran via Indomaret:</strong></p>
+                    <p>1. Setelah menekan 'Lanjutkan Pembayaran', Anda akan menerima kode pembayaran.</p>
+                    <p>2. Kunjungi gerai Indomaret terdekat.</p>
+                    <p>3. Berikan kode pembayaran kepada kasir dan lakukan pembayaran.</p>
+                    <p>4. Simpan struk sebagai bukti pembayaran.</p>
+                `,
+                briva: `
+                    <p><strong>Cara Pembayaran via BRIVA (Bank BRI Virtual Account):</strong></p>
+                    <p>1. Salin nomor Virtual Account BRI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui ATM BRI, BRImo (Mobile Banking), atau Internet Banking BRI.</p>
+                    <p>3. Pilih 'Pembayaran' > 'BRIVA' dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-mandiri': `
+                    <p><strong>Cara Pembayaran via Virtual Account Mandiri:</strong></p>
+                    <p>1. Salin nomor Virtual Account Mandiri Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui Livin' by Mandiri, ATM Mandiri, atau Internet Banking Mandiri.</p>
+                    <p>3. Pilih menu 'Bayar' atau 'Transfer' ke Virtual Account dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-bni': `
+                    <p><strong>Cara Pembayaran via Virtual Account BNI:</strong></p>
+                    <p>1. Salin nomor Virtual Account BNI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui BNI Mobile Banking, ATM BNI, atau Internet Banking BNI.</p>
+                    <p>3. Pilih 'Transfer' > 'Virtual Account Billing' dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-danamon': `
+                    <p><strong>Cara Pembayaran via Virtual Account Danamon:</strong></p>
+                    <p>1. Salin nomor Virtual Account Danamon Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui D-Bank Mobile, ATM Danamon, atau Internet Banking Danamon.</p>
+                    <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-permata': `
+                    <p><strong>Cara Pembayaran via Virtual Account Permata:</strong></p>
+                    <p>1. Salin nomor Virtual Account Permata Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui PermataMobile X, ATM Permata, atau bank lain (via transfer ke Permata).</p>
+                    <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-cimb': `
+                    <p><strong>Cara Pembayaran via Virtual Account CIMB Niaga:</strong></p>
+                    <p>1. Salin nomor Virtual Account CIMB Niaga Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui OCTO Mobile, ATM CIMB Niaga, atau bank lain (via transfer ke CIMB Niaga).</p>
+                    <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-bsi': `
+                    <p><strong>Cara Pembayaran via Virtual Account BSI:</strong></p>
+                    <p>1. Salin nomor Virtual Account BSI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui BSI Mobile, ATM BSI, atau bank lain (via transfer ke BSI).</p>
+                    <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+            };
+
+            paymentItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Hapus kelas 'selected' dari semua item
+                    paymentItems.forEach(i => i.classList.remove('selected'));
+
+                    // Tambahkan kelas 'selected' ke item yang diklik
+                    item.classList.add('selected');
+
+                    // Ambil metode yang dipilih
+                    selectedMethod = item.dataset.method;
+
+                    // Tampilkan instruksi pembayaran
+                    if (paymentInstructions[selectedMethod]) {
+                        selectedMethodInfo.innerHTML = paymentInstructions[selectedMethod];
+                    } else {
+                        selectedMethodInfo.innerHTML = `<p>Instruksi pembayaran untuk ${item.querySelector('img').alt} akan ditampilkan di sini.</p>`;
+                    }
+
+                    // Aktifkan tombol lanjutkan
+                    proceedButton.disabled = false;
+                });
+            });
+
+            proceedButton.addEventListener('click', () => {
+                if (selectedMethod) {
+                    alert(`Anda memilih pembayaran via ${selectedMethod}. Lanjutkan ke proses pembayaran.`);
+                    // Di sini Anda akan mengarahkan pengguna ke halaman pembayaran yang sebenarnya
+                    // atau memicu API gateway pembayaran.
+                    // Contoh: window.location.href = `/checkout?method=${selectedMethod}`;
+                } else {
+                    alert('Mohon pilih metode pembayaran terlebih dahulu.');
+                }
+            });
+        });
+        /* --- JavaScript End --- */
+    </script>
     <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
