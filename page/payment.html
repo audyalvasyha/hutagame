@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metode Pembayaran Keren Saldoin.my.id</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Start --- */
+        body {
+            font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+            background: linear-gradient(135deg, #e0f2f7 0%, #d1e8ef 100%); /* Gradien latar belakang lembut */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+
+        .payment-section {
+            background-color: #ffffff;
+            border-radius: 20px; /* Radius lebih besar untuk kesan modern */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* Bayangan lebih dalam */
+            padding: 40px;
+            width: 100%;
+            max-width: 800px; /* Lebar maksimal lebih besar */
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Pastikan bayangan dalam tidak bocor */
+            z-index: 1; /* Pastikan konten utama di atas pseudo-element */
+        }
+
+        /* Efek latar belakang abstrak (opsional, untuk sentuhan "keren") */
+        .payment-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 123, 255, 0.05); /* Warna biru Saldoin */
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        .payment-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 180px;
+            height: 180px;
+            background: rgba(0, 123, 255, 0.07); /* Warna biru Saldoin yang lebih gelap */
+            border-radius: 50%;
+            filter: blur(70px);
+            z-index: 0;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 600;
+            position: relative; /* Untuk z-index agar di atas efek before/after */
+            z-index: 2; /* Lebih tinggi dari section pseudo-elements */
+        }
+
+        .payment-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ukuran logo lebih fokus */
+            gap: 20px; /* Jarak antar logo */
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2; /* Pastikan di atas efek before/after */
+        }
+
+        .payment-method-item {
+            background-color: #ffffff; /* Latar belakang putih bersih */
+            border: 1px solid #e9ecef; /* Border tipis dan lembut */
+            border-radius: 15px; /* Border radius yang lebih besar */
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transisi lebih halus dan modern */
+            min-height: 110px; /* Tinggi minimum yang lebih pas untuk logo */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Bayangan lembut untuk mengangkat elemen */
+            position: relative;
+            overflow: hidden; /* Untuk efek hover yang masuk dari dalam */
+            z-index: 1; /* Pastikan di atas pseudo-element item */
+        }
+
+        .payment-method-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.15));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0; /* Di bawah konten item */
+        }
+
+        .payment-method-item:hover::before {
+            opacity: 1;
+        }
+
+        .payment-method-item:hover {
+            border-color: #007bff; /* Warna biru Saldoin.my.id */
+            transform: translateY(-5px) scale(1.03); /* Efek mengangkat dan sedikit membesar */
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.25); /* Bayangan yang lebih kuat saat hover */
+        }
+
+        .payment-method-item.selected {
+            border-color: #007bff;
+            background-color: #e6f2ff; /* Latar belakang biru muda saat terpilih */
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.35);
+        }
+
+        .payment-method-item img {
+            width: 70px; /* Ukuran logo lebih besar untuk fokus */
+            height: 70px;
+            object-fit: contain; /* Memastikan logo tidak terdistorsi */
+            margin-bottom: 0; /* Tidak ada margin bawah karena tidak ada teks */
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1)); /* Bayangan lembut pada logo */
+            position: relative;
+            z-index: 1; /* Pastikan logo di atas pseudo-element */
+        }
+
+        .selected-method-info {
+            background-color: #eaf6ff; /* Warna lebih lembut */
+            border: 1px solid #b3d9ff;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: left;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            line-height: 1.7;
+            font-size: 0.95em;
+            color: #0056b3;
+            animation: fadeIn 0.5s ease-out; /* Animasi fade-in saat muncul */
+            position: relative;
+            z-index: 2; /* Lebih tinggi dari section pseudo-elements */
+        }
+
+        .selected-method-info p {
+            margin: 5px 0;
+            font-weight: 400;
+        }
+
+        .selected-method-info strong {
+            font-weight: 600;
+            color: #004085;
+        }
+
+
+        .proceed-button {
+            background: linear-gradient(90deg, #007bff, #0056b3); /* Gradien untuk tombol */
+            color: #fff;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+            width: 100%;
+            max-width: 350px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+            position: relative;
+            z-index: 2; /* Lebih tinggi dari section pseudo-elements */
+        }
+
+        .proceed-button:hover:not(:disabled) {
+            background: linear-gradient(90deg, #0056b3, #007bff);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .proceed-button:disabled {
+            background: linear-gradient(90deg, #cccccc, #aaaaaa);
+            cursor: not-allowed;
+            opacity: 0.7;
+            box-shadow: none;
+        }
+
+        /* Keyframe for fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsif untuk layar lebih kecil */
+        @media (max-width: 768px) {
+            .payment-section {
+                padding: 25px;
+                margin: 20px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .payment-methods-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Ukuran lebih kecil di mobile */
+                gap: 12px;
+            }
+
+            .payment-method-item {
+                min-height: 90px;
+                padding: 10px;
+            }
+
+            .payment-method-item img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .proceed-button {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .payment-section {
+                padding: 15px;
+            }
+
+            .payment-methods-grid {
+                grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+                gap: 10px;
+            }
+
+            .payment-method-item {
+                min-height: 80px;
+            }
+
+            .payment-method-item img {
+                width: 50px;
+                height: 50px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+        }
+        /* --- CSS End --- */
+    </style>
+</head>
+<body>
+    <div class="payment-section">
+        <h2>Pilih Metode Pembayaran</h2>
+        <div class="payment-methods-grid">
+            <div class="payment-method-item" data-method="gopay">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/1280px-Gopay_logo.svg.png" alt="GoPay">
+            </div>
+            <div class="payment-method-item" data-method="ovo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/OVO_Logo.png/800px-OVO_Logo.png" alt="OVO">
+            </div>
+            <div class="payment-method-item" data-method="dana">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/DANA_LOGO_PNG-01.png/800px-DANA_LOGO_PNG-01.png" alt="DANA">
+            </div>
+            <div class="payment-method-item" data-method="shopeepay">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/ShopeePay.png/800px-ShopeePay.png" alt="ShopeePay">
+            </div>
+            <div class="payment-method-item" data-method="bca">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1280px-Bank_Central_Asia.svg.png" alt="BCA">
+            </div>
+            <div class="payment-method-item" data-method="mandiri">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo.svg/800px-Bank_Mandiri_logo.svg.png" alt="Mandiri">
+            </div>
+            <div class="payment-method-item" data-method="bni">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/BNI_logo.svg/800px-BNI_logo.svg.png" alt="BNI">
+            </div>
+            <div class="payment-method-item" data-method="bri">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_logo.svg/800px-BRI_logo.svg.png" alt="BRI">
+            </div>
+            <div class="payment-method-item" data-method="qris">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/QRIS_logo.svg/800px-QRIS_logo.svg.png" alt="QRIS">
+            </div>
+            <div class="payment-method-item" data-method="indomaret">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_Indomaret.png/800px-Logo_Indomaret.png" alt="Indomaret">
+            </div>
+        </div>
+
+        <div id="selected-method-info" class="selected-method-info">
+            </div>
+
+        <button id="proceed-button" class="proceed-button" disabled>Lanjutkan Pembayaran</button>
+    </div>
+
+    <script>
+        /* --- JavaScript Start --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            const paymentItems = document.querySelectorAll('.payment-method-item');
+            const selectedMethodInfo = document.getElementById('selected-method-info');
+            const proceedButton = document.getElementById('proceed-button');
+            let selectedMethod = null;
+
+            // Objek untuk menyimpan informasi instruksi pembayaran
+            const paymentInstructions = {
+                gopay: `
+                    <p><strong>Cara Pembayaran via GoPay:</strong></p>
+                    <p>1. Buka aplikasi Gojek/GoPay Anda.</p>
+                    <p>2. Pilih 'Bayar' atau 'Scan QRIS'.</p>
+                    <p>3. Pindai kode QRIS yang akan ditampilkan di halaman selanjutnya.</p>
+                    <p>4. Konfirmasi pembayaran Anda.</p>
+                `,
+                ovo: `
+                    <p><strong>Cara Pembayaran via OVO:</strong></p>
+                    <p>1. Pastikan saldo OVO Anda mencukupi.</p>
+                    <p>2. Ikuti instruksi pada halaman selanjutnya untuk menyelesaikan pembayaran melalui aplikasi OVO.</p>
+                    <p>3. Konfirmasi pembayaran Anda di aplikasi OVO.</p>
+                `,
+                dana: `
+                    <p><strong>Cara Pembayaran via DANA:</strong></p>
+                    <p>1. Salin nomor Virtual Account DANA atau pindai QRIS.</p>
+                    <p>2. Buka aplikasi DANA Anda.</p>
+                    <p>3. Ikuti langkah-langkah di aplikasi untuk menyelesaikan pembayaran.</p>
+                `,
+                shopeepay: `
+                    <p><strong>Cara Pembayaran via ShopeePay:</strong></p>
+                    <p>1. Anda akan diarahkan ke aplikasi ShopeePay untuk menyelesaikan pembayaran.</p>
+                    <p>2. Pastikan Anda login ke akun Shopee Anda.</p>
+                    <p>3. Konfirmasi pembayaran di aplikasi ShopeePay.</p>
+                `,
+                bca: `
+                    <p><strong>Cara Pembayaran via Transfer Bank BCA (Virtual Account):</strong></p>
+                    <p>1. Salin nomor Virtual Account BCA: <strong>XXX-XXXX-XXXX</strong> (nomor ini akan dihasilkan sistem).</p>
+                    <p>2. Lakukan transfer melalui m-BCA, KlikBCA, atau ATM BCA.</p>
+                    <p>3. Pilih 'Transfer > Virtual Account'.</p>
+                    <p>4. Masukkan nomor Virtual Account dan ikuti instruksi.</p>
+                    <p>5. Pastikan nama penerima adalah Saldoin.my.id.</p>
+                `,
+                mandiri: `
+                    <p><strong>Cara Pembayaran via Transfer Bank Mandiri (Virtual Account):</strong></p>
+                    <p>1. Salin nomor Virtual Account Mandiri: <strong>XXXX-XXXX-XXXX</strong> (nomor ini akan dihasilkan sistem).</p>
+                    <p>2. Lakukan transfer melalui Livin' by Mandiri, Internet Banking, atau ATM Mandiri.</p>
+                    <p>3. Pilih 'Bayar > Multi Payment' atau 'Transfer > Virtual Account'.</p>
+                    <p>4. Masukkan kode perusahaan (jika ada) dan nomor Virtual Account.</p>
+                `,
+                bni: `
+                    <p><strong>Cara Pembayaran via Transfer Bank BNI (Virtual Account):</strong></p>
+                    <p>1. Salin nomor Virtual Account BNI: <strong>XXXX-XXXX-XXXX</strong> (nomor ini akan dihasilkan sistem).</p>
+                    <p>2. Lakukan transfer melalui BNI Mobile Banking, Internet Banking, atau ATM BNI.</p>
+                    <p>3. Pilih 'Transfer > Virtual Account Billing'.</p>
+                    <p>4. Masukkan nomor Virtual Account dan jumlah pembayaran.</p>
+                `,
+                bri: `
+                    <p><strong>Cara Pembayaran via Transfer Bank BRI (Virtual Account):</strong></p>
+                    <p>1. Salin nomor Virtual Account BRI: <strong>XXXX-XXXX-XXXX</strong> (nomor ini akan dihasilkan sistem).</p>
+                    <p>2. Lakukan transfer melalui BRImo, Internet Banking BRI, atau ATM BRI.</p>
+                    <p>3. Pilih 'Pembayaran > BRIVA'.</p>
+                    <p>4. Masukkan nomor Virtual Account dan ikuti instruksi.</p>
+                `,
+                qris: `
+                    <p><strong>Cara Pembayaran via QRIS:</strong></p>
+                    <p>1. Klik tombol 'Lanjutkan Pembayaran'.</p>
+                    <p>2. Pindai kode QRIS yang muncul menggunakan aplikasi pembayaran (GoPay, OVO, DANA, mobile banking, dll.) Anda.</p>
+                    <p>3. Pastikan jumlah pembayaran sudah sesuai.</p>
+                `,
+                indomaret: `
+                    <p><strong>Cara Pembayaran via Indomaret:</strong></p>
+                    <p>1. Anda akan menerima kode pembayaran di halaman selanjutnya atau melalui email/SMS.</p>
+                    <p>2. Datang ke gerai Indomaret terdekat.</p>
+                    <p>3. Berikan kode pembayaran kepada kasir dan lakukan pembayaran.</p>
+                    <p>4. Simpan struk sebagai bukti pembayaran.</p>
+                `,
+                // Tambahkan metode pembayaran lain di sini
+            };
+
+            paymentItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Hapus kelas 'selected' dari semua item
+                    paymentItems.forEach(i => i.classList.remove('selected'));
+
+                    // Tambahkan kelas 'selected' ke item yang diklik
+                    item.classList.add('selected');
+
+                    // Ambil metode yang dipilih
+                    selectedMethod = item.dataset.method;
+
+                    // Tampilkan instruksi pembayaran
+                    if (paymentInstructions[selectedMethod]) {
+                        selectedMethodInfo.innerHTML = paymentInstructions[selectedMethod];
+                    } else {
+                        selectedMethodInfo.innerHTML = `<p>Instruksi pembayaran untuk ${item.querySelector('img').alt} akan ditampilkan di sini.</p>`;
+                    }
+
+                    // Aktifkan tombol lanjutkan
+                    proceedButton.disabled = false;
+                });
+            });
+
+            proceedButton.addEventListener('click', () => {
+                if (selectedMethod) {
+                    alert(`Anda memilih pembayaran via ${selectedMethod}. Lanjutkan ke proses pembayaran.`);
+                    // Di sini Anda akan mengarahkan pengguna ke halaman pembayaran yang sebenarnya
+                    // atau memicu API gateway pembayaran.
+                    // Contoh: window.location.href = `/checkout?method=${selectedMethod}`;
+                } else {
+                    alert('Mohon pilih metode pembayaran terlebih dahulu.');
+                }
+            });
+        });
+        /* --- JavaScript End --- */
+    </script>
+</body>
+</html>
