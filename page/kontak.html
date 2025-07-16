@@ -1,18 +1,120 @@
-<section class="page-container">
+<section class="page-container contact-section">
   <h2>Hubungi Kami</h2>
-  <p>Kami siap membantu Anda kapan saja. Untuk pertanyaan, keluhan, atau kerja sama, silakan hubungi tim kami melalui:</p>
+  <p class="subtitle">Kami siap membantu Anda 24 jam setiap hari. Hubungi kami melalui kontak berikut:</p>
 
-  <ul class="contact-list-page">
-    <li><strong>📧 Email:</strong> <a href="mailto:audialfasha@gmail.com">audialfasha@gmail.com</a></li>
-    <li><strong>📞 WhatsApp Admin:</strong> <a href="https://wa.me/6281373634190" target="_blank">+62 813-7363-4190</a></li>
-    <li><strong>📷 Instagram:</strong> <a href="https://instagram.com/warunggg.my.id" target="_blank">@warunggg.my.id</a></li>
-  </ul>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <span>📧</span>
+      <div>
+        <strong>Email kerja sama</strong><br>
+        <a href="mailto:audialfasha@gmail.com">audialfasha@gmail.com</a>
+      </div>
+    </div>
 
-  <h3>Jam Operasional</h3>
-  <ul>
-    <li>Senin – Minggu: 00.00 – 23.59 WIB</li>
-    <li>Hari Libur Nasional: Tetap Aktif (slow response)</li>
-  </ul>
+    <div class="contact-item">
+      <span>📞</span>
+      <div>
+        <strong>WhatsApp Admin 1</strong><br>
+        <a href="https://wa.me/6281373634190" target="_blank">+62 813-7363-4190</a>
+      </div>
+    </div>
 
-  <p>⏱️ <em>Respons admin maksimal 5 menit untuk jam operasional. Silakan chat dengan sopan dan jelas agar cepat diproses.</em></p>
+    <div class="contact-item">
+      <span>📞</span>
+      <div>
+        <strong>WhatsApp Admin 2</strong><br>
+        <a href="https://wa.me/6285874410090" target="_blank">+62 858-7441-0090</a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span>📷</span>
+      <div>
+        <strong>Instagram</strong><br>
+        <a href="https://instagram.com/saldoin.my.id" target="_blank">@saldoin.my.id</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="jam-operasional">
+    <h3>Jam Operasional</h3>
+    <ul>
+      <li>🕛 Senin – Minggu: 00.00 – 23.59 WIB</li>
+      <li>📅 Hari Libur Nasional: Tetap Aktif (slow response)</li>
+    </ul>
+    <p class="note">⏱️ <em>Respon admin maksimal 5 menit saat jam operasional. Mohon chat dengan sopan dan jelas untuk
+        percepatan layanan.</em></p>
+  </div>
 </section>
+<style>
+  .contact-section {
+    padding: 2rem 1rem;
+    background: #fdfdfd;
+    border-top: 1px solid #eee;
+    color: #333;
+  }
+
+  .contact-section h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-section .subtitle {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #f8f8f8;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .contact-item span {
+    font-size: 1.5rem;
+    color: #279199;
+    flex-shrink: 0;
+  }
+
+  .contact-item a {
+    color: #279199;
+    text-decoration: none;
+  }
+
+  .contact-item a:hover {
+    text-decoration: underline;
+  }
+
+  .jam-operasional h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .jam-operasional ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  .jam-operasional li {
+    margin-bottom: 0.5rem;
+  }
+
+  .jam-operasional .note {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+  }
+</style>
