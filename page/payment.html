@@ -293,7 +293,9 @@
         </div>
  </div>
 
-    <script>/* --- JavaScript Start (Global Scope for paymentInstructions) --- */
+    <script>
+        /* --- JavaScript Start (Global Scope for paymentInstructions) --- */
+        /* --- JavaScript Start (Global Scope for paymentInstructions) --- */
 const paymentInstructions = {
     qris: `
         <p><strong>Cara Pembayaran via QRIS:</strong></p>
@@ -388,66 +390,96 @@ const paymentInstructions = {
 let selectedMethod = null;
 
 function updateSelectedMethodInfo() {
-    const infoDiv = document.getElementById
+    const infoDiv = document.getElementById('selected-method-info');
+    const proceedButton = document.getElementById('proceed-button');
 
-        let selectedMethod = null;
+    if (infoDiv && proceedButton) { // Pastikan elemen ada setelah dimuat
+        if (selectedMethod && paymentInstructions[selectedMethod]) {
+            // Langsung gunakan string HTML dari paymentInstructions
+            infoDiv.innerHTML = paymentInstructions[selectedMethod];
+            proceedButton.disabled = false;
+        } else {
+            infoDiv.innerHTML = '<p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>';
+            proceedButton.disabled = true;
+        }
+    }
+}
 
-        function updateSelectedMethodInfo() {
-            const infoDiv = document.getElementById('selected-method-info');
-            const proceedButton = document.getElementById('proceed-button');
+function handlePaymentMethodClick(event) {
+    document.querySelectorAll('.payment-method-item').forEach(item => {
+        item.classList.remove('selected');
+    });
 
-            if (selectedMethod && paymentInstructions[selectedMethod]) {
-                const method = paymentInstructions[selectedMethod];
-                let content = `<strong>${method.name}</strong>`;
-                method.instructions.forEach(instruction => {
-                    content += `<p>${instruction}</p>`;
-                });
-                infoDiv.innerHTML = content;
-                proceedButton.disabled = false; // Aktifkan tombol
-            } else {
-                infoDiv.innerHTML = '<p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>';
-                proceedButton.disabled = true; // Nonaktifkan tombol
+    const clickedItem = event.currentTarget;
+    clickedItem.classList.add('selected');
+
+    selectedMethod = clickedItem.dataset.method;
+    updateSelectedMethodInfo();
+}
+
+// Fungsi ini akan memuat HTML bagian pembayaran secara dinamis
+async function loadPaymentSection() {
+    try {
+        // Asumsi payment.html berada di direktori 'page/' relatif terhadap index.html
+        // Atau jika index.html dan payment.html di root yang sama, gunakan 'payment.html'
+        const response = await fetch('page/payment.html'); // Pastikan path ini benar!
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const htmlContent = await response.text();
+
+        // Buat elemen div sementara untuk mem-parse HTML
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlContent;
+
+        // Dapatkan bagian payment-section dari HTML yang dimuat
+        // Penting: pastikan ada elemen dengan class 'payment-section' di payment.html
+        const paymentSection = tempDiv.querySelector('.payment-section');
+
+        if (paymentSection) {
+            document.getElementById('payment-section-container').innerHTML = paymentSection.innerHTML;
+
+            // Setelah konten payment dimuat, inisialisasi fungsionalitasnya
+            initializePaymentLogic();
+        } else {
+            document.getElementById('payment-section-container').innerHTML = '<p>Gagal memuat bagian pembayaran. Elemen ".payment-section" tidak ditemukan.</p>';
+        }
+
+    } catch (error) {
+        console.error('Error loading payment section:', error);
+        document.getElementById('payment-section-container').innerHTML = '<p>Terjadi kesalahan saat memuat metode pembayaran.</p>';
+    }
+}
+
+// Fungsi ini berisi logika inisialisasi untuk elemen-elemen pembayaran
+function initializePaymentLogic() {
+    console.log("Initializing payment logic for loaded content...");
+    const paymentItems = document.querySelectorAll('.payment-method-item');
+    paymentItems.forEach(item => {
+        item.addEventListener('click', handlePaymentMethodClick);
+    });
+
+    updateSelectedMethodInfo(); // Inisialisasi info setelah elemen dimuat
+
+    const proceedButton = document.getElementById('proceed-button');
+    if (proceedButton) { // Pastikan tombol ada sebelum menambahkan event listener
+        proceedButton.addEventListener('click', () => {
+            if (selectedMethod) {
+                alert(`Anda akan melanjutkan pembayaran menggunakan ${
+                    paymentInstructions[selectedMethod] // Langsung pakai string HTML
+                        .match(/<strong>(.*?)<\/strong>/)?.[1] || selectedMethod.toUpperCase() // Coba ekstrak nama dari strong tag, fallback ke uppercase
+                }`);
+                // Di sini Anda bisa menambahkan logika untuk mengarahkan ke halaman pembayaran selanjutnya
+                // atau memicu proses pembayaran melalui API.
             }
-        }
+        });
+    }
+}
 
-        function handlePaymentMethodClick(event) {
-            // Hapus kelas 'selected' dari semua item terlebih dahulu
-            document.querySelectorAll('.payment-method-item').forEach(item => {
-                item.classList.remove('selected');
-            });
+// Jalankan loadPaymentSection ketika seluruh DOM index.html sudah dimuat
+document.addEventListener('DOMContentLoaded', loadPaymentSection);
 
-            // Tambahkan kelas 'selected' ke item yang diklik
-            const clickedItem = event.currentTarget;
-            clickedItem.classList.add('selected');
-
-            // Ambil data-method dari item yang diklik
-            selectedMethod = clickedItem.dataset.method;
-            updateSelectedMethodInfo();
-        }
-
-        // Fungsi utama yang akan dijalankan saat DOM selesai dimuat
-        function initializePayment() {
-            console.log("Initializing payment page...");
-            const paymentItems = document.querySelectorAll('.payment-method-item');
-            paymentItems.forEach(item => {
-                item.addEventListener('click', handlePaymentMethodClick);
-            });
-
-            // Inisialisasi tampilan info metode pembayaran awal
-            updateSelectedMethodInfo();
-
-            // Tambahkan event listener untuk tombol lanjutkan pembayaran
-            document.getElementById('proceed-button').addEventListener('click', () => {
-                if (selectedMethod) {
-                    alert(`Anda akan melanjutkan pembayaran menggunakan ${paymentInstructions[selectedMethod].name}`);
-                    // Di sini Anda bisa menambahkan logika untuk mengarahkan ke halaman pembayaran selanjutnya
-                    // atau memicu proses pembayaran melalui API.
-                }
-            });
-        }
-
-        // Jalankan fungsi initializePayment ketika seluruh DOM sudah dimuat
-        document.addEventListener('DOMContentLoaded', initializePayment);
+/* --- JavaScript End --- */
     </script>
 </body>
 </html>
