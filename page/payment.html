@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metode Pembayaran Anda</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
     <style>
         /* --- CSS Start --- */
         :root {
@@ -290,6 +289,176 @@
         <div id="selected-method-info" class="selected-method-info">
             <p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>
         </div>
-   </div
+        <button id="proceed-button" class="proceed-button" disabled>Lanjutkan Pembayaran</button>
+   </div>
+
+    <script>
+        // Data untuk instruksi pembayaran
+        const paymentInstructions = {
+            qris: {
+                name: 'QRIS',
+                instructions: [
+                    'Buka aplikasi e-wallet atau mobile banking Anda yang mendukung QRIS.',
+                    'Pilih menu "Scan QRIS".',
+                    'Scan kode QRIS yang akan ditampilkan di halaman berikutnya.',
+                    'Pastikan jumlah pembayaran sudah benar, lalu konfirmasi pembayaran.'
+                ]
+            },
+            dana: {
+                name: 'DANA',
+                instructions: [
+                    'Anda akan diarahkan ke aplikasi DANA.',
+                    'Ikuti instruksi di aplikasi DANA untuk menyelesaikan pembayaran.'
+                ]
+            },
+            linkaja: {
+                name: 'LinkAja',
+                instructions: [
+                    'Anda akan diarahkan ke aplikasi LinkAja.',
+                    'Ikuti instruksi di aplikasi LinkAja untuk menyelesaikan pembayaran.'
+                ]
+            },
+            alfamart: {
+                name: 'Alfamart',
+                instructions: [
+                    'Catat kode pembayaran yang akan ditampilkan.',
+                    'Kunjungi gerai Alfamart terdekat.',
+                    'Berikan kode pembayaran kepada kasir.',
+                    'Lakukan pembayaran sesuai jumlah tagihan.'
+                ]
+            },
+            indomaret: {
+                name: 'Indomaret',
+                instructions: [
+                    'Catat kode pembayaran yang akan ditampilkan.',
+                    'Kunjungi gerai Indomaret terdekat.',
+                    'Berikan kode pembayaran kepada kasir.',
+                    'Lakukan pembayaran sesuai jumlah tagihan.'
+                ]
+            },
+            briva: {
+                name: 'BRIVA (BRI Virtual Account)',
+                instructions: [
+                    'Salin nomor Virtual Account BRIVA yang akan ditampilkan.',
+                    'Buka aplikasi mobile banking/internet banking BRI atau kunjungi ATM BRI.',
+                    'Pilih menu "Pembayaran" atau "Transfer" > "BRIVA".',
+                    'Masukkan nomor Virtual Account, lalu konfirmasi pembayaran.'
+                ]
+            },
+            'va-mandiri': {
+                name: 'Mandiri Virtual Account',
+                instructions: [
+                    'Salin nomor Virtual Account Mandiri yang akan ditampilkan.',
+                    'Buka aplikasi Livin\' by Mandiri/internet banking Mandiri atau kunjungi ATM Mandiri.',
+                    'Pilih menu "Pembayaran" > "Multi Payment" atau "Virtual Account".',
+                    'Masukkan nomor Virtual Account, lalu konfirmasi pembayaran.'
+                ]
+            },
+            'va-bni': {
+                name: 'BNI Virtual Account',
+                instructions: [
+                    'Salin nomor Virtual Account BNI yang akan ditampilkan.',
+                    'Buka aplikasi BNI Mobile Banking/internet banking BNI atau kunjungi ATM BNI.',
+                    'Pilih menu "Pembayaran" > "Virtual Account Billing".',
+                    'Masukkan nomor Virtual Account, lalu konfirmasi pembayaran.'
+                ]
+            },
+            'va-danamon': {
+                name: 'Danamon Virtual Account',
+                instructions: [
+                    'Salin nomor Virtual Account Danamon yang akan ditampilkan.',
+                    'Buka aplikasi D-Bank PRO/internet banking Danamon atau kunjungi ATM Danamon.',
+                    'Pilih menu "Pembayaran" > "Virtual Account".',
+                    'Masukkan nomor Virtual Account, lalu konfirmasi pembayaran.'
+                ]
+            },
+            'va-permata': {
+                name: 'Permata Virtual Account',
+                instructions: [
+                    'Salin nomor Virtual Account Permata yang akan ditampilkan.',
+                    'Buka aplikasi PermataMobile X/internet banking Permata atau kunjungi ATM Permata.',
+                    'Pilih menu "Pembayaran" > "Virtual Account".',
+                    'Masukkan nomor Virtual Account, lalu konfirmasi pembayaran.'
+                ]
+            },
+            'va-cimb': {
+                name: 'CIMB Niaga Virtual Account',
+                instructions: [
+                    'Salin nomor Virtual Account CIMB Niaga yang akan ditampilkan.',
+                    'Buka aplikasi OCTO Mobile/internet banking CIMB Niaga atau kunjungi ATM CIMB Niaga.',
+                    'Pilih menu "Pembayaran" > "Virtual Account".',
+                    'Masukkan nomor Virtual Account, lalu konfirmasi pembayaran.'
+                ]
+            },
+            'va-bsi': {
+                name: 'BSI Virtual Account',
+                instructions: [
+                    'Salin nomor Virtual Account BSI yang akan ditampilkan.',
+                    'Buka aplikasi BSI Mobile/internet banking BSI atau kunjungi ATM BSI.',
+                    'Pilih menu "Pembayaran" > "Virtual Account".',
+                    'Masukkan nomor Virtual Account, lalu konfirmasi pembayaran.'
+                ]
+            }
+        };
+
+        let selectedMethod = null;
+
+        function updateSelectedMethodInfo() {
+            const infoDiv = document.getElementById('selected-method-info');
+            const proceedButton = document.getElementById('proceed-button');
+
+            if (selectedMethod && paymentInstructions[selectedMethod]) {
+                const method = paymentInstructions[selectedMethod];
+                let content = `<strong>${method.name}</strong>`;
+                method.instructions.forEach(instruction => {
+                    content += `<p>${instruction}</p>`;
+                });
+                infoDiv.innerHTML = content;
+                proceedButton.disabled = false; // Aktifkan tombol
+            } else {
+                infoDiv.innerHTML = '<p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>';
+                proceedButton.disabled = true; // Nonaktifkan tombol
+            }
+        }
+
+        function handlePaymentMethodClick(event) {
+            // Hapus kelas 'selected' dari semua item terlebih dahulu
+            document.querySelectorAll('.payment-method-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+
+            // Tambahkan kelas 'selected' ke item yang diklik
+            const clickedItem = event.currentTarget;
+            clickedItem.classList.add('selected');
+
+            // Ambil data-method dari item yang diklik
+            selectedMethod = clickedItem.dataset.method;
+            updateSelectedMethodInfo();
+        }
+
+        // Fungsi utama yang akan dijalankan saat DOM selesai dimuat
+        function initializePayment() {
+            console.log("Initializing payment page...");
+            const paymentItems = document.querySelectorAll('.payment-method-item');
+            paymentItems.forEach(item => {
+                item.addEventListener('click', handlePaymentMethodClick);
+            });
+
+            // Inisialisasi tampilan info metode pembayaran awal
+            updateSelectedMethodInfo();
+
+            // Tambahkan event listener untuk tombol lanjutkan pembayaran
+            document.getElementById('proceed-button').addEventListener('click', () => {
+                if (selectedMethod) {
+                    alert(`Anda akan melanjutkan pembayaran menggunakan ${paymentInstructions[selectedMethod].name}`);
+                    // Di sini Anda bisa menambahkan logika untuk mengarahkan ke halaman pembayaran selanjutnya
+                    // atau memicu proses pembayaran melalui API.
+                }
+            });
+        }
+
+        // Jalankan fungsi initializePayment ketika seluruh DOM sudah dimuat
+        document.addEventListener('DOMContentLoaded', initializePayment);
+    </script>
 </body>
 </html>
