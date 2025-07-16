@@ -35,32 +35,6 @@
             z-index: 1;
         }
 
-        /* Efek latar belakang abstrak */
-        .payment-section::before,
-        .payment-section::after {
-            content: '';
-            position: absolute;
-            background: rgba(39, 145, 153, 0.08); /* Warna primary baru dengan opacity */
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-        }
-
-        .payment-section::before {
-            top: -50px;
-            left: -50px;
-            width: 220px;
-            height: 220px;
-        }
-
-        .payment-section::after {
-            bottom: -50px;
-            right: -50px;
-            width: 190px;
-            height: 190px;
-            background: rgba(39, 145, 153, 0.12); /* Warna primary baru yang lebih gelap */
-        }
-
         .payment-category-title {
             font-family: 'Nunito', sans-serif; /* Menggunakan font Nunito */
             font-size: 1.4em;
@@ -284,7 +258,7 @@
     <div class="payment-section">
         <h2>Pilih Metode Pembayaran</h2>
 
-        <div class="payment-category-title">QTIS & E-Wallet</div>
+        <div class="payment-category-title">QRIs & E-Wallet</div>
         <div class="payment-methods-grid">
             <div class="payment-method-item" data-method="qris">
                 <img src="../assets/IMG_1399.png" alt="QRIS">
