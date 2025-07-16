@@ -501,6 +501,194 @@
                 });
             });
         });
+
+        // paymentInstructions HARUS ada di scope global atau di dalam script yang dimuat.
+        // Karena ini dimuat oleh index.html, dia harus ada di sini.
+        const paymentInstructions = {
+            qris: `
+                <p><strong>Cara Pembayaran via QRIS:</strong></p>
+                <p>1. Klik tombol 'Lanjutkan Pembayaran'.</p>
+                <p>2. Pindai kode QRIS yang muncul menggunakan aplikasi pembayaran (GoPay, OVO, DANA, mobile banking, dll.) Anda.</p>
+                <p>3. Pastikan jumlah pembayaran sudah sesuai.</p>
+                <p>4. Konfirmasi pembayaran.</p>
+            `,
+            dana: `
+                <p><strong>Cara Pembayaran via DANA:</strong></p>
+                <p>1. Pastikan saldo DANA Anda mencukupi.</p>
+                <p>2. Anda akan diarahkan ke aplikasi DANA untuk menyelesaikan pembayaran.</p>
+                <p>3. Ikuti instruksi di aplikasi DANA dan konfirmasi pembayaran.</p>
+            `,
+            ovo: `
+                <p><strong>Cara Pembayaran via OVO:</strong></p>
+                <p>1. Pastikan saldo OVO Anda mencukupi.</p>
+                <p>2. Anda akan diarahkan ke aplikasi OVO untuk menyelesaikan pembayaran.</p>
+                <p>3. Ikuti instruksi di aplikasi OVO dan konfirmasi pembayaran.</p>
+            `,
+            linkaja: `
+                <p><strong>Cara Pembayaran via LinkAja:</strong></p>
+                <p>1. Pastikan saldo LinkAja Anda mencukupi.</p>
+                <p>2. Anda akan diarahkan ke aplikasi LinkAja untuk menyelesaikan pembayaran.</p>
+                <p>3. Ikuti instruksi di aplikasi LinkAja dan konfirmasi pembayaran.</p>
+            `,
+            alfamart: `
+                <p><strong>Cara Pembayaran via Alfamart:</strong></p>
+                <p>1. Setelah menekan 'Lanjutkan Pembayaran', Anda akan menerima kode pembayaran.</p>
+                <p>2. Kunjungi gerai Alfamart terdekat.</p>
+                <p>3. Berikan kode pembayaran kepada kasir dan lakukan pembayaran.</p>
+                <p>4. Simpan struk sebagai bukti pembayaran.</p>
+            `,
+            indomaret: `
+                <p><strong>Cara Pembayaran via Indomaret:</strong></p>
+                <p>1. Setelah menekan 'Lanjutkan Pembayaran', Anda akan menerima kode pembayaran.</p>
+                <p>2. Kunjungi gerai Indomaret terdekat.</p>
+                <p>3. Berikan kode pembayaran kepada kasir dan lakukan pembayaran.</p>
+                <p>4. Simpan struk sebagai bukti pembayaran.</p>
+            `,
+            briva: `
+                <p><strong>Cara Pembayaran via BRIVA (Bank BRI Virtual Account):</strong></p>
+                <p>1. Salin nomor Virtual Account BRI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                <p>2. Lakukan pembayaran melalui ATM BRI, BRImo (Mobile Banking), atau Internet Banking BRI.</p>
+                <p>3. Pilih 'Pembayaran' > 'BRIVA' dan masukkan nomor Virtual Account.</p>
+                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+            `,
+            'va-mandiri': `
+                <p><strong>Cara Pembayaran via Virtual Account Mandiri:</strong></p>
+                <p>1. Salin nomor Virtual Account Mandiri Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                <p>2. Lakukan pembayaran melalui Livin' by Mandiri, ATM Mandiri, atau Internet Banking Mandiri.</p>
+                <p>3. Pilih menu 'Bayar' atau 'Transfer' ke Virtual Account dan masukkan nomor Virtual Account.</p>
+                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+            `,
+            'va-bni': `
+                <p><strong>Cara Pembayaran via Virtual Account BNI:</strong></p>
+                <p>1. Salin nomor Virtual Account BNI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                <p>2. Lakukan pembayaran melalui BNI Mobile Banking, ATM BNI, atau Internet Banking BNI.</p>
+                <p>3. Pilih 'Transfer' > 'Virtual Account Billing' dan masukkan nomor Virtual Account.</p>
+                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+            `,
+            'va-danamon': `
+                <p><strong>Cara Pembayaran via Virtual Account Danamon:</strong></p>
+                <p>1. Salin nomor Virtual Account Danamon Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                <p>2. Lakukan pembayaran melalui D-Bank Mobile, ATM Danamon, atau Internet Banking Danamon.</p>
+                <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+            `,
+            'va-permata': `
+                <p><strong>Cara Pembayaran via Virtual Account Permata:</strong></p>
+                <p>1. Salin nomor Virtual Account Permata Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                <p>2. Lakukan pembayaran melalui PermataMobile X, ATM Permata, atau bank lain (via transfer ke Permata).</p>
+                <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+            `,
+            'va-cimb': `
+                <p><strong>Cara Pembayaran via Virtual Account CIMB Niaga:</strong></p>
+                <p>1. Salin nomor Virtual Account CIMB Niaga Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                <p>2. Lakukan pembayaran melalui OCTO Mobile, ATM CIMB Niaga, atau bank lain (via transfer ke CIMB Niaga).</p>
+                <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+            `,
+            'va-bsi': `
+                <p><strong>Cara Pembayaran via Virtual Account BSI:</strong></p>
+                <p>1. Salin nomor Virtual Account BSI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                <p>2. Lakukan pembayaran melalui BSI Mobile, ATM BSI, atau bank lain (via transfer ke BSI).</p>
+                <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+            `,
+        };
+
+        let selectedMethod = null;
+
+        function updateSelectedMethodInfo() {
+            const infoDiv = document.getElementById('selected-method-info');
+            const proceedButton = document.getElementById('proceed-button');
+
+            // Penting: Pastikan elemen 'infoDiv' dan 'proceedButton' sudah ada di DOM
+            // karena mereka dimuat secara asinkron dari payment.html
+            // initializePaymentLogic() akan memastikan ini dipanggil setelah konten dimuat.
+            if (!infoDiv || !proceedButton) {
+                console.warn("selected-method-info or proceed-button not found. Retrying initialization...");
+                return; // Keluar jika elemen belum ada
+            }
+
+            if (selectedMethod && paymentInstructions[selectedMethod]) {
+                infoDiv.innerHTML = paymentInstructions[selectedMethod];
+                proceedButton.disabled = false;
+            } else {
+                infoDiv.innerHTML = '<p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>';
+                proceedButton.disabled = true;
+            }
+        }
+
+        function handlePaymentMethodClick(event) {
+            document.querySelectorAll('.payment-method-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+
+            const clickedItem = event.currentTarget;
+            clickedItem.classList.add('selected');
+
+            selectedMethod = clickedItem.dataset.method;
+            updateSelectedMethodInfo();
+        }
+
+        async function loadPaymentSection() {
+            try {
+                // Path ke payment.html RELATIF terhadap index.html
+                const response = await fetch('page/payment.html');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status} from ${response.url}`);
+                }
+                const htmlContent = await response.text();
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = htmlContent;
+
+                const paymentSection = tempDiv.querySelector('.payment-section');
+
+                if (paymentSection) {
+                    document.getElementById('payment-section-container').innerHTML = paymentSection.innerHTML;
+                    // Setelah konten pembayaran dimuat, inisialisasi semua event listener
+                    initializePaymentLogic();
+                } else {
+                    document.getElementById('payment-section-container').innerHTML = '<p>Gagal memuat bagian pembayaran. Elemen ".payment-section" tidak ditemukan di payment.html. Pastikan payment.html memiliki &lt;div class="payment-section"&gt;.</p>';
+                }
+
+            } catch (error) {
+                console.error('Error loading payment section:', error);
+                document.getElementById('payment-section-container').innerHTML = `<p>Terjadi kesalahan saat memuat metode pembayaran: ${error.message}.</p>`;
+            }
+        }
+
+        function initializePaymentLogic() {
+            console.log("Initializing payment logic for loaded content...");
+            const paymentItems = document.querySelectorAll('.payment-method-item');
+            paymentItems.forEach(item => {
+                item.addEventListener('click', handlePaymentMethodClick);
+            });
+
+            // Panggil updateSelectedMethodInfo di sini untuk memastikan state awal tombol
+            updateSelectedMethodInfo();
+
+            const proceedButton = document.getElementById('proceed-button');
+            if (proceedButton) { // Pastikan tombol ada sebelum menambahkan event listener
+                proceedButton.addEventListener('click', () => {
+                    if (selectedMethod) {
+                        const methodNameMatch = paymentInstructions[selectedMethod].match(/<strong>Cara Pembayaran via (.*?)<\/strong>/);
+                        const methodName = methodNameMatch ? methodNameMatch[1].replace(':', '').trim() : selectedMethod.toUpperCase();
+                        
+                        alert(`Anda akan melanjutkan pembayaran menggunakan ${methodName}`);
+                        // Di sini Anda bisa menambahkan logika untuk mengarahkan ke halaman pembayaran selanjutnya
+                        // atau memicu proses pembayaran melalui API.
+                    } else {
+                        alert("Silakan pilih metode pembayaran terlebih dahulu!");
+                    }
+                });
+            } else {
+                console.error("Proceed button not found after loading payment section.");
+            }
+        }
+
+        // Jalankan loadPaymentSection ketika seluruh DOM index.html sudah dimuat
+        document.addEventListener('DOMContentLoaded', loadPaymentSection);
     </script>
     <script type="application/ld+json">
             {
