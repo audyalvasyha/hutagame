@@ -21,10 +21,6 @@
     <meta name="author" content="Saldoin" />
     <meta name="google-site-verification" content="01iNnkW6dR380Fb369AlAI8mIF4B0hOCGXkpDnml8xw" />
     <link rel="canonical" href="https://saldoin.my.id/" />
-    <!-- <title>Saldoin - Beli Voucher dan Top Up Game Murah, Cepat & Terpercaya</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /> -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="preload" as="image" href="assets/banner.webp" />
@@ -272,7 +268,6 @@
 <body>
     <div class="root">
         <div class="app">
-            <!-- Header dan Navigasi -->
             <header class="header">
                 <div class="group sub-navbar flex">
                     <div class="btn user-profile">
@@ -300,7 +295,6 @@
                 </nav>
             </header>
 
-            <!-- Skeleton Loader -->
             <div class="skeleton-container" id="skeletonLoader">
                 <div class="skeleton-banner"></div>
                 <div class="skeleton-icons">
@@ -315,7 +309,6 @@
                     <div class="skeleton-line long"></div>
                     <div class="skeleton-button"></div>
                 </div>
-                <!-- Skeleton TERPOPULER -->
                 <section class="skeleton-section">
                     <div class="skeleton-title"></div>
                     <div class="skeleton-populer-grid">
@@ -326,7 +319,6 @@
                     </div>
                 </section>
 
-                <!-- Skeleton FOOTER KONTAK -->
                 <section class="skeleton-footer">
                     <div class="skeleton-footer-title"></div>
                     <div class="skeleton-contact-icons">
@@ -339,7 +331,6 @@
                 </section>
             </div>
 
-            <!-- Konten Utama -->
             <main id="realContent" style="display: none;">
                 <section class="container-ed">
                     <div class="carousel" id="simpleCarousel">
@@ -381,12 +372,11 @@
                 <section class="container">
                     <div id="wrapperContent"></div>
                 </section>
-               
+
                 <section class="artikel-terbaru container">
                     <h3>📌 Artikel Terbaru</h3>
                     <ul class="list-artikel" id="list-artikel">
-                        <!-- isi di-load via JS -->
-                    </ul>
+                        </ul>
                 </section>
                 <section class="container populer">
                     <div class="container-label flex">
@@ -398,7 +388,6 @@
 
             </main>
 
-            <!-- Footer tetap -->
             <footer class="footer">
                 <section class="container flex contacts">
                     <div class="contact-heading">DUKUNGAN PELANGGAN</div>
@@ -424,84 +413,13 @@
                 <section class="container">
                     <p>&copy; 2025 Saldoin.my.id. All rights reserved.</p>
                     <p>Ikuti kami di Instagram: <a href="https://www.instagram.com/saldoin.my.id"
-                            target="_blank">@saldoin.my.id</a></p>
+                                target="_blank">@saldoin.my.id</a></p>
                 </section>
             </footer>
         </div>
     </div>
 
-    <!-- Script animasi dan load -->
     <script>
-        $(document).ready(function () {
-            function loadPage(page) {
-                $("#skeletonLoader").fadeIn(200);
-                $("#realContent").fadeOut(200, function () {
-                    $("#wrapperContent").load("page/" + page, function (res, status, xhr) {
-                        if (status === "error") {
-                            $("#wrapperContent").html("<p>Gagal memuat konten.</p>");
-                            console.error("Error:", xhr.status, xhr.statusText);
-                        }
-                        $("#skeletonLoader").fadeOut(200, function () {
-                            $("#realContent").fadeIn(200);
-                        });
-                        initializePayment();
-                    });
-                });
-            }
-
-            // Load awal
-            loadPage("beranda.html");
-
-            // Handle klik menu
-            let currentPage = "beranda.html";
-            $("#linkTrigger .link-item").on("click", function (e) {
-                e.preventDefault();
-                const page = $(this).data("page");
-                if (page === currentPage) return;
-                currentPage = page;
-                $(".link-item").removeClass("active");
-                $(this).addClass("active");
-                loadPage(page);
-            });
-
-            // Carousel sederhana
-            let currentIndex = 0;
-            const slides = $("#simpleCarousel .carousel-slide");
-            const totalSlides = slides.length;
-
-            function showSlide(index) {
-                slides.removeClass("active");
-                slides.eq(index).addClass("active");
-            }
-
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                showSlide(currentIndex);
-            }
-
-            setInterval(nextSlide, 4000);
-
-            // Load data JSON
-            $.getJSON("data.json", function (data) {
-                const produk = data.produk;
-                for (let i = 1; i < 5; i++) {
-                    const item = produk[i];
-                    const alamat = item.address || "#";
-                    $("#populerList").append(`
-            <li class="produk-item flex">
-              <img src="${item.img_product}" loading="lazy" alt="${item.nm_product}" />
-              <p>#${i}</p>
-              <button class="btn-choose" onclick="location.href='${alamat}'">BELI</button>
-            </li>`);
-                }
-
-                const listArtikel = $("#list-artikel");
-                data.artikel_terbaru.forEach(function (item) {
-                    listArtikel.append(`<li><a href="${item.url}">${item.judul}</a></li>`);
-                });
-            });
-        });
-
         // paymentInstructions HARUS ada di scope global atau di dalam script yang dimuat.
         // Karena ini dimuat oleh index.html, dia harus ada di sini.
         const paymentInstructions = {
@@ -601,12 +519,11 @@
             const infoDiv = document.getElementById('selected-method-info');
             const proceedButton = document.getElementById('proceed-button');
 
-            // Penting: Pastikan elemen 'infoDiv' dan 'proceedButton' sudah ada di DOM
-            // karena mereka dimuat secara asinkron dari payment.html
-            // initializePaymentLogic() akan memastikan ini dipanggil setelah konten dimuat.
             if (!infoDiv || !proceedButton) {
-                console.warn("selected-method-info or proceed-button not found. Retrying initialization...");
-                return; // Keluar jika elemen belum ada
+                // Elemen belum ada, coba lagi nanti jika ini dipicu oleh event asinkron
+                // atau pastikan ini dipanggil SETELAH elemen ada di DOM.
+                console.warn("selected-method-info or proceed-button not found. This might be due to async content loading.");
+                return;
             }
 
             if (selectedMethod && paymentInstructions[selectedMethod]) {
@@ -630,38 +547,12 @@
             updateSelectedMethodInfo();
         }
 
-        async function loadPaymentSection() {
-            try {
-                // Path ke payment.html RELATIF terhadap index.html
-                const response = await fetch('page/payment.html');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status} from ${response.url}`);
-                }
-                const htmlContent = await response.text();
-
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = htmlContent;
-
-                const paymentSection = tempDiv.querySelector('.payment-section');
-
-                if (paymentSection) {
-                    document.getElementById('payment-section-container').innerHTML = paymentSection.innerHTML;
-                    // Setelah konten pembayaran dimuat, inisialisasi semua event listener
-                    initializePaymentLogic();
-                } else {
-                    document.getElementById('payment-section-container').innerHTML = '<p>Gagal memuat bagian pembayaran. Elemen ".payment-section" tidak ditemukan di payment.html. Pastikan payment.html memiliki &lt;div class="payment-section"&gt;.</p>';
-                }
-
-            } catch (error) {
-                console.error('Error loading payment section:', error);
-                document.getElementById('payment-section-container').innerHTML = `<p>Terjadi kesalahan saat memuat metode pembayaran: ${error.message}.</p>`;
-            }
-        }
-
         function initializePaymentLogic() {
             console.log("Initializing payment logic for loaded content...");
             const paymentItems = document.querySelectorAll('.payment-method-item');
             paymentItems.forEach(item => {
+                // Hapus event listener yang mungkin sudah ada sebelumnya untuk menghindari duplikasi
+                item.removeEventListener('click', handlePaymentMethodClick);
                 item.addEventListener('click', handlePaymentMethodClick);
             });
 
@@ -669,93 +560,106 @@
             updateSelectedMethodInfo();
 
             const proceedButton = document.getElementById('proceed-button');
-            if (proceedButton) { // Pastikan tombol ada sebelum menambahkan event listener
-                proceedButton.addEventListener('click', () => {
-                    if (selectedMethod) {
-                        const methodNameMatch = paymentInstructions[selectedMethod].match(/<strong>Cara Pembayaran via (.*?)<\/strong>/);
-                        const methodName = methodNameMatch ? methodNameMatch[1].replace(':', '').trim() : selectedMethod.toUpperCase();
-                        
-                        alert(`Anda akan melanjutkan pembayaran menggunakan ${methodName}`);
-                        // Di sini Anda bisa menambahkan logika untuk mengarahkan ke halaman pembayaran selanjutnya
-                        // atau memicu proses pembayaran melalui API.
-                    } else {
-                        alert("Silakan pilih metode pembayaran terlebih dahulu!");
-                    }
-                });
+            if (proceedButton) {
+                // Hapus event listener yang mungkin sudah ada sebelumnya untuk menghindari duplikasi
+                proceedButton.removeEventListener('click', handleProceedButtonClick);
+                proceedButton.addEventListener('click', handleProceedButtonClick);
             } else {
                 console.error("Proceed button not found after loading payment section.");
             }
         }
 
-        // Jalankan loadPaymentSection ketika seluruh DOM index.html sudah dimuat
-        document.addEventListener('DOMContentLoaded', loadPaymentSection);
-    </script>
-    <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Store",
-                "name": "Saldoin.my.id",
-                "image": "https://saldoin.my.id/assets/IMG_1037.png",
-                "url": "https://saldoin.my.id",
-                "logo": "https://saldoin.my.id/assets/favicon.ico",
-                "description": "Top up game favoritmu seperti Mobile Legends, Free Fire, PUBG, dan lainnya dengan harga murah, proses instan, dan 100% terpercaya.",
-                "telephone": "+62-813-7363-4190",
-                "priceRange": "Rp1.000 - Rp1.000.000",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressCountry": "ID"
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "reviewCount": "347"
-                },
-                "review": [
-                    {
-                        "@type": "Review",
-                        "author": {
-                            "@type": "Person",
-                            "name": "Fajar A."
-                        },
-                        "datePublished": "2025-07-11",
-                        "reviewBody": "Top up ML langsung masuk cuma dalam 30 detik! Adminnya juga ramah.",
-                        "reviewRating": {
-                            "@type": "Rating",
-                            "ratingValue": "5",
-                            "bestRating": "5"
-                        }
-                    },
-                    {
-                        "@type": "Review",
-                        "author": {
-                            "@type": "Person",
-                            "name": "Rika R."
-                        },
-                        "datePublished": "2025-07-10",
-                        "reviewBody": "Sangat terpercaya! Sudah 5x transaksi dan semuanya aman & cepat.",
-                        "reviewRating": {
-                            "@type": "Rating",
-                            "ratingValue": "5",
-                            "bestRating": "5"
-                        }
-                    },
-                    {
-                        "@type": "Review",
-                        "author": {
-                            "@type": "Person",
-                            "name": "Andi S."
-                        },
-                        "datePublished": "2025-07-09",
-                        "reviewBody": "Top up termurah yang pernah saya coba, cocok buat mabar rutin.",
-                        "reviewRating": {
-                            "@type": "Rating",
-                            "ratingValue": "4.8",
-                            "bestRating": "5"
-                        }
-                    }
-                ]
+        function handleProceedButtonClick() {
+            if (selectedMethod) {
+                const methodNameMatch = paymentInstructions[selectedMethod].match(/<strong>Cara Pembayaran via (.*?)<\/strong>/);
+                const methodName = methodNameMatch ? methodNameMatch[1].replace(':', '').trim() : selectedMethod.toUpperCase();
+
+                alert(`Anda akan melanjutkan pembayaran menggunakan ${methodName}`);
+                // Di sini Anda bisa menambahkan logika untuk mengarahkan ke halaman pembayaran selanjutnya
+                // atau memicu proses pembayaran melalui API.
+            } else {
+                alert("Silakan pilih metode pembayaran terlebih dahulu!");
             }
-        </script>
+        }
+
+
+        $(document).ready(function () {
+            function loadPage(page) {
+                $("#skeletonLoader").fadeIn(200);
+                $("#realContent").fadeOut(200, function () {
+                    $("#wrapperContent").load("page/" + page, function (res, status, xhr) {
+                        if (status === "error") {
+                            $("#wrapperContent").html("<p>Gagal memuat konten.</p>");
+                            console.error("Error:", xhr.status, xhr.statusText);
+                        } else {
+                            // Setelah konten dimuat, jika itu payment.html, inisialisasi logika pembayaran
+                            if (page === "payment.html") {
+                                // Reset selectedMethod saat memuat ulang halaman pembayaran
+                                selectedMethod = null;
+                                initializePaymentLogic();
+                            }
+                        }
+                        $("#skeletonLoader").fadeOut(200, function () {
+                            $("#realContent").fadeIn(200);
+                        });
+                    });
+                });
+            }
+
+            // Load awal (Beranda)
+            loadPage("beranda.html");
+
+            // Handle klik menu
+            let currentPage = "beranda.html";
+            $("#linkTrigger .link-item").on("click", function (e) {
+                e.preventDefault();
+                const page = $(this).data("page");
+                if (page === currentPage) return;
+                currentPage = page;
+                $(".link-item").removeClass("active");
+                $(this).addClass("active");
+                loadPage(page);
+            });
+
+            // Carousel sederhana
+            let currentIndex = 0;
+            const slides = $("#simpleCarousel .carousel-slide");
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.removeClass("active");
+                slides.eq(index).addClass("active");
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                showSlide(currentIndex);
+            }
+
+            setInterval(nextSlide, 4000);
+
+            // Load data JSON
+            $.getJSON("data.json", function (data) {
+                const produk = data.produk;
+                // Pastikan ada cukup item di 'produk' sebelum looping
+                const itemsToLoad = Math.min(produk.length, 4); 
+                for (let i = 0; i < itemsToLoad; i++) { // Loop dari 0 hingga itemsToLoad-1
+                    const item = produk[i];
+                    const alamat = item.address || "#";
+                    $("#populerList").append(`
+                <li class="produk-item flex">
+                  <img src="${item.img_product}" loading="lazy" alt="${item.nm_product}" />
+                  <p>${item.nm_product}</p> <button class="btn-choose" onclick="location.href='${alamat}'">BELI</button>
+                </li>`);
+                }
+
+                const listArtikel = $("#list-artikel");
+                data.artikel_terbaru.forEach(function (item) {
+                    listArtikel.append(`<li><a href="${item.url}">${item.judul}</a></li>`);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
