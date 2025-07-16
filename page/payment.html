@@ -3,98 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metode Pembayaran Keren Saldoin.my.id</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Metode Pembayaran Anda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* --- CSS Start --- */
+        :root {
+            /* Warna utama baru Anda */
+            --primary-color: #279199; /* Biru Kehijauan baru */
+            --primary-dark: #1F7C85; /* Sedikit lebih gelap dari primary-color */
+            --primary-light: #e6f5f6; /* Latar belakang body yang lebih terang */
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --border-light: #e9ecef;
+            --bg-card: #ffffff;
+            --bg-selected: #edf8f8; /* Latar belakang item terpilih yang lebih terang */
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+        }
+
         body {
-            font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
-            background: linear-gradient(135deg, #e0f2f7 0%, #d1e8ef 100%); /* Gradien latar belakang lembut */
+            font-family: 'Nunito', sans-serif; /* Menggunakan font Nunito */
+            background: linear-gradient(135deg, var(--primary-light) 0%, #d4ebec 100%); /* Gradien latar belakang lembut */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            color: #333;
-            overflow-x: hidden; /* Mencegah scroll horizontal */
+            color: var(--text-dark);
+            overflow-x: hidden;
         }
 
         .payment-section {
-            background-color: #ffffff;
-            border-radius: 20px; /* Radius lebih besar untuk kesan modern */
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* Bayangan lebih dalam */
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow-medium);
             padding: 40px;
             width: 100%;
-            max-width: 800px; /* Lebar maksimal lebih besar */
+            max-width: 850px;
             box-sizing: border-box;
             text-align: center;
             position: relative;
-            overflow: hidden; /* Pastikan bayangan dalam tidak bocor */
-            z-index: 1; /* Pastikan konten utama di atas pseudo-element */
+            overflow: hidden;
+            z-index: 1;
         }
 
-        /* Efek latar belakang abstrak (opsional, untuk sentuhan "keren") */
-        .payment-section::before {
+        /* Efek latar belakang abstrak */
+        .payment-section::before,
+        .payment-section::after {
             content: '';
             position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: rgba(0, 123, 255, 0.05); /* Warna biru Saldoin */
+            background: rgba(39, 145, 153, 0.08); /* Warna primary baru dengan opacity */
             border-radius: 50%;
             filter: blur(80px);
             z-index: 0;
         }
 
+        .payment-section::before {
+            top: -50px;
+            left: -50px;
+            width: 220px;
+            height: 220px;
+        }
+
         .payment-section::after {
-            content: '';
-            position: absolute;
             bottom: -50px;
             right: -50px;
-            width: 180px;
-            height: 180px;
-            background: rgba(0, 123, 255, 0.07); /* Warna biru Saldoin yang lebih gelap */
-            border-radius: 50%;
-            filter: blur(70px);
-            z-index: 0;
+            width: 190px;
+            height: 190px;
+            background: rgba(39, 145, 153, 0.12); /* Warna primary baru yang lebih gelap */
         }
 
         h2 {
-            color: #2c3e50;
+            color: var(--text-dark);
             margin-bottom: 30px;
             font-size: 2.2em;
-            font-weight: 600;
-            position: relative; /* Untuk z-index agar di atas efek before/after */
-            z-index: 2; /* Lebih tinggi dari section pseudo-elements */
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        .payment-category-title {
+            font-family: 'Nunito', sans-serif; /* Menggunakan font Nunito */
+            font-size: 1.4em;
+            font-weight: 700; /* Sedikit lebih tebal dari sebelumnya */
+            color: var(--primary-dark);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+            padding-left: 10px;
         }
 
         .payment-methods-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ukuran logo lebih fokus */
-            gap: 20px; /* Jarak antar logo */
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
             position: relative;
-            z-index: 2; /* Pastikan di atas efek before/after */
+            z-index: 2;
+            padding: 0 10px;
         }
 
         .payment-method-item {
-            background-color: #ffffff; /* Latar belakang putih bersih */
-            border: 1px solid #e9ecef; /* Border tipis dan lembut */
-            border-radius: 15px; /* Border radius yang lebih besar */
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 15px;
             padding: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transisi lebih halus dan modern */
-            min-height: 110px; /* Tinggi minimum yang lebih pas untuk logo */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Bayangan lembut untuk mengangkat elemen */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            min-height: 110px;
+            box-shadow: 0 2px 8px var(--shadow-light);
             position: relative;
-            overflow: hidden; /* Untuk efek hover yang masuk dari dalam */
-            z-index: 1; /* Pastikan di atas pseudo-element item */
+            overflow: hidden;
+            z-index: 1;
         }
 
         .payment-method-item::before {
@@ -104,10 +131,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.15));
+            background: linear-gradient(45deg, rgba(39, 145, 153, 0.05), rgba(39, 145, 153, 0.15)); /* Gradien warna tema baru */
             opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 0; /* Di bawah konten item */
+            transition: opacity 0.3s ease;
+            z-index: 0;
         }
 
         .payment-method-item:hover::before {
@@ -115,31 +142,31 @@
         }
 
         .payment-method-item:hover {
-            border-color: #007bff; /* Warna biru Saldoin.my.id */
-            transform: translateY(-5px) scale(1.03); /* Efek mengangkat dan sedikit membesar */
-            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.25); /* Bayangan yang lebih kuat saat hover */
+            border-color: var(--primary-color);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(39, 145, 153, 0.25); /* Bayangan warna tema baru */
         }
 
         .payment-method-item.selected {
-            border-color: #007bff;
-            background-color: #e6f2ff; /* Latar belakang biru muda saat terpilih */
+            border-color: var(--primary-color);
+            background-color: var(--bg-selected);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.35);
+            box-shadow: 0 6px 20px rgba(39, 145, 153, 0.35);
         }
 
         .payment-method-item img {
-            width: 70px; /* Ukuran logo lebih besar untuk fokus */
+            width: 70px;
             height: 70px;
-            object-fit: contain; /* Memastikan logo tidak terdistorsi */
-            margin-bottom: 0; /* Tidak ada margin bawah karena tidak ada teks */
-            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1)); /* Bayangan lembut pada logo */
+            object-fit: contain;
+            margin-bottom: 0;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.08));
             position: relative;
-            z-index: 1; /* Pastikan logo di atas pseudo-element */
+            z-index: 1;
         }
 
         .selected-method-info {
-            background-color: #eaf6ff; /* Warna lebih lembut */
-            border: 1px solid #b3d9ff;
+            background-color: var(--bg-selected);
+            border: 1px solid var(--primary-color);
             border-radius: 12px;
             padding: 25px;
             margin-top: 30px;
@@ -151,10 +178,10 @@
             align-items: flex-start;
             line-height: 1.7;
             font-size: 0.95em;
-            color: #0056b3;
-            animation: fadeIn 0.5s ease-out; /* Animasi fade-in saat muncul */
+            color: var(--primary-dark);
+            animation: fadeIn 0.5s ease-out;
             position: relative;
-            z-index: 2; /* Lebih tinggi dari section pseudo-elements */
+            z-index: 2;
         }
 
         .selected-method-info p {
@@ -164,13 +191,12 @@
 
         .selected-method-info strong {
             font-weight: 600;
-            color: #004085;
+            color: var(--text-dark);
         }
 
-
         .proceed-button {
-            background: linear-gradient(90deg, #007bff, #0056b3); /* Gradien untuk tombol */
-            color: #fff;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+            color: var(--text-light);
             border: none;
             padding: 15px 35px;
             border-radius: 10px;
@@ -182,14 +208,14 @@
             width: 100%;
             max-width: 350px;
             letter-spacing: 0.5px;
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(39, 145, 153, 0.3); /* Bayangan warna tema baru */
             position: relative;
-            z-index: 2; /* Lebih tinggi dari section pseudo-elements */
+            z-index: 2;
         }
 
         .proceed-button:hover:not(:disabled) {
-            background: linear-gradient(90deg, #0056b3, #007bff);
-            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary-color));
+            box-shadow: 0 8px 20px rgba(39, 145, 153, 0.4);
             transform: translateY(-2px);
         }
 
@@ -223,8 +249,14 @@
                 font-size: 1.8em;
             }
 
+            .payment-category-title {
+                font-size: 1.2em;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+
             .payment-methods-grid {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Ukuran lebih kecil di mobile */
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
                 gap: 12px;
             }
 
@@ -273,6 +305,8 @@
 <body>
     <div class="payment-section">
         <h2>Pilih Metode Pembayaran</h2>
+
+        <div class="payment-category-title">E-Wallet</div>
         <div class="payment-methods-grid">
             <div class="payment-method-item" data-method="gopay">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/1280px-Gopay_logo.svg.png" alt="GoPay">
@@ -286,6 +320,10 @@
             <div class="payment-method-item" data-method="shopeepay">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/ShopeePay.png/800px-ShopeePay.png" alt="ShopeePay">
             </div>
+        </div>
+
+        <div class="payment-category-title">Transfer Bank</div>
+        <div class="payment-methods-grid">
             <div class="payment-method-item" data-method="bca">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1280px-Bank_Central_Asia.svg.png" alt="BCA">
             </div>
@@ -301,10 +339,14 @@
             <div class="payment-method-item" data-method="qris">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/QRIS_logo.svg/800px-QRIS_logo.svg.png" alt="QRIS">
             </div>
+        </div>
+
+        <div class="payment-category-title">Gerai Offline</div>
+        <div class="payment-methods-grid">
             <div class="payment-method-item" data-method="indomaret">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Logo_Indomaret.png/800px-Logo_Indomaret.png" alt="Indomaret">
             </div>
-        </div>
+            </div>
 
         <div id="selected-method-info" class="selected-method-info">
             </div>
