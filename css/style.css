@@ -29,7 +29,7 @@ body,
     margin: 4px auto 0;
     background-color: #fff;
     border: var(--outline);
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .container {
@@ -38,7 +38,7 @@ body,
 
 .container-ed {
     padding: 8px;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
 }
 
 .container-label {
@@ -123,7 +123,7 @@ body,
 
 .auth .btn-masuk {
     color: #279199;
-    background-color: var(--background);
+    background-color: #fff;
     border: 2px solid #279199;
 }
 
@@ -181,6 +181,8 @@ body,
 .produk-item img {
     border: var(--outline);
     border-radius: 8px;
+    width: 100px;
+    height: 100px;
 }
 
 .produk-item p {
@@ -197,13 +199,14 @@ body,
 
 .produk-item button {
     margin-top: auto;
-    padding: 4px 16px;
+    padding: 2px 16px;
     border: 2px solid #e67e22;
     color: #e67e22;
     background-color: #fff;
     border-radius: 16px;
     font-weight: 600;
     transition: transform 0.2s;
+    font-size: .8rem;
 }
 
 .produk-item button:hover {
@@ -425,6 +428,15 @@ blockquote {
         font-size: 0.9rem;
     }
 
+    .produk-item img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .produk-item button {
+        font-size: 0.7rem;
+    }
+
     .footer {
         margin-top: 10px;
     }
@@ -436,13 +448,5 @@ blockquote {
     .container,
     .container-ed {
         border-radius: 0;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .item-prduk {
-        flex: 0 0 25%;
-        max-width: 25%;
-        padding: 8px 2px;
     }
 }
