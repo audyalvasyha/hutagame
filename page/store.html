@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Mengalihkan ke Toko Saldoin...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="2; url=https://buylink.id/saldoin.my.id">
 
   <style>
     * {
@@ -27,7 +26,7 @@
 
     .loader {
       border: 5px solid #c6eae9;
-      border-top: 5px solid #279199; /* Branding saldoin */
+      border-top: 5px solid #279199;
       border-radius: 50%;
       width: 55px;
       height: 55px;
@@ -52,6 +51,24 @@
       max-width: 270px;
     }
   </style>
+
+  <script>
+    // Jalankan setelah halaman siap
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const type = urlParams.get("type");
+      let targetUrl = "https://buylink.id/saldoin.my.id";
+
+      if (type) {
+        targetUrl += `?type=${encodeURIComponent(type)}`;
+      }
+
+      // Delay redirect 2 detik biar sempet lihat loading
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 2000);
+    };
+  </script>
 </head>
 <body>
   <div class="loader"></div>
