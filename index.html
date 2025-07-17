@@ -1,665 +1,1014 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Top up game murah, cepat, dan terpercaya. Saldoin menyediakan berbagai layanan digital termasuk Diamond Mobile Legends, Free Fire, UC PUBG, dan item game lainnya. Nikmati pengalaman isi ulang instan, aman, dan harga terjangkau hanya di Saldoin.my.id - solusi terbaik untuk kebutuhan top up dan produk digital Anda." />
-    <meta property="og:title" content="Saldoin.my.id - Top Up Game Murah & Instan" />
-    <meta property="og:description"
-        content="Top up game favoritmu seperti MLBB, Free Fire, PUBG, dan lainnya dengan harga murah, proses cepat, dan aman di Saldoin.my.id!" />
-    <meta property="og:image" content="assets/IMG_1037.png" />
-    <meta property="og:url" content="https://saldoin.my.id/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Saldoin.my.id" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Saldoin.my.id - Top Up Game Murah & Instan" />
-    <meta name="twitter:description"
-        content="Top up MLBB, FF, PUBG, dan game lainnya cepat, murah, & terpercaya di Saldoin.my.id" />
-    <meta name="twitter:image" content="assets/IMG_1037.png" />
-    <meta name="author" content="Saldoin" />
-    <meta name="google-site-verification" content="01iNnkW6dR380Fb369AlAI8mIF4B0hOCGXkpDnml8xw" />
-    <link rel="canonical" href="https://saldoin.my.id/" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preload" as="image" href="assets/banner.webp" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <style>
-        .link-item.active {
-            font-weight: bold;
-            color: #2b7a78;
-            border-bottom: 2px solid #2b7a78;
-        }
-
-        .prduk-isi {
-            margin-top: 16px;
-        }
-
-        .list-item {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: space-between;
-            list-style: none;
-        }
-
-        .item-prduk {
-            flex: 1 1 calc(25% - 10px);
-            border: 1px solid #dae2ed;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 12px 4px;
-            min-width: 80px;
-            text-align: center;
-            box-sizing: border-box;
-        }
-
-        .item-prduk img {
-            width: 25px;
-            height: 25px;
-        }
-
-        .item-prduk span {
-            font-size: 0.8rem;
-        }
-
-        .carousel {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            border-radius: 4px;
-        }
-
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-        }
-
-        .carousel-slide {
-            flex: 0 0 100%;
-            display: none;
-        }
-
-        .carousel-slide.active {
-            display: block;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            aspect-ratio: 16 / 5;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .skeleton-container {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            max-width: 768px;
-            margin: 10px auto 0;
-        }
-
-        .skeleton-banner,
-        .skeleton-icon,
-        .skeleton-line,
-        .skeleton-button,
-        .skeleton-title,
-        .skeleton-card,
-        .skeleton-footer-title,
-        .skeleton-icon-circle,
-        .skeleton-footer-text {
-            background: linear-gradient(90deg, #eeeeee 25%, #dddddd 50%, #eeeeee 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.2s infinite;
-        }
-
-        .skeleton-banner {
-            width: 100%;
-            height: 140px;
-            border-radius: 12px;
-        }
-
-        .skeleton-icons {
-            display: flex;
-            justify-content: space-between;
-            gap: 8px;
-        }
-
-        .skeleton-icon {
-            flex: 1;
-            height: 90px;
-            border-radius: 10px;
-        }
-
-        .skeleton-text-block {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            padding: 16px;
-            border-radius: 12px;
-            background: #f3f3f3;
-        }
-
-        .skeleton-line {
-            height: 16px;
-            border-radius: 6px;
-        }
-
-        .skeleton-line.short {
-            width: 50%;
-        }
-
-        .skeleton-line.long {
-            width: 100%;
-        }
-
-        .skeleton-button {
-            width: 60%;
-            height: 36px;
-            border-radius: 20px;
-        }
-
-        /* SKELETON POPULER & FOOTER */
-        .skeleton-section,
-        .skeleton-footer {
-            padding: 16px;
-            border-radius: 12px;
-        }
-
-        .skeleton-title {
-            width: 150px;
-            height: 20px;
-            border-radius: 4px;
-            margin-bottom: 16px;
-        }
-
-        .skeleton-populer-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: space-between;
-        }
-
-        .skeleton-card {
-            flex: 1 1 calc(25% - 12px);
-            height: 180px;
-            border-radius: 10px;
-            min-width: 80px;
-        }
-
-        .skeleton-footer-title {
-            width: 180px;
-            height: 18px;
-            border-radius: 4px;
-            margin: 16px 0;
-        }
-
-        .skeleton-contact-icons {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .skeleton-icon-circle {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-        }
-
-        .skeleton-footer-text {
-            height: 14px;
-            border-radius: 4px;
-            width: 90%;
-            margin-bottom: 8px;
-        }
-
-        .skeleton-footer-text.short {
-            width: 60%;
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: 200% 0;
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Top up game murah, cepat, dan terpercaya. Saldoin menyediakan berbagai layanan digital termasuk Diamond Mobile Legends, Free Fire, UC PUBG, dan item game lainnya. Nikmati pengalaman isi ulang instan, aman, dan harga terjangkau hanya di Saldoin.my.id - solusi terbaik untuk kebutuhan top up dan produk digital Anda."
+        />
+        <meta property="og:title" content="Saldoin.my.id - Top Up Game Murah & Instan" />
+        <meta property="og:description" content="Top up game favoritmu seperti MLBB, Free Fire, PUBG, dan lainnya dengan harga murah, proses cepat, dan aman di Saldoin.my.id!" />
+        <meta property="og:image" content="assets/IMG_1037.png" />
+        <meta property="og:url" content="https://saldoin.my.id/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Saldoin.my.id" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Saldoin.my.id - Top Up Game Murah & Instan" />
+        <meta name="twitter:description" content="Top up MLBB, FF, PUBG, dan game lainnya cepat, murah, & terpercaya di Saldoin.my.id" />
+        <meta name="twitter:image" content="assets/IMG_1037.png" />
+        <meta name="author" content="Saldoin" />
+        <meta name="google-site-verification" content="01iNnkW6dR380Fb369AlAI8mIF4B0hOCGXkpDnml8xw" />
+        <link rel="canonical" href="https://saldoin.my.id/" />
+        <title>Saldoin - Beli Voucher dan Top Up Game Murah, Cepat & Terpercaya</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="preload" as="image" href="assets/banner.webp" />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <style>
+            .link-item.active {
+                font-weight: bold;
+                color: #2b7a78;
+                border-bottom: 2px solid #2b7a78;
             }
-
-            100% {
-                background-position: -200% 0;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .carousel-slide img {
-                aspect-ratio: 16 / 5;
-            }
-
-            .item-prduk {
-                flex: 1 1 calc(25% - 5px);
-                padding: 16px 2px;
-                min-width: 60px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .carousel-slide img {
-                aspect-ratio: 16 / 5;
+            .prduk-isi {
+                margin-top: 16px;
             }
 
             .list-item {
-                gap: 5px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: space-between;
+                list-style: none;
             }
 
             .item-prduk {
-                flex: 1 1 calc(25% - 5px);
-                min-width: 60px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <div class="root">
-        <div class="app">
-            <header class="header">
-                <div class="group sub-navbar flex">
-                    <div class="btn user-profile">
-                        <img class="logo logo-1" src="assets/IMG_1037.png" alt="Saldoin Logo" height="30"
-                            loading="lazy" />
-                    </div>
-                    <div class="auth flex">
-                        <div class="btn btn-daftar" onclick="location.href='https://www.saldoin.my.id/daftar'">Daftar
-                        </div>
-                        <div class="btn btn-masuk" onclick="location.href='https://www.saldoin.my.id/masuk'">Masuk</div>
-                    </div>
-                </div>
-
-                <nav class="group menu flex">
-                    <ul id="linkTrigger" class="menu-list flex">
-                        <li class="link-item active" data-page="beranda.html" class="active">Beranda</li>
-                        <li class="link-item" data-page="about.html">Tentang</li>
-                        <li class="link-item" data-page="payment.html">Metode Pembayaran</li>
-                        <li class="link-item" data-page="cara-order.html">Cara Order</li>
-                        <li class="link-item" data-page="testimoni.html">Testimoni</li>
-                        <li class="link-item" data-page="kontak.html">Kontak</li>
-                        <li class="link-item" data-page="kebijakan.html">Kebijakan</li>
-                        <li class="link-item" data-page="faq.html">FAQ</li>
-                    </ul>
-                </nav>
-            </header>
-
-            <div class="skeleton-container" id="skeletonLoader">
-                <div class="skeleton-banner"></div>
-                <div class="skeleton-icons">
-                    <div class="skeleton-icon"></div>
-                    <div class="skeleton-icon"></div>
-                    <div class="skeleton-icon"></div>
-                    <div class="skeleton-icon"></div>
-                </div>
-                <div class="skeleton-text-block">
-                    <div class="skeleton-line short"></div>
-                    <div class="skeleton-line long"></div>
-                    <div class="skeleton-line long"></div>
-                    <div class="skeleton-button"></div>
-                </div>
-                <section class="skeleton-section">
-                    <div class="skeleton-title"></div>
-                    <div class="skeleton-populer-grid">
-                        <div class="skeleton-card"></div>
-                        <div class="skeleton-card"></div>
-                        <div class="skeleton-card"></div>
-                        <div class="skeleton-card"></div>
-                    </div>
-                </section>
-
-                <section class="skeleton-footer">
-                    <div class="skeleton-footer-title"></div>
-                    <div class="skeleton-contact-icons">
-                        <div class="skeleton-icon-circle"></div>
-                        <div class="skeleton-icon-circle"></div>
-                        <div class="skeleton-icon-circle"></div>
-                    </div>
-                    <div class="skeleton-footer-text short"></div>
-                    <div class="skeleton-footer-text"></div>
-                </section>
-            </div>
-
-            <main id="realContent" style="display: none;">
-                <section class="container-ed">
-                    <div class="carousel" id="simpleCarousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-slide active"><img src="assets/banner1.jpg" alt="Banner 1"
-                                    loading="lazy" /></div>
-                            <div class="carousel-slide"><img src="assets/banner2.jpg" alt="Banner 2" loading="lazy" />
-                            </div>
-                            <div class="carousel-slide"><img src="assets/banner3.jpg" alt="Banner 3" loading="lazy" />
-                            </div>
-                            <div class="carousel-slide"><img src="assets/banner4.jpg" alt="Banner 4" loading="lazy" />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="container">
-                    <span class="container-label">ISI ULANG & TOP UP JUGA BISA LOH!</span>
-                    <div class="prduk-isi">
-                        <ul class="list-item">
-                            <li class="item-prduk" onclick="location.href='/page/store.html?type=pulsa'">
-                                <img src="assets/pulsa.png" alt="Pulsa" />
-                                <span>Pulsa</span>
-                            </li>
-                            <li class="item-prduk" onclick="location.href='/page/store.html?type=data'">
-                                <img src="assets/data.png" alt="Paket Data" />
-                                <span>Paket Data</span>
-                            </li>
-                            <li class="item-prduk" onclick="location.href='/page/store.html?type=pln'">
-                                <img src="assets/token.png" alt="Token Listrik" />
-                                <span>Token Listrik</span>
-                            </li>
-                            <li class="item-prduk" onclick="location.href='/page/store.html?type=e-wallet'">
-                                <img src="assets/e-wallet.png" alt="E-Wallet" />
-                                <span>E-Wallet</span>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="container">
-                    <div id="wrapperContent"></div>
-                </section>
-
-                <section class="artikel-terbaru container">
-                    <h3>📌 Artikel Terbaru</h3>
-                    <ul class="list-artikel" id="list-artikel">
-                        </ul>
-                </section>
-                <section class="container populer">
-                    <div class="container-label flex">
-                        <div class="label-title">TERPOPULER</div>
-                        <div class="view-all-item" onclick="location.href='cari?type=topup'">Lihat Semua</div>
-                    </div>
-                    <ul class="produk flex" id="populerList"></ul>
-                </section>
-
-            </main>
-
-            <footer class="footer">
-                <section class="container flex contacts">
-                    <div class="contact-heading">DUKUNGAN PELANGGAN</div>
-                    <div class="contact-title">Hubungi kami</div>
-                    <ul class="contact-menu flex">
-                        <li class="contact-list">
-                            <a href="https://www.instagram.com/saldoin.my.id" target="_blank">
-                                <img src="assets/instagram.jpg" alt="instagram" width="50px" />
-                            </a>
-                        </li>
-                        <li class="contact-list">
-                            <a href="https://wa.me/6281373634190" target="_blank">
-                                <img src="assets/whatsapp.jpg" alt="whatsapp" width="50px" />
-                            </a>
-                        </li>
-                        <li class="contact-list">
-                            <a href="mailto:audialfasha@gmail.com" target="_blank">
-                                <img src="assets/gmail.png" alt="gmail" width="50px" />
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-                <section class="container">
-                    <p>&copy; 2025 Saldoin.my.id. All rights reserved.</p>
-                    <p>Ikuti kami di Instagram: <a href="https://www.instagram.com/saldoin.my.id"
-                                target="_blank">@saldoin.my.id</a></p>
-                </section>
-            </footer>
-        </div>
-    </div>
-
-    <script>
-        // paymentInstructions HARUS ada di scope global atau di dalam script yang dimuat.
-        // Karena ini dimuat oleh index.html, dia harus ada di sini.
-        const paymentInstructions = {
-            qris: `
-                <p><strong>Cara Pembayaran via QRIS:</strong></p>
-                <p>1. Klik tombol 'Lanjutkan Pembayaran'.</p>
-                <p>2. Pindai kode QRIS yang muncul menggunakan aplikasi pembayaran (GoPay, OVO, DANA, mobile banking, dll.) Anda.</p>
-                <p>3. Pastikan jumlah pembayaran sudah sesuai.</p>
-                <p>4. Konfirmasi pembayaran.</p>
-            `,
-            dana: `
-                <p><strong>Cara Pembayaran via DANA:</strong></p>
-                <p>1. Pastikan saldo DANA Anda mencukupi.</p>
-                <p>2. Anda akan diarahkan ke aplikasi DANA untuk menyelesaikan pembayaran.</p>
-                <p>3. Ikuti instruksi di aplikasi DANA dan konfirmasi pembayaran.</p>
-            `,
-            ovo: `
-                <p><strong>Cara Pembayaran via OVO:</strong></p>
-                <p>1. Pastikan saldo OVO Anda mencukupi.</p>
-                <p>2. Anda akan diarahkan ke aplikasi OVO untuk menyelesaikan pembayaran.</p>
-                <p>3. Ikuti instruksi di aplikasi OVO dan konfirmasi pembayaran.</p>
-            `,
-            linkaja: `
-                <p><strong>Cara Pembayaran via LinkAja:</strong></p>
-                <p>1. Pastikan saldo LinkAja Anda mencukupi.</p>
-                <p>2. Anda akan diarahkan ke aplikasi LinkAja untuk menyelesaikan pembayaran.</p>
-                <p>3. Ikuti instruksi di aplikasi LinkAja dan konfirmasi pembayaran.</p>
-            `,
-            alfamart: `
-                <p><strong>Cara Pembayaran via Alfamart:</strong></p>
-                <p>1. Setelah menekan 'Lanjutkan Pembayaran', Anda akan menerima kode pembayaran.</p>
-                <p>2. Kunjungi gerai Alfamart terdekat.</p>
-                <p>3. Berikan kode pembayaran kepada kasir dan lakukan pembayaran.</p>
-                <p>4. Simpan struk sebagai bukti pembayaran.</p>
-            `,
-            indomaret: `
-                <p><strong>Cara Pembayaran via Indomaret:</strong></p>
-                <p>1. Setelah menekan 'Lanjutkan Pembayaran', Anda akan menerima kode pembayaran.</p>
-                <p>2. Kunjungi gerai Indomaret terdekat.</p>
-                <p>3. Berikan kode pembayaran kepada kasir dan lakukan pembayaran.</p>
-                <p>4. Simpan struk sebagai bukti pembayaran.</p>
-            `,
-            briva: `
-                <p><strong>Cara Pembayaran via BRIVA (Bank BRI Virtual Account):</strong></p>
-                <p>1. Salin nomor Virtual Account BRI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
-                <p>2. Lakukan pembayaran melalui ATM BRI, BRImo (Mobile Banking), atau Internet Banking BRI.</p>
-                <p>3. Pilih 'Pembayaran' > 'BRIVA' dan masukkan nomor Virtual Account.</p>
-                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
-            `,
-            'va-mandiri': `
-                <p><strong>Cara Pembayaran via Virtual Account Mandiri:</strong></p>
-                <p>1. Salin nomor Virtual Account Mandiri Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
-                <p>2. Lakukan pembayaran melalui Livin' by Mandiri, ATM Mandiri, atau Internet Banking Mandiri.</p>
-                <p>3. Pilih menu 'Bayar' atau 'Transfer' ke Virtual Account dan masukkan nomor Virtual Account.</p>
-                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
-            `,
-            'va-bni': `
-                <p><strong>Cara Pembayaran via Virtual Account BNI:</strong></p>
-                <p>1. Salin nomor Virtual Account BNI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
-                <p>2. Lakukan pembayaran melalui BNI Mobile Banking, ATM BNI, atau Internet Banking BNI.</p>
-                <p>3. Pilih 'Transfer' > 'Virtual Account Billing' dan masukkan nomor Virtual Account.</p>
-                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
-            `,
-            'va-danamon': `
-                <p><strong>Cara Pembayaran via Virtual Account Danamon:</strong></p>
-                <p>1. Salin nomor Virtual Account Danamon Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
-                <p>2. Lakukan pembayaran melalui D-Bank Mobile, ATM Danamon, atau Internet Banking Danamon.</p>
-                <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
-                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
-            `,
-            'va-permata': `
-                <p><strong>Cara Pembayaran via Virtual Account Permata:</strong></p>
-                <p>1. Salin nomor Virtual Account Permata Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
-                <p>2. Lakukan pembayaran melalui PermataMobile X, ATM Permata, atau bank lain (via transfer ke Permata).</p>
-                <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
-                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
-            `,
-            'va-cimb': `
-                <p><strong>Cara Pembayaran via Virtual Account CIMB Niaga:</strong></p>
-                <p>1. Salin nomor Virtual Account CIMB Niaga Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
-                <p>2. Lakukan pembayaran melalui OCTO Mobile, ATM CIMB Niaga, atau bank lain (via transfer ke CIMB Niaga).</p>
-                <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
-                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
-            `,
-            'va-bsi': `
-                <p><strong>Cara Pembayaran via Virtual Account BSI:</strong></p>
-                <p>1. Salin nomor Virtual Account BSI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
-                <p>2. Lakukan pembayaran melalui BSI Mobile, ATM BSI, atau bank lain (via transfer ke BSI).</p>
-                <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
-                <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
-            `,
-        };
-
-        let selectedMethod = null;
-
-        function updateSelectedMethodInfo() {
-            const infoDiv = document.getElementById('selected-method-info');
-            const proceedButton = document.getElementById('proceed-button');
-
-            if (!infoDiv || !proceedButton) {
-                // Elemen belum ada, coba lagi nanti jika ini dipicu oleh event asinkron
-                // atau pastikan ini dipanggil SETELAH elemen ada di DOM.
-                console.warn("selected-method-info or proceed-button not found. This might be due to async content loading.");
-                return;
+                flex: 1 1 calc(25% - 10px);
+                border: 1px solid #dae2ed;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 12px 4px;
+                min-width: 80px;
+                text-align: center;
+                box-sizing: border-box;
             }
 
-            if (selectedMethod && paymentInstructions[selectedMethod]) {
-                infoDiv.innerHTML = paymentInstructions[selectedMethod];
-                proceedButton.disabled = false;
-            } else {
-                infoDiv.innerHTML = '<p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>';
-                proceedButton.disabled = true;
-            }
-        }
-
-        function handlePaymentMethodClick(event) {
-            document.querySelectorAll('.payment-method-item').forEach(item => {
-                item.classList.remove('selected');
-            });
-
-            const clickedItem = event.currentTarget;
-            clickedItem.classList.add('selected');
-
-            selectedMethod = clickedItem.dataset.method;
-            updateSelectedMethodInfo();
-        }
-
-        function initializePaymentLogic() {
-            console.log("Initializing payment logic for loaded content...");
-            const paymentItems = document.querySelectorAll('.payment-method-item');
-            paymentItems.forEach(item => {
-                // Hapus event listener yang mungkin sudah ada sebelumnya untuk menghindari duplikasi
-                item.removeEventListener('click', handlePaymentMethodClick);
-                item.addEventListener('click', handlePaymentMethodClick);
-            });
-
-            // Panggil updateSelectedMethodInfo di sini untuk memastikan state awal tombol
-            updateSelectedMethodInfo();
-
-            const proceedButton = document.getElementById('proceed-button');
-            if (proceedButton) {
-                // Hapus event listener yang mungkin sudah ada sebelumnya untuk menghindari duplikasi
-                proceedButton.removeEventListener('click', handleProceedButtonClick);
-                proceedButton.addEventListener('click', handleProceedButtonClick);
-            } else {
-                console.error("Proceed button not found after loading payment section.");
-            }
-        }
-
-        function handleProceedButtonClick() {
-            if (selectedMethod) {
-                const methodNameMatch = paymentInstructions[selectedMethod].match(/<strong>Cara Pembayaran via (.*?)<\/strong>/);
-                const methodName = methodNameMatch ? methodNameMatch[1].replace(':', '').trim() : selectedMethod.toUpperCase();
-
-                alert(`Anda akan melanjutkan pembayaran menggunakan ${methodName}`);
-                // Di sini Anda bisa menambahkan logika untuk mengarahkan ke halaman pembayaran selanjutnya
-                // atau memicu proses pembayaran melalui API.
-            } else {
-                alert("Silakan pilih metode pembayaran terlebih dahulu!");
-            }
-        }
-
-
-        $(document).ready(function () {
-            function loadPage(page) {
-                $("#skeletonLoader").fadeIn(200);
-                $("#realContent").fadeOut(200, function () {
-                    $("#wrapperContent").load("page/" + page, function (res, status, xhr) {
-                        if (status === "error") {
-                            $("#wrapperContent").html("<p>Gagal memuat konten.</p>");
-                            console.error("Error:", xhr.status, xhr.statusText);
-                        } else {
-                            // Setelah konten dimuat, jika itu payment.html, inisialisasi logika pembayaran
-                            if (page === "payment.html") {
-                                // Reset selectedMethod saat memuat ulang halaman pembayaran
-                                selectedMethod = null;
-                                initializePaymentLogic();
-                            }
-                        }
-                        $("#skeletonLoader").fadeOut(200, function () {
-                            $("#realContent").fadeIn(200);
-                        });
-                    });
-                });
+            .item-prduk img {
+                width: 25px;
+                height: 25px;
             }
 
-            // Load awal (Beranda)
-            loadPage("beranda.html");
-
-            // Handle klik menu
-            let currentPage = "beranda.html";
-            $("#linkTrigger .link-item").on("click", function (e) {
-                e.preventDefault();
-                const page = $(this).data("page");
-                if (page === currentPage) return;
-                currentPage = page;
-                $(".link-item").removeClass("active");
-                $(this).addClass("active");
-                loadPage(page);
-            });
-
-            // Carousel sederhana
-            let currentIndex = 0;
-            const slides = $("#simpleCarousel .carousel-slide");
-            const totalSlides = slides.length;
-
-            function showSlide(index) {
-                slides.removeClass("active");
-                slides.eq(index).addClass("active");
+            .item-prduk span {
+                font-size: 0.8rem;
             }
 
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                showSlide(currentIndex);
+            .carousel {
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
             }
 
-            setInterval(nextSlide, 4000);
+            .carousel-inner {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                width: 100%;
+            }
 
-            // Load data JSON
-            $.getJSON("data.json", function (data) {
-                const produk = data.produk;
-                // Pastikan ada cukup item di 'produk' sebelum looping
-                const itemsToLoad = Math.min(produk.length, 4); 
-                for (let i = 0; i < itemsToLoad; i++) { // Loop dari 0 hingga itemsToLoad-1
-                    const item = produk[i];
-                    const alamat = item.address || "#";
-                    $("#populerList").append(`
-                <li class="produk-item flex">
-                  <img src="${item.img_product}" loading="lazy" alt="${item.nm_product}" />
-                  <p>#${i}</p> <button class="btn-choose" onclick="location.href='${alamat}'">BELI</button>
-                </li>`);
+            .carousel-slide {
+                flex: 0 0 100%;
+                display: none;
+            }
+
+            .carousel-slide.active {
+                display: block;
+            }
+
+            .carousel-slide img {
+                width: 100%;
+                aspect-ratio: 16 / 5;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+            .skeleton-container {
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                max-width: 768px;
+                margin: 10px auto 0;
+            }
+
+            .skeleton-banner,
+            .skeleton-icon,
+            .skeleton-line,
+            .skeleton-button,
+            .skeleton-title,
+            .skeleton-card,
+            .skeleton-footer-title,
+            .skeleton-icon-circle,
+            .skeleton-footer-text {
+                background: linear-gradient(90deg, #eeeeee 25%, #dddddd 50%, #eeeeee 75%);
+                background-size: 200% 100%;
+                animation: shimmer 1.2s infinite;
+            }
+
+            .skeleton-banner {
+                width: 100%;
+                height: 140px;
+                border-radius: 12px;
+            }
+
+            .skeleton-icons {
+                display: flex;
+                justify-content: space-between;
+                gap: 8px;
+            }
+
+            .skeleton-icon {
+                flex: 1;
+                height: 90px;
+                border-radius: 10px;
+            }
+
+            .skeleton-text-block {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px;
+                border-radius: 12px;
+                background: #f3f3f3;
+            }
+
+            .skeleton-line {
+                height: 16px;
+                border-radius: 6px;
+            }
+
+            .skeleton-line.short {
+                width: 50%;
+            }
+
+            .skeleton-line.long {
+                width: 100%;
+            }
+
+            .skeleton-button {
+                width: 60%;
+                height: 36px;
+                border-radius: 20px;
+            }
+
+            /* SKELETON POPULER & FOOTER */
+            .skeleton-section,
+            .skeleton-footer {
+                padding: 16px;
+                border-radius: 12px;
+            }
+
+            .skeleton-title {
+                width: 150px;
+                height: 20px;
+                border-radius: 4px;
+                margin-bottom: 16px;
+            }
+
+            .skeleton-populer-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                justify-content: space-between;
+            }
+
+            .skeleton-card {
+                flex: 1 1 calc(25% - 12px);
+                height: 180px;
+                border-radius: 10px;
+                min-width: 80px;
+            }
+
+            .skeleton-footer-title {
+                width: 180px;
+                height: 18px;
+                border-radius: 4px;
+                margin: 16px 0;
+            }
+
+            .skeleton-contact-icons {
+                display: flex;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .skeleton-icon-circle {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+            }
+
+            .skeleton-footer-text {
+                height: 14px;
+                border-radius: 4px;
+                width: 90%;
+                margin-bottom: 8px;
+            }
+
+            .skeleton-footer-text.short {
+                width: 60%;
+            }
+
+            @keyframes shimmer {
+                0% {
+                    background-position: 200% 0;
+                }
+                100% {
+                    background-position: -200% 0;
+                }
+            }
+            @media screen and (max-width: 768px) {
+                .carousel-slide img {
+                    aspect-ratio: 16 / 5;
+                }
+                  .item-prduk {
+                    flex: 1 1 calc(25% - 5px);
+                    padding: 8px;
+                    min-width: 60px;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                .carousel-slide img {
+                    aspect-ratio: 16 / 5;
+                }
+                .list-item {
+                    gap: 5px;
+                }
+                .item-prduk {
+                    flex: 1 1 calc(25% - 5px);
+                    padding: 8px 2px;
+                    min-width: 60px;
+                }
+            }
+
+            /* Styling untuk Kategori Produk Baru */
+            .product-categories {
+                margin-top: 24px;
+            }
+
+            .product-categories h3 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 1.2rem;
+                color: #333;
+            }
+
+            .category-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            .category-card {
+                background-color: #ffffff;
+                border: 1px solid #dae2ed;
+                border-radius: 8px;
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            .category-card:hover {
+                border-color: #2b7a78;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transform: translateY(-3px);
+            }
+
+            .category-card img {
+                width: 60px; /* Adjust size as needed */
+                height: 60px; /* Adjust size as needed */
+                object-fit: contain;
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+
+            .category-card span {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: #555;
+            }
+
+            /* Styling untuk Detail Produk */
+            .product-detail-section {
+                background-color: #f9f9f9;
+                border: 1px solid #dae2ed;
+                border-radius: 8px;
+                padding: 20px;
+                margin-top: 20px;
+            }
+
+            .product-detail-section h4 {
+                text-align: center;
+                margin-bottom: 15px;
+                font-size: 1.1rem;
+                color: #2b7a78;
+            }
+
+            .detail-product-list {
+                list-style: none;
+                padding: 0;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+                gap: 10px;
+                justify-content: center;
+            }
+
+            .detail-product-item {
+                background-color: #fff;
+                border: 1px solid #e0e6ed;
+                border-radius: 6px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+            }
+
+            .detail-product-item img {
+                width: 40px; /* Smaller icon size */
+                height: 40px; /* Smaller icon size */
+                object-fit: contain;
+                border-radius: 3px;
+                margin-bottom: 5px;
+            }
+
+            .detail-product-item span {
+                font-size: 0.75rem;
+                color: #666;
+                word-break: break-word; /* Ensure long names wrap */
+            }
+
+            .close-detail-button {
+                display: block;
+                width: fit-content;
+                margin: 20px auto 0;
+                padding: 8px 20px;
+                background-color: #dc3545;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.9rem;
+                transition: background-color 0.3s ease;
+            }
+
+            .close-detail-button:hover {
+                background-color: #c82333;
+            }
+
+            /* Styling untuk Bagian Gambar Tambahan */
+            .additional-images-section {
+                margin-top: 24px;
+                padding: 15px;
+                background-color: #f0f2f5;
+                border-radius: 8px;
+                text-align: center;
+            }
+
+            .additional-images-section h3 {
+                margin-bottom: 20px;
+                font-size: 1.2rem;
+                color: #333;
+            }
+
+            .additional-images-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .additional-image-item {
+                background-color: #ffffff;
+                border: 1px solid #dae2ed;
+                border-radius: 8px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            .additional-image-item img {
+                width: 80px; /* Ukuran gambar yang lebih besar */
+                height: 80px;
+                object-fit: contain;
+                border-radius: 4px;
+                margin-bottom: 8px;
+            }
+
+            .additional-image-item span {
+                font-size: 0.85rem;
+                font-weight: 500;
+                color: #444;
+            }
+
+
+            /* Media Queries for Responsiveness */
+            @media screen and (max-width: 768px) {
+                .category-list {
+                    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                    gap: 10px;
                 }
 
-                const listArtikel = $("#list-artikel");
-                data.artikel_terbaru.forEach(function (item) {
-                    listArtikel.append(`<li><a href="${item.url}">${item.judul}</a></li>`);
+                .category-card {
+                    padding: 10px;
+                }
+
+                .category-card img {
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .detail-product-list {
+                    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+                    gap: 8px;
+                }
+                .detail-product-item img {
+                    width: 35px;
+                    height: 35px;
+                }
+
+                .additional-images-grid {
+                    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                    gap: 10px;
+                }
+                .additional-image-item img {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                .category-list {
+                    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                    gap: 8px;
+                }
+                .category-card img {
+                    width: 45px;
+                    height: 45px;
+                }
+                .category-card span {
+                    font-size: 0.8rem;
+                }
+                .detail-product-list {
+                    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+                    gap: 6px;
+                }
+                .detail-product-item img {
+                    width: 30px;
+                    height: 30px;
+                }
+                .detail-product-item span {
+                    font-size: 0.65rem;
+                }
+
+                .additional-images-grid {
+                    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+                    gap: 8px;
+                }
+                .additional-image-item img {
+                    width: 50px;
+                    height: 50px;
+                }
+                .additional-image-item span {
+                    font-size: 0.75rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="root">
+            <div class="app">
+                <!-- Header dan Navigasi -->
+                <header class="header">
+                    <div class="group sub-navbar flex">
+                        <div class="btn user-profile">
+                            <img class="logo logo-1" src="assets/IMG_1037.png" alt="Saldoin Logo" height="30" loading="lazy" />
+                        </div>
+                        <div class="auth flex">
+                            <div class="btn btn-daftar" onclick="location.href='https://www.saldoin.my.id/daftar'">Daftar</div>
+                            <div class="btn btn-masuk" onclick="location.href='https://www.saldoin.my.id/masuk'">Masuk</div>
+                        </div>
+                    </div>
+
+                    <nav class="group menu flex">
+                        <ul id="linkTrigger" class="menu-list flex">
+                            <li class="link-item active" data-page="beranda.html" class="active">Beranda</li>
+                            <li class="link-item" data-page="about.html">Tentang</li>
+                            <li class="link-item" data-page="payment.html">Metode Pembayaran</li>
+                            <li class="link-item" data-page="cara-order.html">Cara Order</li>
+                            <li class="link-item" data-page="testimoni.html">Testimoni</li>
+                            <li class="link-item" data-page="kontak.html">Kontak</li>
+                            <li class="link-item" data-page="kebijakan.html">Kebijakan</li>
+                            <li class="link-item" data-page="faq.html">FAQ</li>
+                        </ul>
+                    </nav>
+                </header>
+
+                <!-- Skeleton Loader -->
+                <div class="skeleton-container" id="skeletonLoader">
+                    <div class="skeleton-banner"></div>
+                    <div class="skeleton-icons">
+                        <div class="skeleton-icon"></div>
+                        <div class="skeleton-icon"></div>
+                        <div class="skeleton-icon"></div>
+                        <div class="skeleton-icon"></div>
+                    </div>
+                    <div class="skeleton-text-block">
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-line long"></div>
+                        <div class="skeleton-line long"></div>
+                        <div class="skeleton-button"></div>
+                    </div>
+                    <!-- Skeleton TERPOPULER -->
+                    <section class="skeleton-section">
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-populer-grid">
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                        </div>
+                    </section>
+
+                    <!-- Skeleton FOOTER KONTAK -->
+                    <section class="skeleton-footer">
+                        <div class="skeleton-footer-title"></div>
+                        <div class="skeleton-contact-icons">
+                            <div class="skeleton-icon-circle"></div>
+                            <div class="skeleton-icon-circle"></div>
+                            <div class="skeleton-icon-circle"></div>
+                        </div>
+                        <div class="skeleton-footer-text short"></div>
+                        <div class="skeleton-footer-text"></div>
+                    </section>
+                </div>
+
+                <!-- Konten Utama -->
+                <main id="realContent" style="display: none;">
+                    <section class="container-ed">
+                        <div class="carousel" id="simpleCarousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-slide active"><img src="assets/banner1.jpg" alt="Banner 1" loading="lazy" /></div>
+                                <div class="carousel-slide"><img src="assets/banner2.jpg" alt="Banner 2" loading="lazy" /></div>
+                                <div class="carousel-slide"><img src="assets/banner3.jpg" alt="Banner 3" loading="lazy" /></div>
+                                <div class="carousel-slide"><img src="assets/banner4.jpg" alt="Banner 4" loading="lazy" /></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="container">
+                        <span class="container-label">ISI ULANG & TOP UP JUGA BISA LOH!</span>
+                        <div class="prduk-isi">
+                            <ul class="list-item">
+                                <li class="item-prduk" onclick="location.href='/page/store.html?type=pulsa'">
+                                    <img src="assets/pulsa.png" alt="Pulsa" onerror="this.onerror=null;this.src='https://placehold.co/25x25/aabbcc/ffffff?text=P'" />
+                                    <span>Pulsa</span>
+                                </li>
+                                <li class="item-prduk" onclick="location.href='/page/store.html?type=data'">
+                                    <img src="assets/data.png" alt="Paket Data" onerror="this.onerror=null;this.src='https://placehold.co/25x25/aabbcc/ffffff?text=D'" />
+                                    <span>Paket Data</span>
+                                </li>
+                                <li class="item-prduk" onclick="location.href='/page/store.html?type=pln'">
+                                    <img src="assets/token.png" alt="Token Listrik" onerror="this.onerror=null;this.src='https://placehold.co/25x25/aabbcc/ffffff?text=L'" />
+                                    <span>Token Listrik</span>
+                                </li>
+                                <li class="item-prduk" onclick="location.href='/page/store.html?type=e-wallet'">
+                                    <img src="assets/e-wallet.png" alt="E-Wallet" onerror="this.onerror=null;this.src='https://placehold.co/25x25/aabbcc/ffffff?text=E'" />
+                                    <span>E-Wallet</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Bagian Kategori Produk Baru -->
+                    <section class="container product-categories">
+                        <h3>KATEGORI PRODUK LAINNYA</h3>
+                        <div class="category-list">
+                            <div class="category-card" data-category="pulsa_data">
+                                <img src="assets/pulsadandata.jpeg" alt="Pulsa & Paket Data" onerror="this.onerror=null;this.src='https://placehold.co/60x60/aabbcc/ffffff?text=PD'" />
+                                <span>Pulsa & Paket Data</span>
+                            </div>
+                            <div class="category-card" data-category="voucher_belanja">
+                                <img src="assets/voucher.jpeg" alt="Voucher Belanja" onerror="this.onerror=null;this.src='https://placehold.co/60x60/aabbcc/ffffff?text=VB'" />
+                                <span>Voucher Belanja</span>
+                            </div>
+                            <div class="category-card" data-category="streaming">
+                                <img src="assets/streaming.jpeg" alt="Streaming" onerror="this.onerror=null;this.src='https://placehold.co/60x60/aabbcc/ffffff?text=S'" />
+                                <span>Streaming</span>
+                            </div>
+                            <div class="category-card" data-category="voucher_game">
+                                <img src="assets/game.jpeg" alt="Voucher Game" onerror="this.onerror=null;this.src='https://placehold.co/60x60/aabbcc/ffffff?text=VG'" />
+                                <span>Voucher Game</span>
+                            </div>
+                        </div>
+
+                        <div id="productDetailSection" class="product-detail-section" style="display: none;">
+                            <h4 id="detailCategoryTitle"></h4>
+                            <ul id="detailProductList" class="detail-product-list">
+                                <!-- Product items will be loaded here by JavaScript -->
+                            </ul>
+                            <button id="closeDetail" class="close-detail-button">Tutup</button>
+                        </div>
+                    </section>
+
+                    <section class="container">
+                        <div id="wrapperContent"></div>
+                    </section>
+                    <section class="artikel-terbaru container">
+                        <h3>📌 Artikel Terbaru</h3>
+                        <ul class="list-artikel" id="list-artikel">
+                            <!-- isi di-load via JS -->
+                        </ul>
+                    </section>
+                    <section class="container populer">
+                        <div class="container-label flex">
+                            <div class="label-title">TERPOPULER</div>
+                            <div class="view-all-item" onclick="location.href='cari?type=topup'">Lihat Semua</div>
+                        </div>
+                        <ul class="produk flex" id="populerList"></ul>
+                    </section>
+
+                    <!-- Bagian Gambar Tambahan -->
+                    <section class="container additional-images-section">
+                        <h3>PRODUK KAMI LAINNYA</h3>
+                        <div class="additional-images-grid">
+                            <div class="additional-image-item">
+                                <img src="assets/pulsadandata.jpeg" alt="Pulsa & Paket Data" onerror="this.onerror=null;this.src='https://placehold.co/80x80/aabbcc/ffffff?text=PD'" />
+                                <span>Pulsa & Paket Data</span>
+                            </div>
+                            <div class="additional-image-item">
+                                <img src="assets/voucher.jpeg" alt="Voucher Belanja" onerror="this.onerror=null;this.src='https://placehold.co/80x80/aabbcc/ffffff?text=VB'" />
+                                <span>Voucher Belanja</span>
+                            </div>
+                            <div class="additional-image-item">
+                                <img src="assets/streaming.jpeg" alt="Streaming" onerror="this.onerror=null;this.src='https://placehold.co/80x80/aabbcc/ffffff?text=S'" />
+                                <span>Streaming</span>
+                            </div>
+                            <div class="additional-image-item">
+                                <img src="assets/game.jpeg" alt="Voucher Game" onerror="this.onerror=null;this.src='https://placehold.co/80x80/aabbcc/ffffff?text=VG'" />
+                                <span>Voucher Game</span>
+                            </div>
+                        </div>
+                    </section>
+
+                </main>
+
+                <!-- Footer tetap -->
+                <footer class="footer">
+                    <section class="container flex contacts">
+                        <div class="contact-heading">DUKUNGAN PELANGGAN</div>
+                        <div class="contact-title">Hubungi kami</div>
+                        <ul class="contact-menu flex">
+                            <li class="contact-list">
+                                <a href="https://www.instagram.com/saldoin.my.id" target="_blank">
+                                    <img src="assets/instagram.jpg" alt="instagram" width="50px" onerror="this.onerror=null;this.src='https://placehold.co/50x50/aabbcc/ffffff?text=IG'" />
+                                </a>
+                            </li>
+                            <li class="contact-list">
+                                <a href="https://wa.me/6281373634190" target="_blank">
+                                    <img src="assets/whatsapp.jpg" alt="whatsapp" width="50px" onerror="this.onerror=null;this.src='https://placehold.co/50x50/aabbcc/ffffff?text=WA'" />
+                                </a>
+                            </li>
+                            <li class="contact-list">
+                                <a href="mailto:audialfasha@gmail.com" target="_blank">
+                                    <img src="assets/gmail.png" alt="gmail" width="50px" onerror="this.onerror=null;this.src='https://placehold.co/50x50/aabbcc/ffffff?text=GM'" />
+                                </a>
+                            </li>
+                        </ul>
+                        <div>
+                            <p>Owner: <i style="color: cadetblue;">audialfasha@gmail.com</i></p>
+                            <p>Admin: <i style="color: cadetblue;">rikarahmawati0090@gmail.com</i></p>
+                        </div>
+                    </section>
+                    <section class="container">
+                        <p>&copy; 2025 Saldoin.my.id. All rights reserved.</p>
+                        <p>Ikuti kami di Instagram: <a href="https://www.instagram.com/saldoin.my.id" target="_blank">@saldoin.my.id</a></p>
+                    </section>
+                </footer>
+            </div>
+        </div>
+
+        <script>
+            // paymentInstructions HARUS ada di scope global atau di dalam script yang dimuat.
+            // Karena ini dimuat oleh index.html, dia harus ada di sini.
+            const paymentInstructions = {
+                qris: `
+                    <p><strong>Cara Pembayaran via QRIS:</strong></p>
+                    <p>1. Pindai kode QRIS yang muncul menggunakan aplikasi pembayaran (GoPay, OVO, DANA, mobile banking, dll.) Anda.</p>
+                    <p>2. Pastikan jumlah pembayaran sudah sesuai.</p>
+                    <p>3. Konfirmasi pembayaran.</p>
+                `,
+                dana: `
+                    <p><strong>Cara Pembayaran via DANA:</strong></p>
+                    <p>1. Pastikan saldo DANA Anda mencukupi.</p>
+                    <p>2. Anda akan diarahkan ke aplikasi DANA untuk menyelesaikan pembayaran.</p>
+                    <p>3. Ikuti instruksi di aplikasi DANA dan konfirmasi pembayaran.</p>
+                `,
+                ovo: `
+                    <p><strong>Cara Pembayaran via OVO:</strong></p>
+                    <p>1. Pastikan saldo OVO Anda mencukupi.</p>
+                    <p>2. Anda akan diarahkan ke aplikasi OVO untuk menyelesaikan pembayaran.</p>
+                    <p>3. Ikuti instruksi di aplikasi OVO dan konfirmasi pembayaran.</p>
+                `,
+                linkaja: `
+                    <p><strong>Cara Pembayaran via LinkAja:</strong></p>
+                    <p>1. Pastikan saldo LinkAja Anda mencukupi.</p>
+                    <p>2. Anda akan diarahkan ke aplikasi LinkAja untuk menyelesaikan pembayaran.</p>
+                    <p>3. Ikuti instruksi di aplikasi LinkAja dan konfirmasi pembayaran.</p>
+                `,
+                alfamart: `
+                    <p><strong>Cara Pembayaran via Alfamart:</strong></p>
+                    <p>1. Anda akan menerima kode pembayaran.</p>
+                    <p>2. Kunjungi gerai Alfamart terdekat.</p>
+                    <p>3. Berikan kode pembayaran kepada kasir dan lakukan pembayaran.</p>
+                    <p>4. Simpan struk sebagai bukti pembayaran.</p>
+                `,
+                indomaret: `
+                    <p><strong>Cara Pembayaran via Indomaret:</strong></p>
+                    <p>1. Anda akan menerima kode pembayaran.</p>
+                    <p>2. Kunjungi gerai Indomaret terdekat.</p>
+                    <p>3. Berikan kode pembayaran kepada kasir dan lakukan pembayaran.</p>
+                    <p>4. Simpan struk sebagai bukti pembayaran.</p>
+                `,
+                briva: `
+                    <p><strong>Cara Pembayaran via BRIVA (Bank BRI Virtual Account):</strong></p>
+                    <p>1. Salin nomor Virtual Account BRI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui ATM BRI, BRImo (Mobile Banking), atau Internet Banking BRI.</p>
+                    <p>3. Pilih 'Pembayaran' > 'BRIVA' dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-mandiri': `
+                    <p><strong>Cara Pembayaran via Virtual Account Mandiri:</strong></p>
+                    <p>1. Salin nomor Virtual Account Mandiri Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui Livin' by Mandiri, ATM Mandiri, atau Internet Banking Mandiri.</p>
+                    <p>3. Pilih menu 'Bayar' atau 'Transfer' ke Virtual Account dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-bni': `
+                    <p><strong>Cara Pembayaran via Virtual Account BNI:</strong></p>
+                    <p>1. Salin nomor Virtual Account BNI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui BNI Mobile Banking, ATM BNI, atau Internet Banking BNI.</p>
+                    <p>3. Pilih 'Transfer' > 'Virtual Account Billing' dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-danamon': `
+                    <p><strong>Cara Pembayaran via Virtual Account Danamon:</strong></p>
+                    <p>1. Salin nomor Virtual Account Danamon Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui D-Bank Mobile, ATM Danamon, atau Internet Banking Danamon.</p>
+                    <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-permata': `
+                    <p><strong>Cara Pembayaran via Virtual Account Permata:</strong></p>
+                    <p>1. Salin nomor Virtual Account Permata Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui PermataMobile X, ATM Permata, atau bank lain (via transfer ke Permata).</p>
+                    <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-cimb': `
+                    <p><strong>Cara Pembayaran via Virtual Account CIMB Niaga:</strong></p>
+                    <p>1. Salin nomor Virtual Account CIMB Niaga Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui OCTO Mobile, ATM CIMB Niaga, atau bank lain (via transfer ke CIMB Niaga).</p>
+                    <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+                'va-bsi': `
+                    <p><strong>Cara Pembayaran via Virtual Account BSI:</strong></p>
+                    <p>1. Salin nomor Virtual Account BSI Anda: <strong>XXX-XXXX-XXXX</strong> (akan muncul setelah konfirmasi).</p>
+                    <p>2. Lakukan pembayaran melalui BSI Mobile, ATM BSI, atau bank lain (via transfer ke BSI).</p>
+                    <p>3. Pilih menu Transfer atau Pembayaran Virtual Account dan masukkan nomor Virtual Account.</p>
+                    <p>4. Ikuti instruksi di layar hingga pembayaran berhasil.</p>
+                `,
+            };
+
+            let selectedMethod = null;
+
+            function updateSelectedMethodInfo() {
+                const infoDiv = document.getElementById('selected-method-info');
+                // const proceedButton = document.getElementById('proceed-button'); // Baris ini dihapus
+
+                if (!infoDiv) { // Pemeriksaan hanya untuk infoDiv
+                    console.warn("selected-method-info not found. This might be due to async content loading.");
+                    return;
+                }
+
+                if (selectedMethod && paymentInstructions[selectedMethod]) {
+                    infoDiv.innerHTML = paymentInstructions[selectedMethod];
+                    // proceedButton.disabled = false; // Baris ini dihapus
+                } else {
+                    infoDiv.innerHTML = '<p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>';
+                    // proceedButton.disabled = true; // Baris ini dihapus
+                }
+            }
+
+            function initializePaymentLogic() {
+                console.log("Initializing payment logic for loaded content...");
+                const paymentItems = document.querySelectorAll('.payment-method-item');
+                paymentItems.forEach(item => {
+                    item.removeEventListener('click', handlePaymentMethodClick); // Hapus listener lama
+                    item.addEventListener('click', handlePaymentMethodClick); // Tambahkan listener baru
+                });
+
+                // Hapus semua logika terkait proceed-button dari sini
+                // const proceedButton = document.getElementById('proceed-button');
+                // if (proceedButton) {
+                //     console.log("Proceed button found after loading payment section.");
+                //     proceedButton.removeEventListener('click', handleProceedButtonClick);
+                //     proceedButton.addEventListener('click', handleProceedButtonClick);
+                //     proceedButton.disabled = true;
+                // } else {
+                //     console.error("Proceed button not found after loading payment section.");
+                // }
+
+                const infoDiv = document.getElementById('selected-method-info');
+                if (infoDiv && !selectedMethod) {
+                    infoDiv.innerHTML = '<p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>';
+                }
+            }
+
+            function handlePaymentMethodClick(event) {
+                document.querySelectorAll('.payment-method-item').forEach(item => {
+                    item.classList.remove('selected');
+                });
+
+                const clickedItem = event.currentTarget;
+                clickedItem.classList.add('selected');
+
+                selectedMethod = clickedItem.dataset.method;
+                updateSelectedMethodInfo(); // Panggil di sini setelah selectedMethod diatur
+            }
+
+            // Fungsi handleProceedButtonClick dihapus karena tombolnya tidak ada
+            // function handleProceedButtonClick() {
+            //     if (selectedMethod) {
+            //         const methodNameMatch = paymentInstructions[selectedMethod].match(/<strong>Cara Pembayaran via (.*?)<\/strong>/);
+            //         const methodName = methodNameMatch ? methodNameMatch[1].replace(':', '').trim() : selectedMethod.toUpperCase();
+            //         showCustomAlert(`Anda akan melanjutkan pembayaran menggunakan ${methodName}`);
+            //     } else {
+            //         showCustomAlert("Silakan pilih metode pembayaran terlebih dahulu!");
+            //     }
+            // }
+
+            // Fungsi untuk menampilkan modal box kustom (pengganti alert)
+            function showCustomAlert(message) {
+                // Buat elemen modal
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 1000;
+                `;
+
+                const modalContent = document.createElement('div');
+                modalContent.style.cssText = `
+                    background-color: white;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    text-align: center;
+                    max-width: 300px;
+                    width: 90%;
+                `;
+
+                const messageParagraph = document.createElement('p');
+                messageParagraph.textContent = message;
+                messageParagraph.style.marginBottom = '20px';
+
+                const closeButton = document.createElement('button');
+                closeButton.textContent = 'OK';
+                closeButton.style.cssText = `
+                    background-color: #2b7a78;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                `;
+                closeButton.onclick = () => document.body.removeChild(modal);
+
+                modalContent.appendChild(messageParagraph);
+                modalContent.appendChild(closeButton);
+                modal.appendChild(modalContent);
+                document.body.appendChild(modal);
+            }
+
+
+            $(document).ready(function () {
+                function loadPage(page) {
+                    $("#skeletonLoader").fadeIn(200);
+                    $("#realContent").fadeOut(200, function () {
+                        $("#wrapperContent").load("page/" + page, function (res, status, xhr) {
+                            if (status === "error") {
+                                $("#wrapperContent").html("<p>Gagal memuat konten.</p>");
+                                console.error("Error:", xhr.status, xhr.statusText);
+                                $("#skeletonLoader").fadeOut(200);
+                                $("#realContent").fadeIn(200);
+                            } else {
+                                // Setelah konten dimuat, jika itu payment.html, inisialisasi logika pembayaran
+                                if (page === "payment.html") {
+                                    // Reset selectedMethod saat memuat ulang halaman pembayaran
+                                    selectedMethod = null; // Pastikan selectedMethod kosong saat halaman payment dimuat
+                                    // Gunakan sedikit delay untuk memastikan elemen dirender
+                                    setTimeout(initializePaymentLogic, 50); // Tambahkan penundaan singkat
+                                }
+                                $("#skeletonLoader").fadeOut(200, function () {
+                                    $("#realContent").fadeIn(200);
+                                });
+                            }
+                        });
+                    });
+                }
+
+                // Load awal (Beranda)
+                loadPage("beranda.html");
+
+                // Handle klik menu
+                let currentPage = "beranda.html";
+                $("#linkTrigger .link-item").on("click", function (e) {
+                    e.preventDefault();
+                    const page = $(this).data("page");
+                    if (page === currentPage) return;
+                    currentPage = page;
+                    $(".link-item").removeClass("active");
+                    $(this).addClass("active");
+                    loadPage(page);
+                });
+
+                // Carousel sederhana
+                let currentIndex = 0;
+                const slides = $("#simpleCarousel .carousel-slide");
+                const totalSlides = slides.length;
+
+                function showSlide(index) {
+                    slides.removeClass("active");
+                    slides.eq(index).addClass("active");
+                }
+
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    showSlide(currentIndex);
+                }
+
+                setInterval(nextSlide, 4000);
+
+                // Load data JSON
+                $.getJSON("data.json", function (data) {
+                    const produk = data.produk;
+                    // Pastikan ada cukup item di 'produk' sebelum looping
+                    const itemsToLoad = Math.min(produk.length, 4);
+                    for (let i = 0; i < itemsToLoad; i++) { // Loop dari 0 hingga itemsToLoad-1
+                        const item = produk[i];
+                        const alamat = item.address || "#";
+                        $("#populerList").append(`
+                            <li class="produk-item flex">
+                            <img src="${item.img_product}" loading="lazy" alt="${item.nm_product}" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=P${i}'" />
+                            <p>#${i}</p> <button class="btn-choose" onclick="location.href='${alamat}'">BELI</button>
+                            </li>`);
+                    }
+
+                    const listArtikel = $("#list-artikel");
+                    data.artikel_terbaru.forEach(function (item) {
+                        listArtikel.append(`<li><a href="${item.url}">${item.judul}</a></li>`);
+                    });
                 });
             });
-        });
-    </script>
-</body>
 
+        </script>
+    </body>
 </html>
