@@ -1,296 +1,286 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metode Pembayaran Anda</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- CSS Start --- */
-        :root {
-            /* Warna utama baru Anda */
-            --primary-color: #279199; /* Biru Kehijauan baru */
-            --primary-dark: #1F7C85; /* Sedikit lebih gelap dari primary-color */
-            --primary-light: #e6f5f6; /* Latar belakang body yang lebih terang */
-            --text-dark: #2c3e50;
-            --text-light: #ffffff;
-            --border-light: #e9ecef;
-            --bg-card: #ffffff;
-            --bg-selected: #edf8f8; /* Latar belakang item terpilih yang lebih terang */
-            --shadow-light: rgba(0, 0, 0, 0.05);
-            --shadow-medium: rgba(0, 0, 0, 0.1);
+<style>
+    /* --- CSS Start --- */
+    :root {
+        /* Warna utama baru Anda */
+        --primary-color: #279199; /* Biru Kehijauan baru */
+        --primary-dark: #1F7C85; /* Sedikit lebih gelap dari primary-color */
+        --primary-light: #e6f5f6; /* Latar belakang body yang lebih terang */
+        --text-dark: #2c3e50;
+        --text-light: #ffffff;
+        --border-light: #e9ecef;
+        --bg-card: #ffffff;
+        --bg-selected: #edf8f8; /* Latar belakang item terpilih yang lebih terang */
+        --shadow-light: rgba(0, 0, 0, 0.05);
+        --shadow-medium: rgba(0, 0, 0, 0.1);
+    }
+    
+    .payment-category-title {
+        font-family: 'Nunito', sans-serif; /* Menggunakan font Nunito */
+        font-size: 1em;
+        font-weight: 700; /* Sedikit lebih tebal dari sebelumnya */
+        color: var(--primary-dark);
+        margin-top: 30px;
+        margin-bottom: 15px;
+        text-align: left;
+        position: relative;
+        z-index: 2;
+    }
+
+    .payment-methods-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 15px;
+        margin-bottom: 25px;
+        position: relative;
+        z-index: 2;
+        padding: 0 10px;
+    }
+
+    .payment-method-item {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-light);
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: 0 2px 8px var(--shadow-light);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        /* Min height agar kotak konsisten */
+        min-height: 110px;
+    }
+
+    .payment-method-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(39, 145, 153, 0.05), rgba(39, 145, 153, 0.15)); /* Gradien warna tema baru */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+    }
+
+    .payment-method-item:hover::before {
+        opacity: 1;
+    }
+
+    .payment-method-item:hover {
+        border-color: var(--primary-color);
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 8px 25px rgba(39, 145, 153, 0.25); /* Bayangan warna tema baru */
+    }
+
+    .payment-method-item.selected {
+        border-color: var(--primary-color);
+        background-color: var(--bg-selected);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 6px 20px rgba(39, 145, 153, 0.35);
+    }
+
+    .payment-method-item img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-bottom: 0;
+        filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.08));
+        position: relative;
+        z-index: 1;
+    }
+    
+    .selected-method-info {
+        background-color: var(--bg-selected);
+        border: 1px solid var(--primary-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-top: 30px;
+        text-align: left;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        line-height: 1.7;
+        font-size: 0.95em;
+        color: var(--primary-dark);
+        animation: fadeIn 0.5s ease-out;
+        position: relative;
+        z-index: 2;
+    }
+
+    .selected-method-info p {
+        margin: 5px 0;
+        font-weight: 400;
+    }
+
+    .selected-method-info strong {
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+    /* .proceed-button { (CSS for proceed-button removed) */
+    /* background: linear-gradient(90deg, var(--primary-color), var(--primary-dark)); */
+    /* color: var(--text-light); */
+    /* border: none; */
+    /* padding: 15px 35px; */
+    /* border-radius: 10px; */
+    /* font-size: 1.2em; */
+    /* font-weight: 600; */
+    /* cursor: pointer; */
+    /* transition: all 0.3s ease; */
+    /* margin-top: 40px; */
+    /* width: 100%; */
+    /* max-width: 350px; */
+    /* letter-spacing: 0.5px; */
+    /* box-shadow: 0 5px 15px rgba(39, 145, 153, 0.3); */
+    /* position: relative; */
+    /* z-index: 2; */
+    /* } */
+
+    /* .proceed-button:hover:not(:disabled) { */
+    /* background: linear-gradient(90deg, var(--primary-dark), var(--primary-color)); */
+    /* box-shadow: 0 8px 20px rgba(39, 145, 153, 0.4); */
+    /* transform: translateY(-2px); */
+    /* } */
+
+    /* .proceed-button:disabled { */
+    /* background: linear-gradient(90deg, #cccccc, #aaaaaa); */
+    /* cursor: not-allowed; */
+    /* opacity: 0.7; */
+    /* box-shadow: none; */
+    /* } */
+    .title-payment {
+        text-align: center;
+    }
+
+    /* Keyframe for fade-in animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
         }
-        
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsif untuk layar lebih kecil */
+    @media (max-width: 768px) {
+        .payment-section {
+            padding: 8px;
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+
         .payment-category-title {
-            font-family: 'Nunito', sans-serif; /* Menggunakan font Nunito */
-            font-size: 1em;
-            font-weight: 700; /* Sedikit lebih tebal dari sebelumnya */
-            color: var(--primary-dark);
-            margin-top: 30px;
-            margin-bottom: 15px;
-            text-align: left;
-            position: relative;
-            z-index: 2;
+            font-size: .8em;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         .payment-methods-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 2;
-            padding: 0 10px;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 12px;
         }
 
         .payment-method-item {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 2px 8px var(--shadow-light);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            /* Min height agar kotak konsisten */
-            min-height: 110px;
-        }
-
-        .payment-method-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(39, 145, 153, 0.05), rgba(39, 145, 153, 0.15)); /* Gradien warna tema baru */
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 0;
-        }
-
-        .payment-method-item:hover::before {
-            opacity: 1;
-        }
-
-        .payment-method-item:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 8px 25px rgba(39, 145, 153, 0.25); /* Bayangan warna tema baru */
-        }
-
-        .payment-method-item.selected {
-            border-color: var(--primary-color);
-            background-color: var(--bg-selected);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 6px 20px rgba(39, 145, 153, 0.35);
+            min-height: 90px;
+            padding: 10px;
         }
 
         .payment-method-item img {
-            width: 70px;
-            height: 70px;
-            object-fit: contain;
-            margin-bottom: 0;
-            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.08));
-            position: relative;
-            z-index: 1;
-        }
-        
-        .selected-method-info {
-            background-color: var(--bg-selected);
-            border: 1px solid var(--primary-color);
-            border-radius: 12px;
-            padding: 25px;
-            margin-top: 30px;
-            text-align: left;
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            line-height: 1.7;
-            font-size: 0.95em;
-            color: var(--primary-dark);
-            animation: fadeIn 0.5s ease-out;
-            position: relative;
-            z-index: 2;
+            width: 60px;
+            height: 60px;
         }
 
-        .selected-method-info p {
-            margin: 5px 0;
-            font-weight: 400;
+        /* .proceed-button { (CSS for proceed-button removed) */
+        /* font-size: 1.1em; */
+        /* padding: 12px 25px; */
+        /* } */
+    }
+
+    @media (max-width: 480px) {
+
+        .payment-methods-grid {
+            grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+            gap: 10px;
         }
 
-        .selected-method-info strong {
-            font-weight: 600;
-            color: var(--text-dark);
+        .payment-method-item {
+            min-height: 80px;
         }
 
-        .proceed-button {
-            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
-            color: var(--text-light);
-            border: none;
-            padding: 15px 35px;
-            border-radius: 10px;
-            font-size: 1.2em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 40px;
-            width: 100%;
-            max-width: 350px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 5px 15px rgba(39, 145, 153, 0.3); /* Bayangan warna tema baru */
-            position: relative;
-            z-index: 2;
+        .payment-method-item img {
+            width: 50px;
+            height: 50px;
         }
 
-        .proceed-button:hover:not(:disabled) {
-            background: linear-gradient(90deg, var(--primary-dark), var(--primary-color));
-            box-shadow: 0 8px 20px rgba(39, 145, 153, 0.4);
-            transform: translateY(-2px);
+        h2 {
+            font-size: 1.6em;
         }
+    }
+    /* --- CSS End --- */
+</style>
+<div class="payment-section">
+    <h2 class="title-payment">Metode Pembayaran</h2>
 
-        .proceed-button:disabled {
-            background: linear-gradient(90deg, #cccccc, #aaaaaa);
-            cursor: not-allowed;
-            opacity: 0.7;
-            box-shadow: none;
-        }
-        .title-payment {
-            text-align: center;
-        }
-
-        /* Keyframe for fade-in animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsif untuk layar lebih kecil */
-        @media (max-width: 768px) {
-            .payment-section {
-                padding: 8px;
-            }
-            h2 {
-                font-size: 1.8em;
-            }
-
-            .payment-category-title {
-                font-size: .8em;
-                margin-top: 20px;
-                margin-bottom: 10px;
-            }
-
-            .payment-methods-grid {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-                gap: 12px;
-            }
-
-            .payment-method-item {
-                min-height: 90px;
-                padding: 10px;
-            }
-
-            .payment-method-item img {
-                width: 60px;
-                height: 60px;
-            }
-
-            .proceed-button {
-                font-size: 1.1em;
-                padding: 12px 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .payment-methods-grid {
-                grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-                gap: 10px;
-            }
-
-            .payment-method-item {
-                min-height: 80px;
-            }
-
-            .payment-method-item img {
-                width: 50px;
-                height: 50px;
-            }
-
-            h2 {
-                font-size: 1.6em;
-            }
-        }
-        /* --- CSS End --- */
-    </style>
-</head>
-<body>
-    <div class="payment-section">
-        <h2 class="title-payment">Metode Pembayaran</h2>
-
-        <div class="payment-category-title">QRIS & E-Wallet</div>
-        <div class="payment-methods-grid">
-            <div class="payment-method-item" data-method="qris">
-                <img src="../assets/IMG_1399.png" alt="QRIS">
-            </div>
-            <div class="payment-method-item" data-method="dana">
-                <img src="../assets/IMG_1400.png" alt="DANA">
-            </div>
-            <div class="payment-method-item" data-method="linkaja">
-                <img src="../assets/IMG_1401.png" alt="LinkAja">
-            </div>
+    <div class="payment-category-title">QRIS & E-Wallet</div>
+    <div class="payment-methods-grid">
+        <div class="payment-method-item" data-method="qris">
+            <img src="../assets/IMG_1399.png" alt="QRIS" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=QRIS'">
         </div>
+        <div class="payment-method-item" data-method="dana">
+            <img src="../assets/IMG_1400.png" alt="DANA" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=DANA'">
+        </div>
+        <div class="payment-method-item" data-method="linkaja">
+            <img src="../assets/IMG_1401.png" alt="LinkAja" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=LinkAja'">
+        </div>
+    </div>
 
-        <div class="payment-category-title">Gerai Offline</div>
-        <div class="payment-methods-grid">
-            <div class="payment-method-item" data-method="alfamart">
-                <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/alfamart.svg" alt="Alfamart">
-            </div>
-            <div class="payment-method-item" data-method="indomaret">
-                <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/indomaret.svg" alt="Indomaret">
-            </div>
+    <div class="payment-category-title">Gerai Offline</div>
+    <div class="payment-methods-grid">
+        <div class="payment-method-item" data-method="alfamart">
+            <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/alfamart.svg" alt="Alfamart" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=Alfamart'">
         </div>
+        <div class="payment-method-item" data-method="indomaret">
+            <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/indomaret.svg" alt="Indomaret" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=Indomaret'">
+        </div>
+    </div>
 
-        <div class="payment-category-title">Virtual Account</div>
-        <div class="payment-methods-grid">
-            <div class="payment-method-item" data-method="briva">
-                <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/briva.svg" alt="BRIVA (BRI)">
-            </div>
-            <div class="payment-method-item" data-method="va-mandiri">
-                <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/mandiri.svg" alt="VA Mandiri">
-            </div>
-            <div class="payment-method-item" data-method="va-bni">
-                <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/bni.svg" alt="VA BNI">
-            </div>
-            <div class="payment-method-item" data-method="va-danamon">
-                <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/danamon.svg" alt="VA Danamon">
-            </div>
-            <div class="payment-method-item" data-method="va-permata">
-                <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/permata.svg" alt="VA Permata">
-            </div>
-            <div class="payment-method-item" data-method="va-cimb">
-                <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/cimb.svg" alt="VA CIMB Niaga">
-            </div>
-            <div class="payment-method-item" data-method="va-bsi">
-                <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/bsi.svg" alt="VA BSI">
-            </div>
+    <div class="payment-category-title">Virtual Account</div>
+    <div class="payment-methods-grid">
+        <div class="payment-method-item" data-method="briva">
+            <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/briva.svg" alt="BRIVA (BRI)" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=BRIVA'">
         </div>
-        <div id="selected-method-info" class="selected-method-info">
-            <p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>
+        <div class="payment-method-item" data-method="va-mandiri">
+            <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/mandiri.svg" alt="VA Mandiri" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=Mandiri'">
         </div>
- </div>
-</body>
-</html>
+        <div class="payment-method-item" data-method="va-bni">
+            <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/bni.svg" alt="VA BNI" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=BNI'">
+        </div>
+        <div class="payment-method-item" data-method="va-danamon">
+            <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/danamon.svg" alt="VA Danamon" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=Danamon'">
+        </div>
+        <div class="payment-method-item" data-method="va-permata">
+            <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/permata.svg" alt="VA Permata" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=Permata'">
+        </div>
+        <div class="payment-method-item" data-method="va-cimb">
+            <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/cimb.svg" alt="VA CIMB Niaga" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=CIMB'">
+        </div>
+        <div class="payment-method-item" data-method="va-bsi">
+            <img src="https://buylink.s3.ap-southeast-3.amazonaws.com/default/logo-payment/bsi.svg" alt="VA BSI" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=BSI'">
+        </div>
+    </div>
+    <div id="selected-method-info" class="selected-method-info">
+        <p>Pilih metode pembayaran di atas untuk melihat instruksi.</p>
+    </div>
+    <!-- Tombol Lanjutkan Pembayaran telah dihapus sesuai permintaan -->
+</div>
