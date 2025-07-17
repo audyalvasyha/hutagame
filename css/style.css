@@ -131,6 +131,10 @@ body,
     width: 100%;
     height: 40px;
     overflow-x: auto;
+  overflow-y: hidden;        /* ⛔️ Cegah scroll vertikal */
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;       /* ✅ Kunci gesture scroll ke horizontal only */
     scrollbar-width: none;
 }
 
