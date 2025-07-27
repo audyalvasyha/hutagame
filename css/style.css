@@ -275,7 +275,7 @@ body,
 .carousel-text {
     width: 100%;
     bottom: 10px;
-    padding: 8px 16px;
+    padding: 8px;
     position: absolute;
     font-size: 0.7rem;
     font-weight: 600;
@@ -286,7 +286,7 @@ body,
 .carousel-text > a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.carousel-text img {
+.carousel-text > img {
     margin-left: auto;
 }
 
@@ -913,7 +913,7 @@ blockquote {
     .container,
     .container-ed {
         border-radius: 0; /* Remove border-radius on smaller screens */
-        margin-top: var(--spacing-xs);
+        margin-top: 14x;
     }
 
     .sub-navbar {
