@@ -163,7 +163,7 @@ body,
 }
 
 .menu-topup {
-    background-image: url('images/IMG_1507.jpeg') !important; /* sesuaikan path */
+    background-image: url('assets/IMG_1507.jpeg') !important; /* sesuaikan path */
   background-size: cover !important;       /* membuat gambar menutupi seluruh area */
   background-position: center !important;  /* menempatkan gambar di tengah */
   background-repeat: no-repeat !important;
@@ -304,7 +304,7 @@ body,
 
 .carousel-slide img {
     width: 100%;
-    aspect-ratio: 16 / 5;
+    aspect-ratio: 16 / 7;
     object-fit: cover;
     border-radius: var(--spacing-s);
 }
