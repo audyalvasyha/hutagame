@@ -86,7 +86,7 @@ body,
 }
 
 .navbar {
-    height: 60px;
+    height: 80px;
     align-items: center;
     gap: var(--spacing-m);
     padding: 0 var(--spacing-l);
@@ -160,6 +160,13 @@ body,
     touch-action: pan-x;
     scrollbar-width: none;
     display: flex; /* Default to flex for larger screens */
+}
+
+.menu-topup {
+    background-image: url('images/IMG_1507.jpeg'); /* sesuaikan path */
+  background-size: cover;       /* membuat gambar menutupi seluruh area */
+  background-position: center;  /* menempatkan gambar di tengah */
+  background-repeat: no-repeat;
 }
 
 .menu::-webkit-scrollbar {
