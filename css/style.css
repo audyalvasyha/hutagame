@@ -163,10 +163,10 @@ body,
 }
 
 .menu-topup {
-    background-image: url('images/IMG_1507.jpeg'); /* sesuaikan path */
-  background-size: cover;       /* membuat gambar menutupi seluruh area */
-  background-position: center;  /* menempatkan gambar di tengah */
-  background-repeat: no-repeat;
+    background-image: url('images/IMG_1507.jpeg') !important; /* sesuaikan path */
+  background-size: cover !important;       /* membuat gambar menutupi seluruh area */
+  background-position: center !important;  /* menempatkan gambar di tengah */
+  background-repeat: no-repeat !important;
 }
 
 .menu::-webkit-scrollbar {
