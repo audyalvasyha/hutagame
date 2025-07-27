@@ -194,8 +194,7 @@ body,
     background-color: #fff;
     outline: none;
     border: 0;
-    width: 32px;
-    height: 32px;
+    font-size: 48px;
     display: none; /* Hidden by default, shown in media query */
     align-items: center;
     justify-content: center;
@@ -275,7 +274,7 @@ body,
 .carousel-text {
     width: 100%;
     bottom: 10px;
-    padding: 8px;
+    padding: 2px 8px 2px 16px;
     position: absolute;
     font-size: 0.7rem;
     font-weight: 600;
@@ -286,7 +285,7 @@ body,
 .carousel-text > a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.carousel-text > img {
+.carousel-text img {
     margin-left: auto;
 }
 
@@ -913,7 +912,8 @@ blockquote {
     .container,
     .container-ed {
         border-radius: 0; /* Remove border-radius on smaller screens */
-        margin-top: 14x;
+        margin-top: var(--spacing-xs);
+        padding: 12px;
     }
 
     .sub-navbar {
@@ -921,7 +921,7 @@ blockquote {
     }
 
     .btn-bars {
-        display: block; /* Show hamburger icon */
+        display: flex; /* Show hamburger icon */
     }
 
     .menu {
