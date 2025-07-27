@@ -1,5 +1,6 @@
 <section class="hero">
     <div class="hero-container">
+        <h3 class="hero-title">Game Key</h3>
         <img src="assets/gojo.png" alt="gojo saldoin" class="hero-background" />
         <ul class="produk flex" id="populerList">
             <li class="produk-item flex">
@@ -177,6 +178,15 @@
         margin: 8px auto; /* Apply container-like margin for consistency */
         max-width: 768px; /* Apply container-like max-width for consistency */
     }
+    .hero-title {
+        position: absolute;
+        top: -90px;
+        font-size: 0.9rem;
+        padding: 8px 40px 8px 10px;
+        clip-path: polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%);
+        background-color: #279199;
+        color: #fff;
+    }
 
     .hero-background {
         width: 180px;
@@ -196,7 +206,7 @@
         mask-image: linear-gradient(
             to top right,
             transparent 0%,
-            transparent 30%,
+            transparent 50%,
             black 40%,
             black 100%
         );
@@ -254,7 +264,7 @@
     .hero-container > #populerList > .produk-item > button {
         position: static;
         color: #e67e22;
-        font-weight: 600;
+        font-weight: 650;
         font-size: 1rem;
         border: 0;
         background-color: transparent;
@@ -397,9 +407,16 @@
     /* Responsive */
     @media (max-width: 600px) {
         .hero {
-            padding: 100px 15px 48px 15px;
+            padding: 80px 15px 48px 15px;
             border-radius: 0; /* Remove border-radius on smaller screens */
             margin: 24px auto 16px auto; /* Adjust margin for consistency */
+        }
+        .hero-background {
+            top: -120px;
+        }
+        .hero-title {
+            position: absolute;
+            top: -90px;
         }
         .hero h1 {
             font-size: 1.8rem;
