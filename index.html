@@ -166,6 +166,22 @@
                     <section class="container-ed">
                         <div class="carousel" id="simpleCarousel">
                             <div class="carousel-inner">
+                                <div class="carousel-text" id="text-adaptif">
+                                    <a
+                                        href="https://www.instagram.com/saldoin.my.id"
+                                        target="_blank"
+                                        >@saldoin.my.id</a
+                                    ><a
+                                        href="https://saldoin.my.id"
+                                        target="_blank"
+                                        >www.saldoin.my.id</a
+                                    >
+                                    <img
+                                        src="assets/IMG_1037.png"
+                                        alt="Logo Saldoin.my.id"
+                                        height="24px"
+                                    />
+                                </div>
                                 <div class="carousel-slide active">
                                     <img
                                         src="assets/banner5.jpeg"
@@ -192,7 +208,15 @@
                                 </div>
                                 <div class="carousel-slide">
                                     <img
-                                        src="assets/banner4.jpg"
+                                        src="assets/banner8.jpeg"
+                                        alt="Banner 4"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='https://placehold.co/768x240/aabbcc/ffffff?text=Banner+4'"
+                                    />
+                                </div>
+                                <div class="carousel-slide">
+                                    <img
+                                        src="assets/banner9.webp"
                                         alt="Banner 4"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='https://placehold.co/768x240/aabbcc/ffffff?text=Banner+4'"
@@ -718,6 +742,113 @@
                     window.location.href = 'cari?type=topup'
                 })
             })
+            // Fungsi untuk mengkonversi HEX ke RGB
+            function hexToRgb(hex) {
+                const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
+                hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+                    return r + r + g + g + b + b
+                })
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
+                    hex
+                )
+                return result
+                    ? {
+                          r: parseInt(result[1], 16),
+                          g: parseInt(result[2], 16),
+                          b: parseInt(result[3], 16),
+                      }
+                    : null
+            }
+
+            // Fungsi untuk menghitung luminansi persepsi (perceived luminance)
+            // Berdasarkan rekomendasi W3C untuk warna teks agar kontras baik
+            function getPerceivedLuminance(r, g, b) {
+                return (0.299 * r + 0.587 * g + 0.114 * b) / 255
+            }
+
+            // Fungsi utama untuk mengadaptasi warna teks
+            // Parameter:
+            //   - textElement: Elemen HTML yang teksnya ingin diadaptasi (misal: elemen <p>)
+            //   - bgColor: Warna latar belakang elemen induk, bisa dalam format HEX (#RRGGBB) atau RGB (rgb(R,G,B))
+            function adaptTextColor(textElement, bgColor) {
+                let r, g, b
+
+                // Mendapatkan komponen RGB dari warna latar belakang
+                if (bgColor.startsWith('#')) {
+                    const rgb = hexToRgb(bgColor)
+                    if (rgb) {
+                        r = rgb.r
+                        g = rgb.g
+                        b = rgb.b
+                    } else {
+                        console.error('Invalid hex color:', bgColor)
+                        return
+                    }
+                } else if (bgColor.startsWith('rgb')) {
+                    const matches = bgColor.match(/\d+/g)
+                    if (matches && matches.length >= 3) {
+                        r = parseInt(matches[0])
+                        g = parseInt(matches[1])
+                        b = parseInt(matches[2])
+                    } else {
+                        console.error('Invalid RGB color string:', bgColor)
+                        return
+                    }
+                } else {
+                    console.warn(
+                        'Unsupported color format for adaptTextColor, defaulting to dark text.'
+                    )
+                    textElement.classList.remove('text-light')
+                    textElement.classList.add('text-dark')
+                    return
+                }
+
+                const luminance = getPerceivedLuminance(r, g, b)
+
+                // Ambang batas (threshold) untuk memutuskan antara teks terang atau gelap
+                // Anda mungkin perlu sedikit menyesuaikan nilai ini (antara 0.0 - 1.0)
+                // Nilai yang lebih tinggi berarti latar belakang harus lebih terang untuk teks gelap.
+                const threshold = 0.5
+
+                if (luminance > threshold) {
+                    // Latar belakang terang, gunakan teks gelap
+                    textElement.classList.remove('text-light')
+                    textElement.classList.add('text-dark')
+                } else {
+                    // Latar belakang gelap, gunakan teks terang
+                    textElement.classList.remove('text-dark')
+                    textElement.classList.add('text-light')
+                }
+            }
+
+            // --- Contoh Penggunaan ---
+            // Anda perlu memanggil fungsi adaptTextColor setiap kali warna latar belakang elemen induk berubah.
+
+            // 1. Dapatkan referensi ke elemen teks dan elemen induknya
+            // Misalnya, jika Anda memiliki struktur seperti ini di HTML:
+            // <div id="mySection" style="background-color: #3498db;">
+            //    <p id="myText">Teks ini akan beradaptasi.</p>
+            // </div>
+            const mySection = document.getElementById('mySection')
+            const myText = document.getElementById('myText')
+
+            // Pastikan elemen ditemukan sebelum mencoba memanipulasinya
+            if (mySection && myText) {
+                // Panggil fungsi saat halaman dimuat (untuk warna latar belakang awal)
+                const initialBgColor =
+                    window.getComputedStyle(mySection).backgroundColor
+                adaptTextColor(myText, initialBgColor)
+
+                // Contoh: Jika warna latar belakang berubah dinamis (misal dari input pengguna)
+                // Anda akan memanggil adaptTextColor lagi.
+                // Misalnya, Anda memiliki elemen input warna:
+                // const colorPicker = document.getElementById('colorPickerId');
+                // colorPicker.addEventListener('input', () => {
+                //     const newBgColor = colorPicker.value; // Ini biasanya format HEX
+                //     mySection.style.backgroundColor = newBgColor;
+                //     adaptTextColor(myText, newBgColor);
+                // });
+            }
         </script>
     </body>
 </html>
