@@ -277,16 +277,22 @@ body,
     padding: 2px 8px 2px 16px;
     position: absolute;
     font-size: 0.7rem;
-    font-weight: 600;
+    font-weight: 500;
     display: flex;
     gap: 16px;
     align-items: center;
 }
 .carousel-text > a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 2px 4px;
 }
 .carousel-text img {
     margin-left: auto;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 2px 4px;
 }
 
 .carousel-slide img {
