@@ -274,7 +274,7 @@ body,
 .carousel-text {
     width: 100%;
     bottom: 10px;
-    padding: 2px 8px 2px 16px;
+    padding: 2px 8px;
     position: absolute;
     font-size: 0.7rem;
     font-weight: 500;
@@ -286,7 +286,7 @@ body,
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fff;
     border-radius: 16px;
-    padding: 2px 4px;
+    padding: 2px 8px;
 }
 .carousel-text img {
     margin-left: auto;
