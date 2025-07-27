@@ -272,6 +272,24 @@ body,
     display: block;
 }
 
+.carousel-text {
+    width: 100%;
+    bottom: 10px;
+    padding: 8px 16px;
+    position: absolute;
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.carousel-text > a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.carousel-text img {
+    margin-left: auto;
+}
+
 .carousel-slide img {
     width: 100%;
     aspect-ratio: 16 / 5;
