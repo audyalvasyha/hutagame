@@ -266,10 +266,8 @@ section.menu-topup::before {
 }
 
 .item-prduk:last-child img {
-    width: 26px;
-    height: 26px;
-    border: 1.5px solid #082c47;
-    border-radius: 50px;
+    width: 32px;
+    height: 32px;
 }
 
 .item-prduk span {
