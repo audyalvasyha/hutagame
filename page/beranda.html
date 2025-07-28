@@ -506,20 +506,19 @@
 </style>
 <script>
     $(document).ready(() => {
-        $.getJSON('data.json')
+        $.getJSON('../data.json')
             .done((data) => {
                 // Load produk populer
                 const produk = data.voucher
+                
                 // Memastikan ada cukup item di 'produk' sebelum looping
                 const itemsToLoad = Math.min(produk.length, 6) // Ambil maksimal 5 item atau kurang
                 for (let i = 0; i < itemsToLoad; i++) {
                     // Loop dari 0
                     const item = produk[i]
-                    const alamat = item.address || '#'
-                    const nama = item.nm_product
                     $('#productVoucher').append(`
                             <li class="produk-item flex">
-                                <img src="${item.img_product
+                                <img src="${item.img
                         }" loading="lazy" alt="${item.nm_product
                         }" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=P${i + 1
                         }'" /></li>
