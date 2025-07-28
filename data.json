@@ -1,10 +1,10 @@
 {
-  "produk": [
+ "produk": [
     {
       "id": "0",
-      "nm_product": "Garena AOV",
-      "nm_detail": "Garena AOV: Dragon Kingdom",
-      "img_product": "https://pbs.twimg.com/profile_images/910895743090618368/SpzXjaaw_400x400.jpg"
+      "nm_product": "Honkai Impact 3",
+      "nm_detail": "Honkai Impact 3",
+      "img_product": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4seRQ0gJtSRUoNB6mVNo__oJi5u-384h5CTKedqfvwrHf2vKEXqqIraLXz0hrgqrPvBo&usqp=CAU"
     },
     {
       "id": "1",
@@ -65,31 +65,19 @@
       "id": "6",
       "nm_product": "Roblox",
       "nm_detail": "Roblox",
-      "img_product": "https://play-lh.googleusercontent.com/OCDxsiIIxiZL6ZQYcO9Sixv6Vxl9z0avSkpd5kS6SAE_ZU_V7_rlzzA0hsesT0Z4hA=s180-rw"
+      "img_product": "data:image/jpeg;base64,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"
     },
     {
       "id": "7",
-      "nm_product": "Block Craft 3D",
-      "nm_detail": "Block Craft 3D: Building Game",
-      "img_product": "https://image.winudf.com/v2/image1/Y29tLmZ1bmdhbWVzLmJsb2NrY3JhZnRfaWNvbl8xNjIxMDQwOTc1XzAwMg/icon.png?w=&fakeurl=1"
-    },
-    {
-      "id": "8",
       "nm_product": "Pokémon UNITE",
       "nm_detail": "Pokémon UNITE",
       "img_product": "https://play-lh.googleusercontent.com/l6iBBhrah3mNhvcjZgZBwICAF5uu3KjorU4pq-eMOxYgT_L_TnpzT7a3TmmdxaMMgbUy=s180-rw"
     },
     {
-      "id": "9",
+      "id": "8",
       "nm_product": "Ragnarok X",
       "nm_detail": "Ragnarok X: Next Generation",
       "img_product": "https://play-lh.googleusercontent.com/FebMyPPu9FGnvHWwxoA-KBgJNWDCJDJ2uYiCddPT7OAmyG5Vro2E9bJwfvfivocyutM=s180-rw"
-    },
-    {
-      "id": "10",
-      "nm_product": "Honkai Impact 3",
-      "nm_detail": "Honkai Impact 3",
-      "img_product": "https://img.captain-droid.com/wp-content/uploads/com-mihoyo-genshinimpact-icon.png"
     }
   ],
   "artikel_terbaru": [
