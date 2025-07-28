@@ -324,7 +324,6 @@ section.menu-topup::before {
 }
 
 .carousel-slide img {
-    height: 130px;
     width: 100%;
     aspect-ratio: 16 / 5;
     object-fit: cover;
@@ -985,7 +984,8 @@ blockquote {
     }
 
     .carousel-slide img {
-        aspect-ratio: 16 / 6;
+        height: 140px;
+        aspect-ratio: 16 / 5;
     }
 
     .item-prduk {
