@@ -11,7 +11,27 @@
       "nm_product": "Mobile Legends",
       "nm_detail": "Mobile Legends: Bang Bang",
       "img_product": "https://play-lh.googleusercontent.com/-HHaGHjAW-xLqEfoHRBVRkAuPYTNgLamKdOcULfHC5GYPr2yX0pcDQMJ0HMJALbLxg=s180-rw",
-      "nominal": [141, 220, 366, 568, 966, 5, 28, 50, 85, 257, 2010, 6, 20, 66, 170, 70, 344, 716, 2046],
+      "nominal": [
+        141,
+        220,
+        366,
+        568,
+        966,
+        5,
+        28,
+        50,
+        85,
+        257,
+        2010,
+        6,
+        20,
+        66,
+        170,
+        70,
+        344,
+        716,
+        2046
+      ],
       "address": "https://www.saldoin.my.id/game/mobile-legends-bang-bang"
     },
     {
@@ -85,6 +105,63 @@
       "judul": "Tips Dapat Diskon Harian Top Up Game",
       "url": "page/artikel-3.html"
     }
+  ],
+  "voucher": [
+    {
+      "id": "1",
+      "img": "assets/voucher/IMG_1514.webp"
+    },
+    {
+      "id": "2",
+      "img": "assets/voucher/IMG_1515.webp"
+    },
+    {
+      "id": "3",
+      "img": "assets/voucher/IMG_1516.webp"
+    },
+    {
+      "id": "4",
+      "img": "assets/voucher/IMG_1517.webp"
+    },
+    {
+      "id": "5",
+      "img": "assets/voucher/IMG_1518.webp"
+    },
+    {
+      "id": "6",
+      "img": "assets/voucher/IMG_1519.webp"
+    },
+    {
+      "id": "7",
+      "img": "assets/voucher/IMG_1520.webp"
+    },
+    {
+      "id": "8",
+      "img": "assets/voucher/IMG_1521.webp"
+    },
+    {
+      "id": "9",
+      "img": "assets/voucher/IMG_1522.webp"
+    },
+    {
+      "id": "10",
+      "img": "assets/voucher/IMG_1523.webp"
+    },
+    {
+      "id": "11",
+      "img": "assets/voucher/IMG_1524.webp"
+    },
+    {
+      "id": "12",
+      "img": "assets/voucher/IMG_1525.webp"
+    },
+    {
+      "id": "13",
+      "img": "assets/voucher/IMG_1526.webp"
+    },
+    {
+      "id": "14",
+      "img": "assets/voucher/IMG_1527.webp"
+    }
   ]
 }
-
