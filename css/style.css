@@ -161,12 +161,23 @@ body,
     scrollbar-width: none;
     display: flex; /* Default to flex for larger screens */
 }
-
 section.menu-topup {
-    background-image: url('assets/IMG_1507.jpeg') !important; /* sesuaikan path */
-  background-size: cover !important;       /* membuat gambar menutupi seluruh area */
-  background-position: center !important;  /* menempatkan gambar di tengah */
-  background-repeat: no-repeat !important;
+    position: relative;
+    overflow: hidden;
+}
+
+section.menu-topup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/IMG_1090.png') !important; /* sesuaikan path */
+    background-size: cover !important; /* membuat gambar menutupi seluruh area */
+    background-position: center !important; /* menempatkan gambar di tengah */
+    background-repeat: no-repeat !important;
+    opacity: 0.3;
 }
 
 .menu::-webkit-scrollbar {
@@ -201,14 +212,17 @@ section.menu-topup {
     background-color: #fff;
     outline: none;
     border: 0;
-    font-size: 48px;
     display: none; /* Hidden by default, shown in media query */
     align-items: center;
     justify-content: center;
 }
 
-#close {
-    display: none;
+#menuIcon {
+    font-size: 32px;
+}
+
+#closeIcon {
+    font-size: 32px;
 }
 
 /* Main Content Sections */
@@ -225,7 +239,11 @@ section.menu-topup {
 }
 
 .item-prduk {
+    box-sizing: border-box;
     /* flex: 1 1 calc(25% - 10px); */
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
     border: 1.5px solid var(--outline-color);
     border-radius: var(--spacing-xs);
     display: flex;
@@ -233,10 +251,13 @@ section.menu-topup {
     justify-content: center;
     flex-direction: column;
     /* padding: 12px var(--spacing-xs); */
-    width: 96px;
-    height: 96px;
+    width: 85px;
+    height: 85px;
     text-align: center;
     box-sizing: border-box;
+}
+.item-prduk:hover {
+    background-color: #dff3ff;
 }
 
 .item-prduk img {
@@ -927,6 +948,7 @@ blockquote {
         border-radius: 0; /* Remove border-radius on smaller screens */
         margin-top: var(--spacing-xs);
         padding: 12px;
+        padding-bottom: 8px;
     }
 
     .sub-navbar {
@@ -955,20 +977,22 @@ blockquote {
 
     .link-item {
         min-width: auto; /* Allow items to shrink */
-        width: 60%; /* Take up 60% width of parent */
+        width: 40%; /* Take up 60% width of parent */
         padding: 0 var(--spacing-m);
         text-align: center;
         font-size: 0.8rem;
     }
 
     .carousel-slide img {
-        aspect-ratio: 16 / 5;
+        aspect-ratio: 16 / 6;
     }
 
     .item-prduk {
         /* flex: 1 1 calc(25% - 5px); */
         padding: var(--spacing-s);
         min-width: 60px;
+        width: 85px;
+        height: 85px;
     }
 
     .produk-item p {
