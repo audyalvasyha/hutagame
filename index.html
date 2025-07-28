@@ -296,17 +296,46 @@
                                 </a>
                             </li>
                         </ul>
+                        <ul id="linkTriggerTwo" class="menu-list flex">
+                            <li
+                                class="link-item active"
+                                data-page="beranda.html"
+                            >
+                                Beranda
+                            </li>
+                            <li class="link-item" data-page="payment.html">
+                                Metode Pembayaran
+                            </li>
+                            <li class="link-item" data-page="cara-order.html">
+                                Cara Order
+                            </li>
+                            <li class="link-item" data-page="testimoni.html">
+                                Testimoni
+                            </li>
+                            <li class="link-item" data-page="about.html">
+                                Tentang
+                            </li>
+                            <li class="link-item" data-page="kontak.html">
+                                Kontak
+                            </li>
+                            <li class="link-item" data-page="kebijakan.html">
+                                Kebijakan
+                            </li>
+                            <li class="link-item" data-page="faq.html">FAQ</li>
+                        </ul>
                     </section>
                     <section class="container">
+                        <center>
                         <p>&copy; 2025 Saldoin.my.id. All rights reserved.</p>
                         <p>
                             Ikuti kami di Instagram:
-                            <a
+                            <a style="color: #2b7a78;font-weight: 600;"
                                 href="https://www.instagram.com/saldoin.my.id"
                                 target="_blank"
                                 >@saldoin.my.id</a
                             >
                         </p>
+                        </center>
                     </section>
                 </footer>
             </div>
@@ -594,6 +623,7 @@
                 const $closeIcon = $('#closeIcon')
                 const $linkTrigger = $('#linkTrigger')
                 const $populerList = $('#populerList')
+                const $voucherList = $('#productVoucher')
                 const $listArtikel = $('#list-artikel')
                 const $simpleCarousel = $('#simpleCarousel')
                 const slides = $simpleCarousel.find('.carousel-slide')
@@ -681,6 +711,16 @@
                     $this.addClass('active')
                     loadPage(page)
                 })
+                $("#linkTriggerTwo").on('click', '.link-item', function () {
+                    const $this = $(this)
+                    const page = $this.data('page')
+                    if (page === currentPage) return
+
+                    currentPage = page
+                    $('.link-item').removeClass('active')
+                    $this.addClass('active')
+                    loadPage(page)
+                })
 
                 // Carousel sederhana
                 const showSlide = (index) => {
@@ -706,6 +746,7 @@
                             // Loop dari 0
                             const item = produk[i]
                             const alamat = item.address || '#'
+                            const nama  = item.nm_product
                             $populerList.append(`
                             <li class="produk-item flex">
                                 <img src="${
@@ -716,7 +757,7 @@
                                 i + 1
                             }'" />
                                 <p>#${i + 1}</p>
-                                <button class="btn-choose" onclick="window.location.href='${alamat}'">BELI</button>
+                                <button class="btn-choose" onclick="window.location.href='${alamat}'">${nama}</button>
                             </li>
                         `)
                         }
