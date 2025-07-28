@@ -12,12 +12,17 @@
 :root {
     --outline-color: #dae2ed;
     --background-color: #f2f5f9;
-    --primary-color: #2b7a78; /* Used for active links and product detail titles */
-    --secondary-color: #279199; /* Used for register button, search border, blockquote */
-    --accent-color: #e67e22; /* Used for product item button */
-    --success-color: #4fd15a; /* Used for payment button */
+    --primary-color: #2b7a78;
+    /* Used for active links and product detail titles */
+    --secondary-color: #279199;
+    /* Used for register button, search border, blockquote */
+    --accent-color: #e67e22;
+    /* Used for product item button */
+    --success-color: #4fd15a;
+    /* Used for payment button */
     --success-border-color: #03ac0e;
-    --danger-color: #dc3545; /* Used for close detail button */
+    --danger-color: #dc3545;
+    /* Used for close detail button */
     --danger-hover-color: #c82333;
 
     /* Spacing */
@@ -59,7 +64,8 @@ body,
 .container-label {
     font-size: 0.9rem;
     font-weight: 600;
-    display: flex; /* Ensure label and view-all are on same line if needed */
+    display: flex;
+    /* Ensure label and view-all are on same line if needed */
     align-items: center;
 }
 
@@ -159,8 +165,10 @@ body,
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x;
     scrollbar-width: none;
-    display: flex; /* Default to flex for larger screens */
+    display: flex;
+    /* Default to flex for larger screens */
 }
+
 section.menu-topup {
     position: relative;
     overflow: hidden;
@@ -173,15 +181,38 @@ section.menu-topup::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../assets/IMG_1090.png') !important; /* sesuaikan path */
-    background-size: cover !important; /* membuat gambar menutupi seluruh area */
-    background-position: center !important; /* menempatkan gambar di tengah */
+    background-image: url('../assets/IMG_1090.png') !important;
+    /* sesuaikan path */
+    background-size: cover !important;
+    /* membuat gambar menutupi seluruh area */
+    background-position: center !important;
+    /* menempatkan gambar di tengah */
     background-repeat: no-repeat !important;
     opacity: 0.3;
 }
 
 .menu::-webkit-scrollbar {
     display: none;
+}
+
+#linkTriggerTwo {
+    width: 100%;
+    all: unset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#linkTriggerTwo>.link-item {
+    width: fit-content;
+    line-height: normal;
+    border: 0;
+    padding: 0;
+    padding: 8px 12px;
+}
+
+#linkTriggerTwo > .link-item .active {
+   color: var(--primary-color); 
 }
 
 .menu-list {
@@ -212,7 +243,8 @@ section.menu-topup::before {
     background-color: #fff;
     outline: none;
     border: 0;
-    display: none; /* Hidden by default, shown in media query */
+    display: none;
+    /* Hidden by default, shown in media query */
     align-items: center;
     justify-content: center;
 }
@@ -256,6 +288,7 @@ section.menu-topup::before {
     text-align: center;
     box-sizing: border-box;
 }
+
 .item-prduk:hover {
     background-color: #dff3ff;
 }
@@ -302,18 +335,20 @@ section.menu-topup::before {
     bottom: 10px;
     padding: 2px 8px;
     position: absolute;
-    font-size: 0.55rem;
+    font-size: 0.45rem;
     font-weight: 500;
     display: flex;
     gap: 16px;
     align-items: center;
 }
-.carousel-text > a {
+
+.carousel-text>a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff;
+    background-color: #ffffff85;
     border-radius: 16px;
     padding: 1px 8px;
 }
+
 .carousel-text img {
     margin-left: auto;
     background-color: #fff;
@@ -344,10 +379,11 @@ section.menu-topup::before {
     border: 1px solid var(--outline-color);
     border-radius: var(--spacing-s);
     font-weight: 700;
-    position: relative; /* For positioning img and p elements */
+    position: relative;
+    /* For positioning img and p elements */
 }
 
-.produk-item > * {
+.produk-item>* {
     position: relative;
     top: -25px;
 }
@@ -373,7 +409,7 @@ section.menu-topup::before {
 
 .produk-item button {
     margin-top: auto;
-    padding: 2px var(--spacing-m);
+    padding: 2px var(--spacing-s);
     border: 2px solid var(--accent-color);
     color: var(--accent-color);
     background-color: #fff;
@@ -459,7 +495,8 @@ ul.top-up {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    width: 100%; /* Ensure it takes full width */
+    width: 100%;
+    /* Ensure it takes full width */
 }
 
 .payment-method-item:hover,
@@ -470,10 +507,11 @@ ul.top-up {
 }
 
 .payment-method-item img {
-    width: 40px; /* Adjust size as needed */
-    height: 40px; /* Adjust size as needed */
+    width: 40px;
+    /* Adjust size as needed */
+    height: 40px;
+    /* Adjust size as needed */
     object-fit: contain;
-    margin-right: var(--spacing-m);
     border-radius: 4px;
 }
 
@@ -510,13 +548,13 @@ ul.top-up {
     margin-top: var(--spacing-xxl);
     border-top: 1px solid var(--outline-color);
 }
-.footer > .container {
+
+.footer>.container {
     border: 1px solid var(--outline-color);
 }
 
 .contacts {
     flex-direction: column;
-    padding: 36px;
 }
 
 .contact-heading {
@@ -823,7 +861,8 @@ blockquote {
 
 .skeleton-banner {
     width: 100%;
-    height: 119.58px; /* Adjusted height for consistency based on staging.html media query */
+    height: 119.58px;
+    /* Adjusted height for consistency based on staging.html media query */
     border-radius: 12px;
 }
 
@@ -929,6 +968,7 @@ blockquote {
     0% {
         background-position: 200% 0;
     }
+
     100% {
         background-position: -200% 0;
     }
@@ -943,7 +983,8 @@ blockquote {
 
     .container,
     .container-ed {
-        border-radius: 0; /* Remove border-radius on smaller screens */
+        border-radius: 0;
+        /* Remove border-radius on smaller screens */
         margin-top: var(--spacing-xs);
         padding: 12px;
         padding-bottom: 8px;
@@ -954,19 +995,23 @@ blockquote {
     }
 
     .btn-bars {
-        display: flex; /* Show hamburger icon */
+        display: flex;
+        /* Show hamburger icon */
     }
 
     .menu {
-        display: none; /* Hide menu by default on small screens */
+        display: none;
+        /* Hide menu by default on small screens */
         position: absolute;
         background-color: #fff;
         height: auto;
         z-index: 999;
         padding: var(--spacing-m) 0;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        flex-direction: column; /* Stack menu items vertically */
-        width: 100%; /* Take full width */
+        flex-direction: column;
+        /* Stack menu items vertically */
+        width: 100%;
+        /* Take full width */
     }
 
     #linkTrigger {
@@ -974,8 +1019,10 @@ blockquote {
     }
 
     .link-item {
-        min-width: auto; /* Allow items to shrink */
-        width: 40%; /* Take up 60% width of parent */
+        min-width: auto;
+        /* Allow items to shrink */
+        width: 40%;
+        /* Take up 60% width of parent */
         padding: 0 var(--spacing-m);
         text-align: center;
         font-size: 0.8rem;
@@ -1021,7 +1068,8 @@ blockquote {
     }
 
     .contact-menu {
-        justify-content: center; /* Center contact icons */
+        justify-content: center;
+        /* Center contact icons */
     }
 
     /* Product Categories & Details */
@@ -1043,6 +1091,7 @@ blockquote {
         grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
         gap: var(--spacing-s);
     }
+
     .detail-product-item img {
         width: 35px;
         height: 35px;
@@ -1052,10 +1101,12 @@ blockquote {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: 10px;
     }
+
     .additional-image-item img {
         width: 60px;
         height: 60px;
     }
+
     .skeleton-banner {
         height: 119.58px;
     }
@@ -1065,20 +1116,24 @@ blockquote {
     .carousel-slide img {
         aspect-ratio: 16 / 5;
     }
+
     .list-item {
         gap: 5px;
     }
+
     .item-prduk {
         flex: 1 1 calc(25% - 5px);
         padding: var(--spacing-m) 2px;
         min-width: 60px;
     }
+
     .item-prduk:last-child {
         display: flex;
         flex-direction: row-reverse;
         gap: 8px;
         height: 40px;
     }
+
     .item-prduk:last-child img {
         width: 16px;
         height: 16px;
@@ -1089,21 +1144,26 @@ blockquote {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: var(--spacing-s);
     }
+
     .category-card img {
         width: 45px;
         height: 45px;
     }
+
     .category-card span {
         font-size: 0.8rem;
     }
+
     .detail-product-list {
         grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
         gap: 6px;
     }
+
     .detail-product-item img {
         width: 30px;
         height: 30px;
     }
+
     .detail-product-item span {
         font-size: 0.65rem;
     }
@@ -1112,10 +1172,12 @@ blockquote {
         grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
         gap: var(--spacing-s);
     }
+
     .additional-image-item img {
         width: 50px;
         height: 50px;
     }
+
     .additional-image-item span {
         font-size: 0.75rem;
     }
