@@ -741,8 +741,8 @@
                         // Load produk populer
                         const produk = data.produk
                         // Memastikan ada cukup item di 'produk' sebelum looping
-                        const itemsToLoad = Math.min(produk.length, 5) // Ambil maksimal 5 item atau kurang
-                        for (let i = 1; i < itemsToLoad; i++) {
+                        const itemsToLoad = Math.min(produk.length, 8   ) // Ambil maksimal 5 item atau kurang
+                        for (let i = 0; i < itemsToLoad; i++) {
                             // Loop dari 0
                             const item = produk[i]
                             const alamat = item.address || '#'
@@ -756,9 +756,7 @@
                             }" onerror="this.onerror=null;this.src='https://placehold.co/70x70/aabbcc/ffffff?text=P${
                                 i + 1
                             }'" />
-                                <p>#${i + 1}</p>
-                                <button class="btn-choose" onclick="window.location.href='${alamat}'">${nama}</button>
-                            </li>
+                                <p>#${i + 1}</p></li>
                         `)
                         }
 
